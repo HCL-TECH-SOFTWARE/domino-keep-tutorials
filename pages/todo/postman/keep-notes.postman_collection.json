@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "32a0b454-7b35-4656-8e6c-ae03f8bba1f1",
+		"name": "keep-notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"bearer\", \"Bearer \" +jsonData.bearer);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"YOUR USERNAME\",\r\n    \"password\": \"YOUR PASSWORD\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/auth",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check acl",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{ADMIN_HOST}}/acl/entries?db=tutorials/ToDo.nsf",
+					"host": [
+						"{{ADMIN_HOST}}"
+					],
+					"path": [
+						"acl",
+						"entries"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "tutorials/ToDo.nsf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"Form\": \"todo\",\r\n      \"name\": \"Sample to do from Keep\",\r\n      \"description\": \"Create some To Dos\",\r\n      \"duedate\": \"2021-06-07T08:00:00.000Z\",\r\n      \"priority\": \"Medium\"\r\n  }"
+				},
+				"url": {
+					"raw": "{{HOST}}/document?db=todokeep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "todokeep"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change complete",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"completed\": \"true\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/document/C8BD99450DDCC55D002586E600745DF5/change-complete?db=todokeep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document",
+						"C8BD99450DDCC55D002586E600745DF5",
+						"change-complete"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "todokeep"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-lists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/lists?db=todokeep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lists"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "todokeep"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-todo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/lists/todosView?db=todokeep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lists",
+						"todosView"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "todokeep"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"form = 'todo' and completed = ?STATUS\",\r\n    \"maxScanDocs\": 500000,\r\n    \"maxScanEntries\": 200000,\r\n    \"timeoutSecs\": 300,\r\n    \"viewRefresh\": true,\r\n    \"noViews\": false,\r\n    \"variables\": {\r\n        \"STATUS\": \"false\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/query?action=execute&db=todo-keep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "execute"
+						},
+						{
+							"key": "db",
+							"value": "todo-keep"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8880/api/v1"
+		},
+		{
+			"key": "ADMIN_HOST",
+			"value": "http://localhost:8880/api/admin-v1"
+		},
+		{
+			"key": "bearer",
+			"value": "Bearer undefined"
+		}
+	]
+}

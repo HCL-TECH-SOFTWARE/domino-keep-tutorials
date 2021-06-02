@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+<body>
+
+  {%- include header.html -%}
+
+
+  <div class="container">
+    <div class="card-container row" style="margin: 10px -15px 20px -15px">
+      <div class="col col-md-8" style="padding-left: 0px"><h2>HCL Domino REST API (a.k.a Domino KEEP) Tutorials</h2></div>
+      <div class="col col-md-4" style="text-align:right"><img src="images/KeepNewLogo.svg" alt="HCL Labs - Project Keep" style="width: 300px"/></div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="card-container row">
+      {% assign tuts = site.data.tutorials %}
+      {% for king in tuts %}
+      <div class='col col-md-3sm tutorial'>
+        <div class="container">
+            <div class="row">
+                <div><a href="{{king.link}}" class="tutorial-name" data-sort-value="name">{{king.name}}</a></div>
+            </div>
+            <div class="row">
+                <div class="tutorial-desc">{{king.description}}</div>
+            </div>
+            <div class="row">
+                <div class="tutorial-aud">Target Audience: {{king.audience | join}}</div>
+            </div>
+        </div>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {%- include footer.html -%}
+
+</body>
+
+<script>
+    $(".tutorial").click(function() {
+        window.location = $(this).find("a").attr("href"); 
+        return false;
+    });
+
+</script>
+
+</html>

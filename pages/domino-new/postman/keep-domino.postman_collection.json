@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "38a54075-4648-4fc3-ad6c-4ac3bb98c629",
+		"name": "keep-domino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.collectionVariables.set(\"bearer\", \"Bearer \" + jsonData.bearer);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"John Doe\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/auth",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create nsf",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filepath\": \"tutorials/customers.nsf\",\r\n    \"title\": \"Customers\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/nsf?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"nsf"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer form",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Customer\",\r\n    \"alias\": \"\",\r\n    \"fields\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"category\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": true\r\n        },\r\n        {\r\n            \"name\": \"address1\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"address2\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"city\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"state\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"zipCode\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"website\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"status\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/forms/Customer?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"forms",
+						"Customer"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contact form",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{bearer}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Contact\",\r\n    \"alias\": \"\",\r\n    \"fields\": [\r\n        {\r\n            \"name\": \"first_name\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"last_name\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"customerUNID\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"job_title\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": true\r\n        },\r\n        {\r\n            \"name\": \"email\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        },\r\n        {\r\n            \"name\": \"phone\",\r\n            \"type\": \"text\",\r\n            \"allowmultivalues\": false\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/forms/Contact?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"forms",
+						"Contact"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customers view",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Customers\",\r\n    \"selectionFormula\": \"Form = \\\"Customer\\\"\",\r\n    \"columns\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"title\": \"Name\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"name\"\r\n        },\r\n        {\r\n            \"name\": \"category\",\r\n            \"title\": \"Category\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"category\"\r\n        },\r\n        {\r\n            \"name\": \"address1\",\r\n            \"title\": \"Address\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"address1\"\r\n        },\r\n        {\r\n            \"name\": \"address2\",\r\n            \"title\": \"Address\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"address2\"\r\n        },\r\n        {\r\n            \"name\": \"city\",\r\n            \"title\": \"City\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"city\"\r\n        },\r\n        {\r\n            \"name\": \"state\",\r\n            \"title\": \"State\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"state\"\r\n        },\r\n        {\r\n            \"name\": \"zipCode\",\r\n            \"title\": \"Zip Code\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"zipCode\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/views/Customers?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"views",
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "active customers view",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Active Customers\",\r\n    \"selectionFormula\": \"Form = \\\"Customer\\\" & Status = \\\"Active\\\"\",\r\n    \"columns\": [\r\n        {\r\n            \"name\": \"name\",\r\n            \"title\": \"name\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"name\"\r\n        },\r\n        {\r\n            \"name\": \"category\",\r\n            \"title\": \"category\",\r\n            \"separatemultiplevalues\": false,\r\n            \"sort\": \"ascending\",\r\n            \"formula\": \"category\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/views/Active%20Customers?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"views",
+						"Active%20Customers"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Form\": \"Customer\",\r\n    \"name\": \"Acme Corp\",\r\n    \"category\": [\r\n        \"Construction\",\r\n        \"Comedy\"\r\n    ],\r\n    \"address1\": \"Acme Towers\",\r\n    \"address2\": \"\",\r\n    \"city\": \"Toon Town\",\r\n    \"state\": \"California\",\r\n    \"zipCode\": \"\",\r\n    \"website\": \"https://www.acme.com\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/document?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/document/993583EDEECC119880258596005E29BC/default?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document",
+						"993583EDEECC119880258596005E29BC",
+						"default"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update customer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{bearer}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Acme Corp\",\r\n    \"category\": [\r\n        \"Construction\",\r\n        \"Comedy\"\r\n    ],\r\n    \"address1\": \"Acme Towers\",\r\n    \"address2\": \"\",\r\n    \"city\": \"Toon Town\",\r\n    \"state\": \"California\",\r\n    \"zipCode\": \"\",\r\n    \"website\": \"https://www.acme.com\",\r\n    \"status\": \"Inactive\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/document/FBE79B68D60CFBD280258596005DB4FC/update?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document",
+						"FBE79B68D60CFBD280258596005DB4FC",
+						"update"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete customer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/document/FBE79B68D60CFBD280258596005DB4FC/default?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document",
+						"FBE79B68D60CFBD280258596005DB4FC",
+						"default"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Form\": \"Contact\",\r\n    \"first_name\": \"Wile E.\",\r\n    \"last_name\": \"Coyote\",\r\n    \"customerUNID\": \"FBE79B68D60CFBD280258596005DB4FC\",\r\n    \"job_title\": \"Tester\",\r\n    \"mail\": \"wile.coyote@acme.com\",\r\n    \"phone\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/document?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"document"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/lists/Customers?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lists",
+						"Customers"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get active customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{bearer}}"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/lists/Active Customers?db=customers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lists",
+						"Active Customers"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "run query",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8880/api/v1"
+		},
+		{
+			"key": "bearer",
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUaGUgRGVtbyBXaXp6YXJkIiwic3ViIjoiQ049TGVvbmFyZCBvZiBRdWlybS9PPVByb2plY3RLZWVwIiwiaWF0IjoxNjExMDY5MDY0LCJleHAiOjE2MTEwNzI2NjQsImF1ZCI6IkRvbWlubyJ9.kZdNsJyTHkTAwM7qn2K52K-a8-zOPWy7V5ufQqgIV8I"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Domino ToDo Database",
+        "description": "This uses a pre-existing Domino database and demonstrates enabling access for creating / updating all fields on a ToDo and a separate mode to just mark complete.",
+        "link": "pages/todo/index",
+        "audience": ["Domino Developers"]
+    },
+    {
+        "name": "New Domino Database",
+        "description": "This demonstrates creating a new NSF, creating customer and contact Forms and View - all via HCL Domino REST API. Then enabling for document creation and querying.",
+        "link": "pages/domino-new/index",
+        "audience": ["Domino Developers, Web Developers"]
+    }
+]
