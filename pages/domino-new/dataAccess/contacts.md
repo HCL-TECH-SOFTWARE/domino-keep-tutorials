@@ -12,6 +12,7 @@ slug:
 
 {::options parse_block_html="true" /}
 
+Before creating a contact, you will need to run the "create customer" request again, to have a valid customerUNID to tie the contact to.
 ### Create a New Contact
 
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".   
@@ -20,7 +21,7 @@ slug:
 1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?db=customers".
 1. Set the headers for "Authorization" and "Content-Type".
 1. On the Body tab change the type to "Raw".
-2. Set the request body content as below, but setting the customerUNID field to the value for **@unid** you received when creating the customer:
+2. Set the request body content as below, setting the customerUNID field to the **parentUNID** collection variable set when you created a customer:
   {% raw %}
   ~~~json
   {
@@ -40,14 +41,14 @@ slug:
 
 ### Create another New Contact
 
-1. Change the request body content as below, leaving the customerUNID field as the value when you sent the first request:
+1. Change the request body content as below:
   {% raw %}
   ~~~json
   {
       "Form": "Contact",
       "first_name": "Wile E.",
       "last_name": "Coyote",
-      "customerUNID": "INSERT_UNID_HERE",
+      "customerUNID": "{{parentUNID}}",
       "job_title": "Tester",
       "email": "wile.coyote@acme.com",
       "phone": ""

@@ -23,6 +23,7 @@ By default, no lists will be exposed. You need to choose which views should be a
 
 Back in the Keep Web GUI, access the todokeep Keep Database again. This time, switch from "Database Forms" to "Database Views". Select all views.
 ![Lists](../images/dataAccess/configure-lists.png)
+Remember to click "Save" to submit the changes.
 
 #### Show Available Lists
 

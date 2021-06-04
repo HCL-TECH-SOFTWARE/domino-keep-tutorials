@@ -33,8 +33,25 @@ slug:
       "priority": "Medium"
   }
 ~~~
+  {: .code}
 {% endraw %}
-8. Click "Send".
+1. On the Test tab add the following test:
+ {% raw %}
+ ~~~javascript
+ {
+   pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("Create ToDo", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property("@unid");
+    pm.collectionVariables.set("UNID", jsonData["@unid"]);
+});
+ }
+~~~
+  {: .code}
+{% endraw %}
+1. Click "Send".
 
 The ToDo will be created and the created document returned back. Note that it now has "completed" set to "false" and an @unid. Take a copy of this, we will need it later to update the document.
    ![Lists](../images/dataAccess/create-todo.png)
@@ -50,7 +67,7 @@ The ToDo will be created and the created document returned back. Note that it no
 1. Hover over the "keep-notes" collection name and click on the ellipsis (three dots). Select "Add Request".   
 2. Name the request "change complete" and click "Save to keep-notes".
 3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/UNID/change-complete?db=todo-keep", replacing "UNID" with the UNID of a document you created.
+4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{UNID}}/change-complete?db=todo-keep". The "create todo" request added a test that saved the UNID of the created document to the collection variables, so we can just reference that in the URL.
 5. Set the headers for "Authorization" and "Content-Type".
 6. On the Body tab change the type to "Raw".
 7. Set the request body content to:
@@ -59,10 +76,11 @@ The ToDo will be created and the created document returned back. Note that it no
   {
       "completed": "true"
   }
-~~~
-{% endraw %}
-1. Click "Send".
-1. Save the request.
+  ~~~
+  {: .code}
+  {% endraw %}
+8. Click "Send".
+9. Save the request.
 
 #### Bad Request
 

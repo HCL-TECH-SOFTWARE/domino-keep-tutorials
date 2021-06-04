@@ -40,33 +40,47 @@ slug:
   ~~~
   {: .code}
   {% endraw %}
+1. On the Tests tab enter the following content:
+ {% raw %}
+ ~~~javascript
+ pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("Create ToDo", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property("@unid");
+    pm.collectionVariables.set("parentUNID", jsonData["@unid"]);
+});
+ ~~~
+  {: .code}
+  {% endraw %}
 1. Click "Send".
-1. Save the request.
+2. Save the request.
 
-The customer will be created and the response will include metadata, including **@unid**, which is the reference that will be needed to read, update or delete the customer. We will also need this reference to link the contacts to it.
+The customer will be created and the response will include metadata, including **@unid**, which is the reference that will be needed to read, update or delete the customer. The tests saved this in the collection variables, so it can be used to link the contacts to it.
 
-![Create Customer](../images/data/post_customer.jpg)
+![Create Customer](../images/data/post_customer.png)
 
 ### Get The Customer
 
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
 1. Name the request "get customer" and click "Save to keep-domino".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/UNID/default?db=customers", replacing UNID with the value for **@unid** you received when creating the customer.
+1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{parentUNID}}/default?db=customers". This uses the collection variable set from the value for **@unid** you received when creating the customer.
 1. Set the headers for "Authorization".
 1. Click "Send".
 1. Save the request.
 
-![Get Customer](../images/data/get_customer.jpg)
+![Get Customer](../images/data/get_customer.png)
 
 ### Set The Customer Inactive
 
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
 1. Name the request "update customer" and click "Save to keep-domino".
 1. Change the method from "GET" to "PUT".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/UNID/update?db=customers", replacing UNID with the value for **@unid** you received when creating the customer.
-1. Set the headers for "Authorization" and "Content-Type".
-1. On the Body tab change the type to "Raw".
-1. Set the request body content to:
+2. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{parentUNID}}/update?db=customers".
+3. Set the headers for "Authorization" and "Content-Type".
+4. On the Body tab change the type to "Raw".
+5. Set the request body content to:
   {% raw %}
   ~~~json
   {
@@ -89,7 +103,7 @@ The customer will be created and the response will include metadata, including *
 1. Click "Send".
 1. Save the request.
 
-![Get Customer](../images/data/update_customer.jpg)
+![Get Customer](../images/data/update_customer.png)
 
 #### Delete The Customer
 
@@ -100,7 +114,7 @@ The customer will be created and the response will include metadata, including *
 1. Click "Send".
 1. Save the request.
 
-![Get Customer](../images/data/delete_customer.jpg)
+![Get Customer](../images/data/delete_customer.png)
 
 Test with different information, to create, update and delete additional customers.
 {: .alert .alert-success}
