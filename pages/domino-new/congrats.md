@@ -21,3 +21,12 @@ You have:
 - Viewed and searched the documents.
 </div>
 </div>
+
+<div class="panel panel-warning">
+Troubleshooting
+{: .panel-heading}
+<div class="panel-body">
+
+If you have encountered any problems, <a href="../domino-new/postman/keep-notes.postman_collection.json">here</a> is the Postman collection you should have. The authentication details and server name may vary.
+</div>
+</div>
