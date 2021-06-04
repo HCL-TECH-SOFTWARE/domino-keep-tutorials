@@ -30,7 +30,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"YOUR USERNAME\",\r\n    \"password\": \"YOUR PASSWORD\"\r\n}"
+					"raw": "{\r\n    \"username\": \"Domino Admin\",\r\n    \"password\": \"passw0rd\"\r\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/auth",
@@ -76,6 +76,24 @@
 		},
 		{
 			"name": "create todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Create ToDo\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"@unid\");",
+							"    pm.collectionVariables.set(\"UNID\", jsonData[\"@unid\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -133,13 +151,13 @@
 					"raw": "{\r\n    \"completed\": \"true\"\r\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/document/C8BD99450DDCC55D002586E600745DF5/change-complete?db=todokeep",
+					"raw": "{{HOST}}/document/{{UNID}}/change-complete?db=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"document",
-						"C8BD99450DDCC55D002586E600745DF5",
+						"{{UNID}}",
 						"change-complete"
 					],
 					"query": [
@@ -232,7 +250,7 @@
 					"raw": "{\r\n    \"query\": \"form = 'todo' and completed = ?STATUS\",\r\n    \"maxScanDocs\": 500000,\r\n    \"maxScanEntries\": 200000,\r\n    \"timeoutSecs\": 300,\r\n    \"viewRefresh\": true,\r\n    \"noViews\": false,\r\n    \"variables\": {\r\n        \"STATUS\": \"false\"\r\n    }\r\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/query?action=execute&db=todo-keep",
+					"raw": "{{HOST}}/query?action=execute&db=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
@@ -246,7 +264,7 @@
 						},
 						{
 							"key": "db",
-							"value": "todo-keep"
+							"value": "todokeep"
 						}
 					]
 				}
@@ -286,6 +304,10 @@
 		{
 			"key": "bearer",
 			"value": "Bearer undefined"
+		},
+		{
+			"key": "UNID",
+			"value": ""
 		}
 	]
 }

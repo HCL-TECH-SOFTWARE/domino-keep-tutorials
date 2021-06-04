@@ -10,7 +10,7 @@ slug:
 
 {::options parse_block_html="true" /}
 
-We are now ready to push data into our Keep Database. Because we have enabled "Open Access", we can perform any action via a browser or Postman using just the JWT token for an authenticated user.
+We are now ready to push data into our Keep Database. Because we have enabled "Open Access", we can perform any action via command-line curl, any browser application or Postman using just the JWT token for an authenticated user.
 
 If communication is done server-to-server, for example from a Node.js or Java application, "Open Access" can be switched off. Then a Keep Application can be set up, with an app ID and app secret. Only request using a valid app ID and app secret would be accepted, providing an extra layer of security.
 

@@ -35,7 +35,7 @@ We didn't create a list of contacts. But we can run a dynamic query. Of course, 
       "viewRefresh": true,
       "noViews": false,
       "variables": {
-          "UNID": "INSERT_UNID_HERE"
+          "UNID": "{{parentUNID}}"
       }
   }
   ~~~
@@ -44,7 +44,7 @@ We didn't create a list of contacts. But we can run a dynamic query. Of course, 
 3. Click "Send".
 4. Save the request.
 
-![DQL Query](../images/data/query.jpg)
+![DQL Query](../images/data/query.png)
 
 You have queried all contacts for the company requested.
 {: .alert .alert-success}

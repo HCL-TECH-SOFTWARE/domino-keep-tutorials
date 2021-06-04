@@ -44,14 +44,22 @@ Traditionally developing, configuring or deploying a REST API would have require
 </div>
 </div>
 
+<div class="panel panel-warning">
+Why Postman?
+{: .panel-heading}
+<div class="panel-body">
+
+Of course your end users not use Postman to push data into Domino via KEEP. And you would not use KEEP from a NotesHTTPRequest in LotusScript or an XPages application. But the (non-Domino) application you or a third-party build will use REST service calls to connect. Postman is an easy REST Client that allows you to test those REST service calls without needing to build a full web or rich client application. Command-line curl commands would be another option, but Postman has a lower barrier of entry. Once you're familiar with the REST service calls for KEEP, calling it from a web application is the same as calling any other REST service.
+</div>
+</div>
+
 <div class="panel panel-success">
 **Security First**
 {: .panel-heading}
 <div class="panel-body">
 Some companies have been reluctant to turn on web access to Domino servers because older Domino applications were not locked down to prevent unplanned access. Domino KEEP takes a "Security First" approach to Domino. 
 - By default no NSFs are exposed for access via Keep. **YOU** explicitly enable access. (Of course Keep is also API first, so you could automate a process to generate a Keep Database configuration for multiple databases, if you wish.) 
-- When an NSF is exposed, by default no agents can be triggered and no Forms are configured. 
-- All views are available by default, but you can exclude views from access.
+- When an NSF is exposed, by default no agents can be triggered, no Views are available and no Forms are configured. 
 - Agents can be exposed - you choose which agents in the **Keep Admin GUI**.
 - DQL access is enabled by default, allowing users to run DQL queries. But if a DQL query returns a document whose Form is not configured, Keep will exclude it. 
 - If you want to prevent DQL queries, it can be done by a click of the mouse in the Keep Database configuration.
@@ -64,5 +72,8 @@ Some companies have been reluctant to turn on web access to Domino servers becau
   - Pre-processing on GET requests and post-processing on POST / PUT requests.
   - Whether pre-existing Input Translation and Input Validation formulas should be applied.
 - **AND ABOVE ALL, DOMINO'S ACL SETTINGS ARE HONOURED. KEEP JUST ADDS AN EXTRA LAYER OF FLEXIBLE SECURITY ON TOP**
+
+**Why is this important?**
+Well, a REST service is basically a callable import agent. And you wouldn't create an import agent that anyone can use to post any content into your database. In the same way, you wouldn't want a REST service that's accessible to any HTTP client that has authenticated.
 </div>
 </div>

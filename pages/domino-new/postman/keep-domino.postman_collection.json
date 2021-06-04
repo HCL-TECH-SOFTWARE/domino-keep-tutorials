@@ -30,7 +30,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"John Doe\",\r\n    \"password\": \"password\"\r\n}",
+					"raw": "{\r\n    \"username\": \"Domino Admin\",\r\n    \"password\": \"passw0rd\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,6 +90,17 @@
 		},
 		{
 			"name": "customer form",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -250,6 +261,24 @@
 		},
 		{
 			"name": "create customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Create ToDo\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"@unid\");",
+							"    pm.collectionVariables.set(\"parentUNID\", jsonData[\"@unid\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -298,13 +327,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{HOST}}/document/993583EDEECC119880258596005E29BC/default?db=customers",
+					"raw": "{{HOST}}/document/{{parentUNID}}/default?db=customers",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"document",
-						"993583EDEECC119880258596005E29BC",
+						"{{parentUNID}}",
 						"default"
 					],
 					"query": [
@@ -338,13 +367,13 @@
 					"raw": "{\r\n    \"name\": \"Acme Corp\",\r\n    \"category\": [\r\n        \"Construction\",\r\n        \"Comedy\"\r\n    ],\r\n    \"address1\": \"Acme Towers\",\r\n    \"address2\": \"\",\r\n    \"city\": \"Toon Town\",\r\n    \"state\": \"California\",\r\n    \"zipCode\": \"\",\r\n    \"website\": \"https://www.acme.com\",\r\n    \"status\": \"Inactive\"\r\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/document/FBE79B68D60CFBD280258596005DB4FC/update?db=customers",
+					"raw": "{{HOST}}/document/{{parentUNID}}/update?db=customers",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"document",
-						"FBE79B68D60CFBD280258596005DB4FC",
+						"{{parentUNID}}",
 						"update"
 					],
 					"query": [
@@ -369,13 +398,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{HOST}}/document/FBE79B68D60CFBD280258596005DB4FC/default?db=customers",
+					"raw": "{{HOST}}/document/{{parentUNID}}/default?db=customers",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"document",
-						"FBE79B68D60CFBD280258596005DB4FC",
+						"{{parentUNID}}",
 						"default"
 					],
 					"query": [
@@ -406,7 +435,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Form\": \"Contact\",\r\n    \"first_name\": \"Wile E.\",\r\n    \"last_name\": \"Coyote\",\r\n    \"customerUNID\": \"FBE79B68D60CFBD280258596005DB4FC\",\r\n    \"job_title\": \"Tester\",\r\n    \"mail\": \"wile.coyote@acme.com\",\r\n    \"phone\": \"\"\r\n}"
+					"raw": "{\r\n    \"Form\": \"Contact\",\r\n    \"first_name\": \"Wile E.\",\r\n    \"last_name\": \"Coyote\",\r\n    \"customerUNID\": \"{{parentUNID}}\",\r\n    \"job_title\": \"Tester\",\r\n    \"mail\": \"wile.coyote@acme.com\",\r\n    \"phone\": \"\"\r\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/document?db=customers",
@@ -489,10 +518,41 @@
 		{
 			"name": "run query",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n      \"query\": \"form = 'contact' and customerUNID = ?UNID\",\n      \"maxScanDocs\": 500000,\n      \"maxScanEntries\": 200000,\n      \"timeoutSecs\": 300,\n      \"viewRefresh\": true,\n      \"noViews\": false,\n      \"variables\": {\n          \"UNID\": \"{{parentUNID}}\"\n      }\n  }"
+				},
 				"url": {
-					"raw": ""
+					"raw": "{{HOST}}/query?db=customers&action=execute",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "customers"
+						},
+						{
+							"key": "action",
+							"value": "execute"
+						}
+					]
 				}
 			},
 			"response": []
@@ -506,6 +566,10 @@
 		{
 			"key": "bearer",
 			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUaGUgRGVtbyBXaXp6YXJkIiwic3ViIjoiQ049TGVvbmFyZCBvZiBRdWlybS9PPVByb2plY3RLZWVwIiwiaWF0IjoxNjExMDY5MDY0LCJleHAiOjE2MTEwNzI2NjQsImF1ZCI6IkRvbWlubyJ9.kZdNsJyTHkTAwM7qn2K52K-a8-zOPWy7V5ufQqgIV8I"
+		},
+		{
+			"key": "parentUNID",
+			"value": ""
 		}
 	]
 }

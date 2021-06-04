@@ -56,16 +56,11 @@ slug:
 1. Click on the "+ Mode" button.
 1. Enter "change-complete" as the Mode Name for the new mode. The new mode appears behind the "default" mode.
 1. Do not add any fields to the "Read Access" area. This will return all fields on the document.
-1. Click the + sign against "completed" and click "Write Access".
-2. In the "Formula for Write Access" box type the following:
-   {% raw %}
-  ~~~
-  @If(@IsMember(completed;"true":"false");@True;@False);
-  ~~~
-  {: .code}
-  {% endraw %}
-  This fails validation if "completed" is not "true" or "false". It will not allow any other fields to be updated.
-1. Click on the "Save" button at the top of the Form Access Mode.
+2. Click the + sign against "completed" and click "Write Access".
+3. Click on the "Save" button at the top of the Form Access Mode.
+
+Write Access formulas are tested based on the last saved state of the document, so cannot be used for validation of the current payload. Domino KEEP does allow you to set validation rules for a Form Access Mode, but this tutorial does not cover that.
+{: .alert .alert-info}
 
 <div class="panel panel-success">
 **Congratulations!**
