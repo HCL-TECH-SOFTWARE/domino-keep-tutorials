@@ -1,6 +1,6 @@
 # HCL Domino REST API Tutorials 
 
-This repository holds the tutorials for using HCL Domino REST API, a.k.a Domino KEEP. To see the output GitHub Pages site, go to https://opensource.hcltechsw.com/keep-tutorials/.
+This repository holds the tutorials for using HCL Domino REST API, a.k.a Domino KEEP. To see the output GitHub Pages site, go to https://opensource.hcltechsw.com/domino-keep-tutorials/.
 
 ## Contributing
 
