@@ -31,8 +31,6 @@ github:
   repository_name:  Domino KEEP Tutorials
   owner_url:  https://github.com/hcl-tech-software
   owner_name: HCL Software
-plugins:
-  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

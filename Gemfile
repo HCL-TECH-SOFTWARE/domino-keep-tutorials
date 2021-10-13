@@ -10,7 +10,9 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 3.9"
 
-gem "github-pages", group: :jekyll_plugins
+# If you have any plugins, put them here!
+gem "jekyll-theme-tactile"
+gem "kramdown-parser-gfm"
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
