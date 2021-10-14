@@ -7,7 +7,7 @@ slug:
       url: pages/collabsphere21/index
     - label: Postman Contacts Setup
       url: pages/collabsphere21/postman_contacts/index
-    - label: Postman Collection
+    - label: Postman Authentication
 ---
 
 Now it is time to set up the authentication request. Hover on the collection and click on the ellipsis (three periods). Select the "Add request" menu option.
