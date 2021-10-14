@@ -10,5 +10,11 @@
         "description": "This demonstrates creating a new NSF, creating customer and contact Forms and View - all via HCL Domino REST API. Then enabling for document creation and querying.",
         "link": "pages/domino-new/index",
         "audience": ["Domino Developers, Web Developers"]
+    },
+    {
+        "name": "Collabsphere",
+        "description": "This is a tutorial created for Collabsphere 2021, integrating Domino with Node-RED.",
+        "link": "pages/collabsphere21/index",
+        "audience": ["Domino Developers, Node-RED Developers"]
     }
 ]
