@@ -16,7 +16,7 @@ All that remains is to add a final flow for aggregating all the information onto
 
 ### Installing World Map Node
 
-1. Click on the menu top-right of Node-RED (the three lines).
+1. Click on the menu top-right of Node-RED (the three horizontal lines).
 2. Click "Manage Palette". This opens up the window for managing the user settings on the Palette tab.
 ![Manage Palette](../images/nodered_contacts/palette.png)
 3. Click on the "Install" tab.
@@ -59,7 +59,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
    -  Wire the split node to this function node.
 5. Drag an **http request** node onto the canvas.
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
-   - Write the function node to this http request node.
+   - Wire the function node to this http request node.
 6. Drag a **function** node onto the canvas.
    - On the **On Message** tab enter the JavaScript:
     {% raw %}
@@ -83,6 +83,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
    - Set Latitude to 39.04.
    - Set Longitude to -95.69.
    - Set Zoom to 5.
+   - Wire the function node to this worldmap node.
 
 Before testing, it will be useful to walk through the code added to the last function node.
 - Line 1 creates a JavaScript object called obj, to hold the data to apply onto the map.
@@ -96,5 +97,5 @@ Before testing, it will be useful to walk through the code added to the last fun
 
 You can test the map at http://localhost:1880/worldmap, the default endpoint on Node-RED for the world map node.
 
-The full flows created so far should look like this:
+The full flows should look like this:
 ![Full Flow](../images/nodered_contacts/full_flow.png)

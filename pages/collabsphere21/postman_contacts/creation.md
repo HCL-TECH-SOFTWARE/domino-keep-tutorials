@@ -142,6 +142,7 @@ Add another request.
         ]
     }
     ~~~
+    {: .code}
     {% endraw %}
 6. Send the request.
 
@@ -199,6 +200,7 @@ Add another request.
         ]
     }
     ~~~
+    {: .code}
     {% endraw %}
 6. Send the request.
 

@@ -10,8 +10,8 @@ slug:
     - label: Postman Authentication
 ---
 
-Now it is time to set up the authentication request. Hover on the collection and click on the ellipsis (three periods). Select the "Add request" menu option.
-![Add Request](../images/postman_contacts/add-request.png)
+Now it is time to set up the authentication request. Hover on the collection and click on the ellipsis (three periods). Select the "Add request" menu option.<br/>
+<img src="../images/postman_contacts/add-request.png" alt="Add Request" height="150px"/>
 
 With the request:
 1. Rename it "Authentication".
