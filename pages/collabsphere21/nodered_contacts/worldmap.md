@@ -50,7 +50,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
     msg.headers = {
         "Authorization": global.get("AUTH_KEY")
     }
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byState?db=collabsphere&key=" + msg.key;
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byState?db=contacts&key=" + msg.key;
     return msg;
     ~~~
     {: .code}
@@ -94,6 +94,8 @@ Before testing, it will be useful to walk through the code added to the last fun
 - Lines 6 and 7 set the latitude and longitude to plot on the map.
 - Lines 8 and 9 set an icon and icon color.
 - Line 10 writes this object as the payload to be plotted onto the world map.
+
+Deploy the updates to the flow by clicking the "Deploy" button.
 
 You can test the map at http://localhost:1880/worldmap, the default endpoint on Node-RED for the world map node.
 

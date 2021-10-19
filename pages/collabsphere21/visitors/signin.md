@@ -36,7 +36,7 @@ NOTE: The Node-RED dashboard is a single instance displayed for all connected us
 ### Heading Nodes
 
 1. In the **dashboard** category, drag a **media** node onto the canvas. The node does not need wiring to anything.
-   - On **Group**, click "Add new ui_group...". Click the pencil. Against Tab click "Add new ui_tab...". Click the pencil. Name the new tab "Home" and click "Add". Name the new group "New Vitisor" and untick "Display group name".
+   - On **Group**, click "Add new ui_group...". Click the pencil. Against Tab click "Add new ui_tab...". Click the pencil. Name the new tab "Home" and click "Add". Name the new group "New Vitisor" and untick "Display group name". Set the Size to 12 and click "Add".
    - Set the Size to "2 x 1".
    - On the Files tab, against Category, click the drop down and select "Add new...". Call it "keep"
    - Click the "Choose Files" button, select the KeepNewIcon.png image downloaded earlier. Click the upload button.
@@ -45,8 +45,8 @@ NOTE: The Node-RED dashboard is a single instance displayed for all connected us
    - Set the Size to "6 x 1".
    - Set the Label to "KEEP VISITORS".
 
-### Sign In Form
-The Sign in Form will take input and create a document in the visitors database. There are required fields, but there will not be anyt additional validation added. Validation could be added both in the Form Access Mode and/or in Node-RED. Because access to the Domino REST API "visitors" database is not restricted to *only* Node-RED, it's important to have the validation also in the Domino REST API.
+### Sign In Form
+The Sign in Form will take input and create a document in the visitors database. There are required fields, but there will not be any additional validation added. Validation could be added both in the Form Access Mode and/or in Node-RED. Because access to the Domino REST API "visitors" database is not restricted to *only* Node-RED, it's important to have the validation also in the Domino REST API.
 
 1. Drag a **form** node onto the canvas.
    - Select the New Visitor group.
@@ -63,7 +63,6 @@ The Sign in Form will take input and create a document in the visitors database.
     {% raw %}
     ~~~js
     msg.payload.Form = "Visitor";
-    msg.payload.time_out = msg.payload.time_in.substr(msg.payload.time_in.indexOf("T") + 1);
     msg.headers = {
       "Authorization": global.get("AUTH_KEY"),
       "Content-Type": "application/json"
@@ -98,7 +97,7 @@ The Sign in Form will take input and create a document in the visitors database.
     ~~~
     {: .code}
     {% endraw %}
-    This uses a function node to set values in the same way the 
+    This uses a function node to set values, but a change node could equally have been used.
    -  Wire the second output from the switch node to this function node.
 7. Drag a **notification** node onto the canvas.
    - Set Layout to "Bottom Right".

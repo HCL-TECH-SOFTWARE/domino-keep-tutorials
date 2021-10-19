@@ -18,7 +18,7 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
 1. Drag a **form** node onto the canvas.
    - Select the New Visitor group.
    - Set the Size to "6 x 8"
-   - Set the Label to "Sign In"
+   - Set the Label to "Sign Out"
    - In **Form elements** ensure there are two fields. Values should be:
      - Badge Number, badgeNo, Text.
      - Time Out, time_out, Time.
@@ -32,7 +32,7 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
     msg.headers = {
         "Authorization": global.get("AUTH_KEY")
     }
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byBadge?db=visitors&badgeNo=" + msg.badgeUpdate. badgeNo;
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byBadge?db=visitors&key=" + msg.badgeUpdate.badgeNo;
     return msg;
     ~~~
     {: .code}
@@ -72,7 +72,6 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
         "Authorization": global.get("AUTH_KEY"),
         "Content-Type" : "application/json"
     }
-    msg.badgeUpdate.time_out = msg.badgeUpdate.time_out.substr(msg.badgeUpdate.time_out.indexOf("T") + 1)
     msg.payload = msg.badgeUpdate;
     msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document/" + unid + "?db=visitors&mode=default";
     return msg;
@@ -96,10 +95,13 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
    - Wire the first output from the switch node to this change node. Wire the output from this change node to the function node that follows the switch node from the Sign In form flow.
 
 The flow is now complete and should look like this:
-![Full Flow](../images/nodered_contacts/full_flow.png)
+![Full Flow](../images/visitors/full_flow.png)
 
 You can test the flow using the dashboard.
 
 To improve the robustness, you could add another Form Access Mode specifically for signing out and only accept the time out. You could modify the default mode so that it could only be used to create documents and could not be used to modify documents (hint: if it's not a new document).
 {: .advanced}
+
+If you do not get the expected outcome you can use Postman to look at the documents in a view, as we did for the Contacts database. You can also connect the output from a function node (or any other node) to a debug node, to see what the payload was at that point in the flow. This can help diagnose incorrect content or HTTP responses.
+{: .troubleshoot}
 <br/>
