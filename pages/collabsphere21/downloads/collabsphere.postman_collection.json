@@ -306,7 +306,7 @@
 					"raw": "{\n    \"query\": \"form = 'Contact' and state = ?State\",\n    \"maxScanDocs\": 500000,\n    \"maxScanEntries\": 200000,\n    \"timeoutSecs\": 300,\n    \"viewRefresh\": true,\n    \"noViews\": false,\n    \"variables\": {\n        \"State\": \"CA\"\n    }\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/query?action=execute&db={{DB}}",
+					"raw": "{{HOST}}/query?action=execute&db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -318,30 +318,6 @@
 							"key": "action",
 							"value": "execute"
 						},
-						{
-							"key": "db",
-							"value": "{{DB}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get ACL",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{ADMIN_HOST}}/acl/entries?db={{CONTACTS}}",
-					"host": [
-						"{{ADMIN_HOST}}"
-					],
-					"path": [
-						"acl",
-						"entries"
-					],
-					"query": [
 						{
 							"key": "db",
 							"value": "{{CONTACTS}}"
@@ -509,44 +485,6 @@
 					"path": [
 						"lists",
 						"byName"
-					],
-					"query": [
-						{
-							"key": "db",
-							"value": "{{VISITORS}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Ceate Visitors By Badge",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\" : \"byBadge\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\" & time_out = \\\"\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t}\n    ]\n}"
-				},
-				"url": {
-					"raw": "{{HOST}}/design/views/byBadge?db={{VISITORS}}",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"design",
-						"views",
-						"byBadge"
 					],
 					"query": [
 						{
