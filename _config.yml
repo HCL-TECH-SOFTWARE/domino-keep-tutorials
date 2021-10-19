@@ -15,11 +15,11 @@
 # in the templates via {{ site.myvariable }}.
 title: HCL Domino KEEP Tutorials
 description: Tutorial for Domino KEEP
-baseurl: /domino-keep-tutorials
+baseurl: /pages/hcl-labs/keep-tutorials
 url:  # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  
-repository: hcl-tech-software/domino-keep-tutorials # GitHub repo, e.g. paulswithers/project-jig3dw
+repository: hcl-labs/keep-tutorials # GitHub repo, e.g. paulswithers/project-jig3dw
 copyright_info: "&copy; Copyright HCL America, Inc. 2021"
 
 # Build settings
@@ -27,9 +27,9 @@ markdown: kramdown
 theme: jekyll-theme-tactile
 github: 
   is_project_page: true
-  repository_url: https://github.com/hcl-tech-software/domino-keep-tutorials
+  repository_url: https://github01.hclpnp.com/hcl-labs/keep-tutorials
   repository_name:  Domino KEEP Tutorials
-  owner_url:  https://github.com/hcl-tech-software
+  owner_url:  https://github01.hclpnp.com/hcl-labs
   owner_name: HCL Software
 
 # Exclude from processing.
