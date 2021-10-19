@@ -73,7 +73,8 @@ The **debug** node is used to print to the Debug tab of the right-hand area of N
 7. Drag a **debug** node onto the canvas.
    - Set the **Output** to "complete msg object".
    - Wire the catch node to this debug node.
-8. Test the flow by clicking on the inject node.
+8. Deploy the updates to the flow by clicking the "Deploy" button.
+9. Test the flow by clicking on the inject node.
 
 If successful, the debug tab on the right area of Node-RED will display the output from the HTTP request, a statusCode 200 and a payload containing the bearer token.
 
@@ -102,7 +103,8 @@ The map will need longitude and latitude of US states, retrieved according to th
      {% endraw %}
    - Wire the http request node to this function node.
    - Wire this function node to the debug node created in step 6 of the Authentication, so that both flows end at the same function node.
-4. Test the flow by clicking on the inject node.
+4. Deploy the updates to the flow by clicking the "Deploy" button.
+5. Test the flow by clicking on the inject node.
 
 If successful, the debug tab on the right area of Node-RED will display the output from the HTTP request, with payload being an object where the keys are the states and the value is another object containing its name, capital, latitude and longitude.
 

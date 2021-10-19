@@ -13,7 +13,10 @@
 					"script": {
 						"exec": [
 							"var content = pm.response.json();",
-							"pm.environment.set(\"TOKEN\", content.bearer);"
+							"pm.collectionVariables.set(\"TOKEN\", content.bearer);",
+							"",
+							"pm.collectionVariables.set(\"USERNAME\", \"\");",
+							"pm.collectionVariables.set(\"PASSWORD\", \"\");"
 						],
 						"type": "text/javascript"
 					}
@@ -72,7 +75,7 @@
 					"raw": "{\n    \"filepath\" : \"collabsphere.nsf\",\n    \"title\" : \"Collabsphere Demo\"\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/nsf?db={{DB}}",
+					"raw": "{{HOST}}/design/nsf?db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -83,7 +86,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -106,7 +109,7 @@
 					"raw": "{\n    \"name\" : \"Contact\",\n    \"alias\": \"\",\n    \"fields\" : [\n        {\n            \"name\" : \"first_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"last_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"email\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"gender\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"city\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"state\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/forms/Contact?db={{DB}}",
+					"raw": "{{HOST}}/design/forms/Contact?db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -118,7 +121,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -141,7 +144,7 @@
 					"raw": "{\n    \"name\" : \"byName\",\n    \"selectionFormula\" : \"Form = \\\"Contact\\\"\",\n    \"columns\" : [\n\t\t{\n\t\t\t\"name\": \"firstName\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"firstName\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"email\",\n\t\t\t\"title\": \"Email\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"email\"\n\t\t},\n        {\n\t\t\t\"name\": \"city\",\n\t\t\t\"title\": \"City\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"city\"\n\t\t},\n        {\n\t\t\t\"name\": \"state\",\n\t\t\t\"title\": \"State\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"state\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byName?db={{DB}}",
+					"raw": "{{HOST}}/design/views/byName?db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -153,7 +156,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -176,7 +179,7 @@
 					"raw": "{\n    \"name\" : \"byState\",\n    \"selectionFormula\" : \"Form = \\\"Contact\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"state\",\n\t\t\t\"title\": \"State\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"state\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"firstName\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"firstName\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"email\",\n\t\t\t\"title\": \"Email\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"email\"\n\t\t},\n        {\n\t\t\t\"name\": \"city\",\n\t\t\t\"title\": \"City\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"city\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byState?db={{DB}}",
+					"raw": "{{HOST}}/design/views/byState?db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -188,7 +191,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -211,7 +214,7 @@
 					"raw": "{\n    \"documents\": [\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Aline\",\n            \"last_name\": \"Trays\",\n            \"email\": \"atrays0@about.com\",\n            \"gender\": \"Male\",\n            \"city\": \"Brockton\",\n            \"state\": \"MA\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Cheslie\",\n            \"last_name\": \"Windridge\",\n            \"email\": \"cwindridge1@nsw.gov.au\",\n            \"gender\": \"Female\",\n            \"city\": \"Wilkes Barre\",\n            \"state\": \"PA\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Fan\",\n            \"last_name\": \"Fogt\",\n            \"email\": \"ffogt2@phpbb.com\",\n            \"gender\": \"Male\",\n            \"city\": \"Des Moines\",\n            \"state\": \"IA\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Tina\",\n            \"last_name\": \"Cancott\",\n            \"email\": \"tcancott3@weather.com\",\n            \"gender\": \"Male\",\n            \"city\": \"New York City\",\n            \"state\": \"NY\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Deb\",\n            \"last_name\": \"Linnard\",\n            \"email\": \"dlinnard4@buzzfeed.com\",\n            \"gender\": \"Male\",\n            \"city\": \"Washington\",\n            \"state\": \"DC\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Westleigh\",\n            \"last_name\": \"Stanmer\",\n            \"email\": \"wstanmer5@addtoany.com\",\n            \"gender\": \"Male\",\n            \"city\": \"Stockton\",\n            \"state\": \"CA\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Inger\",\n            \"last_name\": \"Leve\",\n            \"email\": \"ileve6@cisco.com\",\n            \"gender\": \"Female\",\n            \"city\": \"Jackson\",\n            \"state\": \"MS\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Gabrila\",\n            \"last_name\": \"Hakonsson\",\n            \"email\": \"ghakonsson7@spotify.com\",\n            \"gender\": \"Female\",\n            \"city\": \"San Jose\",\n            \"state\": \"CA\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Jeth\",\n            \"last_name\": \"Jakab\",\n            \"email\": \"jjakab8@gravatar.com\",\n            \"gender\": \"Female\",\n            \"city\": \"Humble\",\n            \"state\": \"TX\"\n        },\n        {\n            \"Form\": \"Contact\",\n            \"first_name\": \"Woodie\",\n            \"last_name\": \"Battle\",\n            \"email\": \"wbattle9@netscape.com\",\n            \"gender\": \"Female\",\n            \"city\": \"Fresno\",\n            \"state\": \"CA\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/bulk/create?db={{DB}}",
+					"raw": "{{HOST}}/bulk/create?db={{CONTACTS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -222,7 +225,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -235,7 +238,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/lists/byName?db={{DB}}&count=10",
+					"raw": "{{HOST}}/lists/byName?db={{CONTACTS}}&count=10",
 					"host": [
 						"{{HOST}}"
 					],
@@ -246,7 +249,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						},
 						{
 							"key": "count",
@@ -273,14 +276,14 @@
 					"raw": "{\n  \"modeName\": \"dql\",\n  \"readAccessFields\": [\n            \"Form\",\n            \"city\",\n            \"email\",\n            \"first_name\",\n            \"gender\",\n            \"last_name\",\n            \"state\"\n        ],\n  \"writeAccessFields\": [\n            \"Form\",\n            \"city\",\n            \"email\",\n            \"first_name\",\n            \"gender\",\n            \"last_name\",\n            \"state\"\n        ],\n  \"readAccessFormula\": \"\",\n  \"writeAccessFormula\": \"\",\n  \"deleteAccessFormula\": \"@false\",\n  \"onLoad\": \"\",\n  \"onSave\": \"\",\n  \"computeWithForm\": false,\n  \"strictInput\": true,\n  \"allowAnyField\": false\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/admin/database/{{DB}}/Contact",
+					"raw": "{{HOST}}/admin/database/{{CONTACTS}}/Contact",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"admin",
 						"database",
-						"{{DB}}",
+						"{{CONTACTS}}",
 						"Contact"
 					]
 				}
@@ -330,7 +333,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{ADMIN_HOST}}/acl/entries?db={{DB}}",
+					"raw": "{{ADMIN_HOST}}/acl/entries?db={{CONTACTS}}",
 					"host": [
 						"{{ADMIN_HOST}}"
 					],
@@ -341,7 +344,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "{{DB}}"
+							"value": "{{CONTACTS}}"
 						}
 					]
 				}
@@ -364,7 +367,7 @@
 					"raw": "{\n    \"filepath\" : \"visitors.nsf\",\n    \"title\" : \"Visitors Demo\"\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/nsf?db=visitors",
+					"raw": "{{HOST}}/design/nsf?db={{VISITORS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -375,7 +378,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "visitors"
+							"value": "{{VISITORS}}"
 						}
 					]
 				}
@@ -398,7 +401,7 @@
 					"raw": "{\n    \"name\" : \"Visitor\",\n    \"alias\": \"\",\n    \"fields\" : [\n        {\n            \"name\" : \"first_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"last_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"company\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"time_in\",\n            \"type\": \"datetime\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"time_out\",\n            \"type\": \"datetime\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"badgeNo\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/forms/Visitor?db=visitors",
+					"raw": "{{HOST}}/design/forms/Visitor?db={{VISITORS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -410,7 +413,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "visitors"
+							"value": "{{VISITORS}}"
 						}
 					]
 				}
@@ -433,7 +436,7 @@
 					"raw": "{\n    \"name\" : \"byName\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\"\",\n    \"columns\" : [\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_out\",\n\t\t\t\"title\": \"Time Out\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_out\"\n\t\t},\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byName?db=visitors",
+					"raw": "{{HOST}}/design/views/byName?db={{VISITORS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -445,7 +448,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "visitors"
+							"value": "{{VISITORS}}"
 						}
 					]
 				}
@@ -468,7 +471,7 @@
 					"raw": "{\n    \"name\" : \"byBadge\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\" & time_out = \\\"\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_out\",\n\t\t\t\"title\": \"Time Out\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_out\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byBadge?db=visitors",
+					"raw": "{{HOST}}/design/views/byBadge?db={{VISITORS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -480,7 +483,7 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "visitors"
+							"value": "{{VISITORS}}"
 						}
 					]
 				}
@@ -499,7 +502,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{HOST}}/lists/byName?db=visitors",
+					"raw": "{{HOST}}/lists/byName?db={{VISITORS}}",
 					"host": [
 						"{{HOST}}"
 					],
@@ -510,7 +513,45 @@
 					"query": [
 						{
 							"key": "db",
-							"value": "visitors"
+							"value": "{{VISITORS}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ceate Visitors By Badge",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"byBadge\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\" & time_out = \\\"\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t}\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/design/views/byBadge?db={{VISITORS}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"design",
+						"views",
+						"byBadge"
+					],
+					"query": [
+						{
+							"key": "db",
+							"value": "{{VISITORS}}"
 						}
 					]
 				}
@@ -546,6 +587,32 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": ""
+		},
+		{
+			"key": "HOST",
+			"value": ""
+		},
+		{
+			"key": "USERNAME",
+			"value": ""
+		},
+		{
+			"key": "PASSWORD",
+			"value": ""
+		},
+		{
+			"key": "CONTACTS",
+			"value": ""
+		},
+		{
+			"key": "VISITORS",
+			"value": ""
 		}
 	]
 }
