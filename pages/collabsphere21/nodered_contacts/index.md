@@ -14,7 +14,7 @@ slug:
 
 ### Downloads
 
-You will need to download and extract <a href="../collabsphere21/downloads/KEEP-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find five files:
+You will need to download and extract <a href="../downloads/KEEP-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find five files:
 - **Dockerfile** for building the Docker image.
 - **keepAuthentication.js** which will perform the authentication.
 - **keepNewIcon.png** which will be used as the image for the Node-RED admin console.
@@ -38,7 +38,7 @@ The value of AUTHENTICATION_HOST will need to be the URL to connect to your Domi
 
 To create a Docker image, open a terminal window to the directory containing the Dockerfile and other files. Then issue the command `docker build -t node-red-keep-collabsphere:1.0.0 .` Remember the full stop at the end or it won't run. This starts from the latest Node-RED Docker image, copies the files across to the data directory and sets the required permissions.
 
-You can now create a Docker container using the command `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" --name nrCSphere21 node-red-keep-collabsphere`.
+You can now create a Docker container using the command `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" --name nrCSphere21 node-red-keep-collabsphere:1.0.0`.
 
 You will need to add the container to a network that your Domino server is in. This sounds complicated, but is not. If your Domino server was started using Docker Compose, it will already have a network created. To find out inspect the Docker container (`docker inspect CONTAINER_NAME`) and look at "Networks" near the bottom.
 ![Networks](../images/nodered_contacts/network.png)

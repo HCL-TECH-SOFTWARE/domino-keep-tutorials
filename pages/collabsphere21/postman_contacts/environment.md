@@ -25,7 +25,7 @@ A Postman Collection will be used to keep the various requests together and shar
    |USERNAME  |Name to log in with. Remove before sharing the collection. | John Doe |
    |PASSWORD  |Password to log in with | My Super Secret Password |
    |CONTACTS  |Name for the Contacts database to create |contacts|
-   |VISITORS  |Name for the Visitors database to craete visitors|
+   |VISITORS  |Name for the Visitors database to create visitors|visitors|
    
   ![Postman Collection](../images/postman_contacts/collection-2.png)
 5. Save the Collection.
