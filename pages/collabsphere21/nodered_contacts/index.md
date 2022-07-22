@@ -17,7 +17,7 @@ slug:
 You will need to download and extract <a href="../downloads/KEEP-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find five files:
 - **Dockerfile** for building the Docker image.
 - **keepAuthentication.js** which will perform the authentication.
-- **keepNewIcon.png** which will be used as the image for the Node-RED admin console.
+- **HCL_KEEP_Icon_Boxed.png** which will be used as the image for the Node-RED admin console.
 - **keepTheme.css** which will be used to style the Node-RED admin console.
 - **settings.js** which is the modified settings file for Node-RED.
 
@@ -62,16 +62,16 @@ The "Security" section has been modified to call keepAuthentication for its auth
 The final change is to enable the new theme. This is near the bottom of the settings.js in the "Customising the editor" section. In the **editorTheme** object the following entries are added (add a comma after the last element). You will need to modify the filepaths to be **absolute filepaths for your operating system** for the relevant files.
 ```js
         page: {
-			title: "HCL Domino API Demo",
-			favicon: "/data/KeepNewIcon.png",
+			title: "HCL KEEP Demo",
+			favicon: "/data/HCL_KEEP_Icon_Boxed.png",
 			css: "/data/keepTheme.css"
 		},
 		header: {
-			title: "HCL Domino API Demo",
-			image: "/data/KeepNewIcon.png",
+			title: "HCL KEEP Demo",
+			image: "/data/HCL_KEEP_Icon_Boxed.png",
 		},
 		login: {
-			image: "/data/KeepNewIcon.png" // a 256x256 image
+			image: "/data/HCL_KEEP_Icon_Boxed.png" // a 256x256 image
 		}
 ```
 
