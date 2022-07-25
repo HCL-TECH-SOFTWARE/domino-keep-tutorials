@@ -23,8 +23,7 @@ slug:
    ![To Do Config](../images/configure/to-do-db-config.png)
 1. There are no agents in the database. So in the "Configuration" area click to disable "Enable Code". There is also no encrypted field content, so disable "Allow Decryption".
 1. Click the "Update" button.
-1. Click on the "Database Views" tab.
-1. The only view that will be accessed via KEEP is "todosView". Click that so it is added to the "Activated Views" area. Clikc the "Save" button.
+1. Click on the "Database Views" tab. No views are currently activated. Views will be activated later. This does not prevent documents being created.
 
 #### Configure "todo" Form
 
