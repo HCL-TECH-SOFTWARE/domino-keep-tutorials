@@ -14,12 +14,12 @@ slug:
 
 ### Contact Form Mode
 
-1. Click on the Contact form to open its configuration.
-1. This will be left as basic CRUD so no changes are required.
+1. Click on "customers" in the breadcrumbs to get back to the main schema configuration.
+1. Click on the Contact form to configure it. You will be advised that it will automatically be configured as default, select "Yes". Click on Contact to open it to the form access mode.
+1. Switch the "Show fields from:" drop-down from "Customer" to "Contact".
+1. This will be used for basic CRUD, so select all fields.
 
-Designing the Form does not enforce a schema. By not specifying any fields for Read Access, all fields will be returned by GET requests. This is a quick way to return all fields on the document.<br/>
-By not specifying any fields for Write Access, any field name could be written to document, e.g. "Foo". Consequently, specifying write access fields for a Form Access Mode is recommended a best practice approach.
-{: .alert .alert-warning}
+Designing the Form does not enforce a schema. By not specifying any fields for Read Access, no fields will be returned by GET requests or accepted for POST requests.<br/>
 
 <div class="panel panel-success">
 **Congratulations!**

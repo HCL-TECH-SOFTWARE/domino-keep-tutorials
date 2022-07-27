@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/setup/authentication
-nextPage: pages/domino-new/setup/create-customer-form
+nextPage: pages/domino-new/setup/create-scope
 slug:
     - label: New Domino Database
       url: pages/domino-new
@@ -41,23 +41,22 @@ The same NSF can be exposed via multiple Keep Database configurations. This can 
     {% raw %}
     ~~~json
     {
-        "nsfPath": "tutorials/customers.nsf",
+        "nsfPath": "customers.nsf",
         "title": "Customers"
     }
     ~~~
     {: .code}
     {% endraw %}
     <p/>
-    If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
-    {: .trouble #trouble1}
     The "dataSource" query parameter is the Keep Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Keep Database Schema with default settings.
     {: .why #why1}
 9. Click "Send" to make the request.
 ![Create NSF](../images/setup/create-nsf.png)
+  If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
+    {: .trouble #trouble1}
 10. Save and close the request.
 
-
-If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Keep Database name as the "db" query parameter.
+If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Keep Database name as the "dataSource" query parameter.
 {: .alert .alert-danger}
 
 <div class="panel panel-success">

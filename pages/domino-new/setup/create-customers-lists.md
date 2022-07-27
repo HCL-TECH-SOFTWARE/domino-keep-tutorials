@@ -22,7 +22,7 @@ Lists are collections of documents stored in Domino View design elements. This p
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
 1. Name the request "customers list" and click "Save to keep-domino".
 1. Change the method from "GET" to "PUT".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/design/views/Customers?db=customers".
+1. Set the URL as "&#123;&#123;HOST&#125;&#125;/design/views/Customers?dataSource=customers&nsfPath=tutorials/customers.nsf".
 1. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
 1. Add an HTTP request header "Content-Type" set to "application/json".
 1. On the Body tab change the type to "Raw".
@@ -93,7 +93,7 @@ Lists are collections of documents stored in Domino View design elements. This p
 
 1. Hover over the "customers list" request and click on the ellipsis (three dots). Select "Duplicate".  
 1. Change the name of the request to "active customers list".
-1. Change the URL as "&#123;&#123;HOST&#125;&#125;/design/views/Active%20Customers?db=customers".
+1. Change the URL as "&#123;&#123;HOST&#125;&#125;/design/views/Active%20CustomersdataSource=customers&nsfPath=tutorials/customers.nsf".
 1. On the Body tab set the request body content to:
     {% raw %}
     ~~~json
@@ -143,7 +143,9 @@ When creating a view, it will automatically be enabled.
 <div class="panel-body">
 
 This request has:
+
 - Created a list of Customers by name.
 - Created a list of only active customers.
+
 </div>
 </div>

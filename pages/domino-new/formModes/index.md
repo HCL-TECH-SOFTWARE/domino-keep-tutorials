@@ -13,21 +13,42 @@ slug:
 ### Form Modes
 
 Form Modes are used to manage access to documents. In order for documents of a specific Form type to be exposed via Keep they need to be:
+
 - Either exposed via one or more Form Modes, in which case the Form Modes define the fields available.
 - Or included in a list, in which case the columns in the list are available.
 
 Managing the Form Modes will be done via the Domino KEEP Admin GUI.
 
-### Inspecting Customers
-1. Open a browser and go to the Domino KEEP homepage. If you're running Keep locally and with the default ports, this will be "http://localhost:8880. 
-2. Click on the Admin GUI link and log in with the same credentials you used for [the authentication steps](../setup/authentication). 
-3. Click on the Databases icon.<br/>
-<img src="../images/formModes/databases.png" alt="Databases" width="150px"/>
-1. You will see that the "customers" database is already configured for Keep access. This happened when we created the NSF.
-2. Hover on the customers tile and click on the ellipsis.<br/>
-<img src="../images/formModes/customers_keep_db.png" alt="Databases" width="400px"/>
-1. Click on Properties and review the settings. There is nothing that needs changing at this point.
-2. Click out of the tab to close it without changes.
+<div class="panel panel-danger">
+**Form Creation Bug (KEEP 1.6.x)**
+{: .panel-heading}
+<div class="panel-body">
 
-A single NSF can be exposed under different Keep Database names, with different configurations. A typical use case for this is to provide more flexible access for server-to-server communication from Keep Applications, but more restricted access if the application is accessed via JavaScript in a browser.
+With versions 1.5.x and 1.6.x there is a bug with the Schema Configuration generated. KEEP is API-first, so everything that can be done in the REST Configuration UI can also be done, with an appropriately authenticated logon, from any REST Client. So this can quickly be cleared by updating the schema via Postman.
+
+1. Hover over the "get schema" request and click on the ellipsis (three dots). Select "Duplicate".
+1. Change the name of the request to "update schema".
+1. Change the method from "GET" to "POST".
+1. On the Headers tab, add an HTTP request header "Content-Type" set to "application/json".
+1. The current schema will be needed to update the schema. Open and run the "get schema" Postman request created earlier. Copy the response.
+1. Back on the "update schema" request go to the Body tab. Paste the response from "get schema" into the request body.
+1. Delete the "configuredForms" element.
+1. Remove the content from the "forms" element, so it is an empty array.
+1. Click "Send" to make the request.
+
+</div>
+</div>
+
+### Inspecting Schema Configuration
+
+1. Open a browser and go to the Domino KEEP homepage. If you're running Keep locally and with the default ports, this will be "http://localhost:8880.
+1. Click on the REST Configuration UI link and log in with the same credentials you used for [the authentication steps](../setup/authentication).
+1. Click on the Schemas icon.<br/>
+<img src="../images/formModes/databases.png" alt="Databases" width="150px"/>
+1. You will see that "customers" already has a schema. This happened when we created the NSF.
+1. Click on the customers tile and switch to the **Database Views** tab. There are three views - Customers, Active Customers and one without a name. The view without a name is automatically generated when the NSF is created and contains all documents in the database.<br/>
+<img src="../images/formModes/customers_schema.png" alt="Databases" width="400px"/>
+1. Click on "Customers" and "Active Customers" to add them to the activated views. Click "Save" to save the changes.
+
+A single NSF can be exposed with multiple schemas, with different configurations. A typical use case for this is to provide more flexible access for server-to-server communication from Keep Applications, but more restricted access if the application is accessed via JavaScript in a browser.
 {: alert alert-info}

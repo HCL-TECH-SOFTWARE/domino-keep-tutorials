@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-nsf
+prevPage: pages/domino-new/setup/create-scope
 nextPage: pages/domino-new/setup/create-contact-form
 slug:
     - label: New Domino Database
@@ -90,9 +90,10 @@ If you get a 404 message, verify the method is "PUT" and the Content-Type header
 {: .panel-heading}
 <div class="panel-body">
 
-For a Keep Database, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via Keep will automatically enable it for full CRUD access with a Form Access Mode called "default".
+For a Keep Database, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via Keep will automatically create a blank Form Access Mode called "default". However, no fields are enabled at this point.
 
-Form Access Modes provide more granular access to documents that use a specific Form. You can:  
+Form Access Modes provide more granular access to documents that use a specific Form. You can:
+
 - restrict access to certain fields on the form for read or write access.  
 - restrict who can read, write or delete documents at that mode.  
 - for read access, compute additional fields not stored on the document, e.g. concatenating a name or an address.  
@@ -107,8 +108,10 @@ Form Access Modes provide more granular access to documents that use a specific 
 <div class="panel-body">
 
 This request has:
+
 - Created a form in the customers database.
 - Added fields to the form.
 - Exposed the form for Keep data access.
+
 </div>
 </div>
