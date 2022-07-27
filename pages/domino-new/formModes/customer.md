@@ -41,6 +41,7 @@ Click on the "Database Forms" tab. The Customers database has two Forms availabl
 1. Enter "update" as the Mode Name for the new mode and click "ADD".
 1. Click the cross to get back to field selection.
 1. Click the + sign against all fields to add them.
+1. Scroll down to the "Formula for Delete Access". Change `@False` to `Status = "Inactive"`.
 1. Click on the "Save" button at the top of the Form Access Mode.
 
 The "Formula for Write Access" could be used to ensure only certain options are allowed for the Status field. Try ensuring only "Active" and "Inactive" are allowed.
@@ -58,6 +59,7 @@ This has
 - Ensured the status field cannot be set in REST API requests for new documents, but is always set to Active.
 - Ensured the default Form Access Mode can be used to read documents at any time, but can only be used to create new documents.
 - Enabled the "update" Form Access Mode for updating Customer documents.
+- Enabled deletion at the "update" Form Access Mode, if the customer is inactive.
 
 </div>
 </div>

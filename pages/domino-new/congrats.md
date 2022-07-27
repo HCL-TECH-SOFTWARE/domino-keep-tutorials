@@ -17,8 +17,8 @@ slug:
 You have:
 - Created a new NSF, Forms and Views
 - Configured it for access under the application name "customers".
-- Created documents.
-- Viewed and searched the documents.
+- Created, updated and deleted documents.
+- Viewed the documents.
 </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/formModes/customer
-nextPage: pages/domino-new/dataAccess/index
+nextPage: pages/domino-new/formModes/lists
 slug:
     - label: New Domino Database
       url: pages/domino-new

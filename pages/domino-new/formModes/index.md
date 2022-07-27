@@ -46,9 +46,7 @@ With versions 1.5.x and 1.6.x there is a bug with the Schema Configuration gener
 1. Click on the Schemas icon.<br/>
 <img src="../images/formModes/databases.png" alt="Databases" width="150px"/>
 1. You will see that "customers" already has a schema. This happened when we created the NSF.
-1. Click on the customers tile and switch to the **Database Views** tab. There are three views - Customers, Active Customers and one without a name. The view without a name is automatically generated when the NSF is created and contains all documents in the database.<br/>
-<img src="../images/formModes/customers_schema.png" alt="Databases" width="400px"/>
-1. Click on "Customers" and "Active Customers" to add them to the activated views. Click "Save" to save the changes.
+1. Click on the customers tile and review the settings.
 
 A single NSF can be exposed with multiple schemas, with different configurations. A typical use case for this is to provide more flexible access for server-to-server communication from Keep Applications, but more restricted access if the application is accessed via JavaScript in a browser.
 {: alert alert-info}

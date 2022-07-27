@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/domino-new/formModes/contact
+prevPage: pages/domino-new/formModes/lists
 nextPage: pages/domino-new/dataAccess/customers
 slug:
     - label: New Domino Database
