@@ -43,8 +43,9 @@ pm.test("Status code is 200", function () {
 });
 pm.test("Create ToDo", function () {
     var jsonData = pm.response.json();
-    pm.expect(jsonData).to.have.property("@unid");
-    pm.collectionVariables.set("UNID", jsonData["@unid"]);
+    pm.expect(jsonData).to.have.property("@meta");
+    pm.expect(jsonData['@meta']).to.have.property("unid")
+    pm.collectionVariables.set("UNID", jsonData["@meta"].unid);
 });
     ~~~
     {: .code}

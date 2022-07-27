@@ -31,7 +31,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}"
+					"raw": "{\r\n    \"username\": \"Domino Admin\",\r\n    \"password\": \"password\"\r\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/auth",
@@ -87,8 +87,9 @@
 							"});",
 							"pm.test(\"Create ToDo\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData).to.have.property(\"@unid\");",
-							"    pm.collectionVariables.set(\"UNID\", jsonData[\"@unid\"]);",
+							"    pm.expect(jsonData).to.have.property(\"@meta\");",
+							"    pm.expect(jsonData['@meta']).to.have.property(\"unid\")",
+							"    pm.collectionVariables.set(\"UNID\", jsonData[\"@meta\"].unid);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -224,6 +225,48 @@
 						"todosView"
 					],
 					"query": [
+						{
+							"key": "dataSource",
+							"value": "todokeep"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{bearer}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"form = 'todo' and completed = ?STATUS\",\r\n    \"maxScanDocs\": 500000,\r\n    \"maxScanEntries\": 200000,\r\n    \"timeoutSecs\": 300,\r\n    \"viewRefresh\": true,\r\n    \"noViews\": false,\r\n    \"variables\": {\r\n        \"STATUS\": \"false\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/query?action=execute&dataSource=todokeep",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "execute"
+						},
 						{
 							"key": "dataSource",
 							"value": "todokeep"
