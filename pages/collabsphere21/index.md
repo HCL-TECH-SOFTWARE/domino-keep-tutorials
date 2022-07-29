@@ -7,9 +7,10 @@ slug:
 
 {::options parse_block_html="true" /}
 
-![Domino Keep](../../images/KeepNewLogo.svg "HCL Labs - Domino Keep")
+![Domino KEEP](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino KEEP")
 
-This tutorial walks through creating two databases and working with the data from Node-RED. The Node-RED admin GUI will authenticate against Domino via Domino REST API. The databases are:
+This tutorial was created for a workshop for the Collabsphere 2021 conference. It walks through creating two databases and working with the data from Node-RED. The Node-RED admin GUI will authenticate against Domino via Domino REST API. The databases are:
+
 - A Contacts database with city and state. Totals per state will be projected onto a map.
 - A Visitors database, where visitors to a company can check in and out.
 
@@ -18,7 +19,14 @@ Postman will also be used to set up the database.
 ### Pre-Requisites
 The tutorial assumes already have a running Domino REST API installation and Postman installed. The tutorial will walk through setting up a Node-RED Docker container, but an existing Node-RED installation could be modified.
 
-Databases will be created programmatically, so ensure the user ID you are using has access to create databases on the server you're connecting to.
+<div class="panel panel-warning">
+NOTE
+{: .panel-heading}
+<div class="panel-body">
+Databases will be created programmatically, so ensure the user ID you are using has access to create databases on the server you're connecting to. This is managed on the server document
+![Server document](images/server-doc.png)
+</div>
+</div>
 
 <div class="panel panel-info">
 **DOWNLOADS REQUIRED**

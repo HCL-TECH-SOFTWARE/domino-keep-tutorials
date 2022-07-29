@@ -50,7 +50,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
     msg.headers = {
         "Authorization": global.get("AUTH_KEY")
     }
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byState?db=contacts&key=" + msg.key;
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byState?dataSource=contacts&key=" + msg.key;
     return msg;
     ~~~
     {: .code}
