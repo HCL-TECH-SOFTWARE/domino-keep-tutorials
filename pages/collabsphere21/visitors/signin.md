@@ -15,6 +15,7 @@ slug:
 This part of the tutorial will create the Sign In form using Node-RED Dashboard. This requires two new sets of nodes to be added to the palette - the dashboard nodes and the media node.
 
 ### New Nodes
+
 1. Click on the menu top-right of Node-RED (the three horizontal lines).
 2. Click "Manage Palette". This opens up the window for managing the user settings on the Palette tab.
 ![Manage Palette](../images/nodered_contacts/palette.png)
@@ -29,23 +30,26 @@ The nodes are now ready for the dashboard to be created.
 NOTE: The Node-RED dashboard is a single instance displayed for all connected users. So it's appropriate for a visitor's "in-out" application or a central display of metrics. But it's not appropriate for reporting for all managers.
 {: .alert .alert-warning}
 
-### New Flow
+### New Flow
+
 1. Click on the menu top-right of Node-RED (the three horizontal lines).
 2. Click Flows > Add. This will add a new flow to the canvas area.
 
 ### Heading Nodes
 
 1. In the **dashboard** category, drag a **media** node onto the canvas. The node does not need wiring to anything.
-   - On **Group**, click "Add new ui_group...". Click the pencil. Against Tab click "Add new ui_tab...". Click the pencil. Name the new tab "Home" and click "Add". Name the new group "New Vitisor" and untick "Display group name". Set the Size to 12 and click "Add".
+   - On **Group**, click "Add new dashboard group...". Click the pencil. Against Tab click "Add new dashboard tab...". Click the pencil. Name the new tab "Home" and click "Add". Name the new group "New Visitor" and untick "Display group name". Set the Size to 12 and click "Add".
    - Set the Size to "2 x 1".
-   - On the Files tab, against Category, click the drop down and select "Add new...". Call it "keep"
-   - Click the "Choose Files" button, select the HCL_KEEP_Icon_Boxed.png image downloaded earlier. Click the upload button.
+   - On the Files tab, against Category, click the drop down and select "Add new...". Call it "keep".
+   - Against "File", click the drop down and select "Add new...".
+   - Click the "Choose Files" button, select the KeepNewIcon.png image downloaded earlier. Click the upload button. Click Done.
 2. In the **dashboard** category, drag a **text** node onto the canvas. The node does not need adding to anything.
    - Select the New Visitor group created in the last step.
    - Set the Size to "6 x 1".
    - Set the Label to "KEEP VISITORS".
 
 ### Sign In Form
+
 The Sign in Form will take input and create a document in the visitors database. There are required fields, but there will not be any additional validation added. Validation could be added both in the Form Access Mode and/or in Node-RED. Because access to the Domino REST API "visitors" database is not restricted to *only* Node-RED, it's important to have the validation also in the Domino REST API.
 
 1. Drag a **form** node onto the canvas.
@@ -67,7 +71,7 @@ The Sign in Form will take input and create a document in the visitors database.
       "Authorization": global.get("AUTH_KEY"),
       "Content-Type": "application/json"
     }
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document?db=visitors";
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document?dataSource=visitors";
     return msg;
     ~~~
     {: .code}

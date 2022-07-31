@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/collabsphere21/index
+prevPage: pages/collabsphere21/visitors/signout
 slug:
     - label: Collabsphere 2021 Workshop Tutorial
       url: pages/collabsphere21
