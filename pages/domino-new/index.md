@@ -7,10 +7,12 @@ slug:
 
 {::options parse_block_html="true" /}
 
-![Domino Keep](../../images/KeepNewLogo.svg "HCL Labs - Domino Keep")
+![Domino KEEP](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino KEEP")
 
 ### Introduction
+
 HCL Domino REST API, a.k.a Domino KEEP, provides secure REST API access into HCL Domino. This tutorial will walk you through:  
+
 - Creating a new Domino database.
 - Adding Forms for Customers and Contacts.
 - Adding Views.
@@ -31,8 +33,12 @@ Keep Databases can be left open for REST APIs secured only by user authenticatio
 ### Pre-requisites
 
 To run through this tutorial you will need the following:
+
 - An HCL Domino server with HCL Domino REST API, a.k.a. Domino KEEP running.
 - A username and password that has administration access to the server. If you have used the Keep Domino Docker image, you can use the admin username and password you supplied when creating the container.
+- The user needs access to create databases on the server. This is controlled by the "Create databases & templates" field on the **Server** tab of the server document.
+![Server document](images/setup/server-doc.png)
+  This can be set during One-Touch Domino setup by using the appConfiguration/databases/documents to set the CreateAccess item on the Server Document. See [Daniel Nashed's sample](https://github.com/nashcom/domino-startscript/blob/main/OneTouchSetup/first_server.json#L102).
 - [Postman](https://www.postman.com/) installed.
 
 <div class="panel panel-info">

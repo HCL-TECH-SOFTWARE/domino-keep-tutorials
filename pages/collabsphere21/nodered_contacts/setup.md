@@ -15,10 +15,12 @@ slug:
 The contacts populated into Domino will be displayed on a map in Node-RED. There are two pre-requisites flows we will add to Node-RED and, as part of this, get to know some of the basic nodes.
 
 ### Node-RED Introduction
+
 Node-RED uses **nodes** wired to one another to perform granular actions (e.g. manipulate the payload, send an HTTP request, output a message to the console). Content is passed between nodes in a JSON object called **msg**. By convention **msg.payload** is where the key data is stored between requests.
 ![Node-RED](../images/nodered_contacts/nodered.png)
 
 The editor is split into three areas:
+
 - the left-hand area is the palette and lists the nodes in categories.
 - the central area is the canvas for each flow.
 - the right-hand area is the sidebar and has tabs for information, help on the selected node and debug messages. The information tab will give details of inputs and outputs to the node. An editor flies out from this when double-clicking a node to allow you to view / modify that node's properties.
@@ -54,6 +56,7 @@ The **debug** node is used to print to the Debug tab of the right-hand area of N
     - Wire the inject node to this function node.
 3. Drag an **http request** node onto the canvas.
    - Change the **Method** to "POST" because authentication is a POST action.
+   - The url and payload will be passed from the function node, so we don't need to set those on this HTTP request node.
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
    - Wire the function node to this http request node.
 4. Drag a **function** node onto the canvas.

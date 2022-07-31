@@ -17,7 +17,7 @@ slug:
 You will need to download and extract <a href="../downloads/KEEP-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find five files:
 - **Dockerfile** for building the Docker image.
 - **keepAuthentication.js** which will perform the authentication.
-- **keepNewIcon.png** which will be used as the image for the Node-RED admin console.
+- **HCL_KEEP_Icon_Boxed.png** which will be used as the image for the Node-RED admin console.
 - **keepTheme.css** which will be used to style the Node-RED admin console.
 - **settings.js** which is the modified settings file for Node-RED.
 
@@ -30,6 +30,7 @@ The credentials used to log into Node-RED are then used for the rest of the flow
 #### AUTHENTICATION_HOST Environment Variable
 
 The value of AUTHENTICATION_HOST will need to be the URL to connect to your Domino REST API server from a Docker container:
+
 - If the Domino REST API server has a DNS-enabled hostname, use that.
 - If the Domino REST API server is installed on your operating system and running on the default port, "http://localhost:8880" should be used.
 - If the Domino REST API server is running in Docker on your host machine, the standard Docker approach will work, i.e. PROTOCOL + CONTAINER_NAME + PORT, e.g. "http://domino-keep:8880".
@@ -43,15 +44,16 @@ You can now create a Docker container using the command `docker run -it -p 1880:
 You will need to add the container to a network that your Domino server is in. This sounds complicated, but is not. If your Domino server was started using Docker Compose, it will already have a network created. To find out inspect the Docker container (`docker inspect CONTAINER_NAME`) and look at "Networks" near the bottom.
 ![Networks](../images/nodered_contacts/network.png)
 
-If there is a network, you can make a note of the name and issue the command `docker network connect NETWORK_NAME nrCSPhere21`.
+If there is a network, you can make a note of the name and issue the command `docker network connect NETWORK_NAME nrCSphere21`.
 
-If there is no network, you can create one called **csphere21** with the command `docker network create csphere21`. Then issue the command `docker network connect csphere21 nrCSPhere21` to connect your Node-RED Docker container to the network and repeat the process for your Domino Docker container, changing the container name at the end.
+If there is no network, you can create one called **csphere21** with the command `docker network create csphere21`. Then issue the command `docker network connect csphere21 nrCSphere21` to connect your Node-RED Docker container to the network and repeat the process for your Domino Docker container, changing the container name at the end.
 
 ### Manual Modification
 
 If you wish to modify an existing Node-RED installation, you will need to make the following changes to the **settings.js** file. When you start Node-RED the console log will tell you where to find this file.
 
 #### Security
+
 The "Security" section has been modified to call keepAuthentication for its authentication function. The following line has been added:
 `adminAuth: require('./keepAuthentication'),`
 
@@ -62,16 +64,16 @@ The "Security" section has been modified to call keepAuthentication for its auth
 The final change is to enable the new theme. This is near the bottom of the settings.js in the "Customising the editor" section. In the **editorTheme** object the following entries are added (add a comma after the last element). You will need to modify the filepaths to be **absolute filepaths for your operating system** for the relevant files.
 ```js
         page: {
-			title: "HCL Domino API Demo",
-			favicon: "/data/KeepNewIcon.png",
+			title: "HCL KEEP Demo",
+			favicon: "/data/HCL_KEEP_Icon_Boxed.png",
 			css: "/data/keepTheme.css"
 		},
 		header: {
-			title: "HCL Domino API Demo",
-			image: "/data/KeepNewIcon.png",
+			title: "HCL KEEP Demo",
+			image: "/data/HCL_KEEP_Icon_Boxed.png",
 		},
 		login: {
-			image: "/data/KeepNewIcon.png" // a 256x256 image
+			image: "/data/HCL_KEEP_Icon_Boxed.png" // a 256x256 image
 		}
 ```
 
@@ -81,3 +83,6 @@ If everything has been done correctly, when you go to the Node-RED admin console
 ![Login](../images/nodered_contacts/login.png)
 You will be able to authenticate against your Domino server.
 
+If you are using Domino on Docker and are getting an authentication error with `AxiosError: connect ECONNREFUSED 127.0.0.1:8880`, check the <a href="#authentication_host-environment-variable">AUTHENTICATION_HOST Environment Variable</a> section to ensure you set the variable correctly with _protocol_://_container-name_:_port_.
+{: .troubleshoot #trouble1}
+<br/>

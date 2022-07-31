@@ -13,8 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: HCL Domino KEEP Tutorials
-description: Tutorial for Domino KEEP
+title: HCL KEEP Tutorials
+description: Tutorial for HCL KEEP
 baseurl: /domino-keep-tutorials
 url:  # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
@@ -28,7 +28,7 @@ theme: jekyll-theme-tactile
 github: 
   is_project_page: true
   repository_url: https://github.com/hcl-tech-software/domino-keep-tutorials
-  repository_name:  Domino KEEP Tutorials
+  repository_name:  HCL KEEP Tutorials
   owner_url:  https://github.com/hcl-tech-software
   owner_name: HCL Software
 

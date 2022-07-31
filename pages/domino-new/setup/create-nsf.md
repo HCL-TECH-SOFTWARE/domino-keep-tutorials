@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/setup/authentication
-nextPage: pages/domino-new/setup/create-customer-form
+nextPage: pages/domino-new/setup/create-scope
 slug:
     - label: New Domino Database
       url: pages/domino-new
@@ -33,7 +33,7 @@ The same NSF can be exposed via multiple Keep Database configurations. This can 
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "create nsf" and click "Save to keep-domino".
 3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;HOST&#125;&#125;/design/nsf?db=customers".
+4. Set the URL as "&#123;&#123;HOST&#125;&#125;/design/nsf?dataSource=customers".
 5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
 6. Add an HTTP request header "Content-Type" set to "application/json".
 7. On the Body tab change the type to "Raw".
@@ -41,20 +41,22 @@ The same NSF can be exposed via multiple Keep Database configurations. This can 
     {% raw %}
     ~~~json
     {
-        "filepath": "tutorials/customers.nsf",
+        "nsfPath": "customers.nsf",
         "title": "Customers"
     }
     ~~~
     {: .code}
     {% endraw %}
     <p/>
-    The "db" query parameter is the Keep Database name you wish to access the NSF with. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Keep Database configuration with default settings.
+    The "dataSource" query parameter is the Keep Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Keep Database Schema with default settings.
     {: .why #why1}
 9. Click "Send" to make the request.
+![Create NSF](../images/setup/create-nsf.png)
+  If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
+    {: .trouble #trouble1}
 10. Save and close the request.
 
-
-If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Keep Database name as the "db" query parameter.
+If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Keep Database name as the "dataSource" query parameter.
 {: .alert .alert-danger}
 
 <div class="panel panel-success">

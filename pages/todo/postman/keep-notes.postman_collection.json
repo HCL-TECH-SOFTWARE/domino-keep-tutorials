@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "32a0b454-7b35-4656-8e6c-ae03f8bba1f1",
 		"name": "keep-notes",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3071927"
 	},
 	"item": [
 		{
@@ -30,7 +31,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Domino Admin\",\r\n    \"password\": \"passw0rd\"\r\n}"
+					"raw": "{\r\n    \"username\": \"Domino Admin\",\r\n    \"password\": \"password\"\r\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/auth",
@@ -56,7 +57,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{ADMIN_HOST}}/acl/entries?db=tutorials/ToDo.nsf",
+					"raw": "{{ADMIN_HOST}}/acl/entries?dataSource=tutorials/ToDo.nsf",
 					"host": [
 						"{{ADMIN_HOST}}"
 					],
@@ -66,7 +67,7 @@
 					],
 					"query": [
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "tutorials/ToDo.nsf"
 						}
 					]
@@ -86,8 +87,9 @@
 							"});",
 							"pm.test(\"Create ToDo\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData).to.have.property(\"@unid\");",
-							"    pm.collectionVariables.set(\"UNID\", jsonData[\"@unid\"]);",
+							"    pm.expect(jsonData).to.have.property(\"@meta\");",
+							"    pm.expect(jsonData['@meta']).to.have.property(\"unid\")",
+							"    pm.collectionVariables.set(\"UNID\", jsonData[\"@meta\"].unid);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -113,7 +115,7 @@
 					"raw": " {\r\n      \"Form\": \"todo\",\r\n      \"name\": \"Sample to do from Keep\",\r\n      \"description\": \"Create some To Dos\",\r\n      \"duedate\": \"2021-06-07T08:00:00.000Z\",\r\n      \"priority\": \"Medium\"\r\n  }"
 				},
 				"url": {
-					"raw": "{{HOST}}/document?db=todokeep",
+					"raw": "{{HOST}}/document?dataSource=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
@@ -122,7 +124,7 @@
 					],
 					"query": [
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "todokeep"
 						}
 					]
@@ -148,22 +150,25 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"completed\": \"true\"\r\n}"
+					"raw": "{\r\n    \"Form\": \"todo\",\r\n    \"completed\": \"true\"\r\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/document/{{UNID}}/change-complete?db=todokeep",
+					"raw": "{{HOST}}/document/{{UNID}}?dataSource=todokeep&mode=change-complete",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
 						"document",
-						"{{UNID}}",
-						"change-complete"
+						"{{UNID}}"
 					],
 					"query": [
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "todokeep"
+						},
+						{
+							"key": "mode",
+							"value": "change-complete"
 						}
 					]
 				}
@@ -182,7 +187,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{HOST}}/lists?db=todokeep",
+					"raw": "{{HOST}}/lists?dataSource=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
@@ -191,7 +196,7 @@
 					],
 					"query": [
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "todokeep"
 						}
 					]
@@ -211,7 +216,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{HOST}}/lists/todosView?db=todokeep",
+					"raw": "{{HOST}}/lists/todosView?dataSource=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
@@ -221,7 +226,7 @@
 					],
 					"query": [
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "todokeep"
 						}
 					]
@@ -250,7 +255,7 @@
 					"raw": "{\r\n    \"query\": \"form = 'todo' and completed = ?STATUS\",\r\n    \"maxScanDocs\": 500000,\r\n    \"maxScanEntries\": 200000,\r\n    \"timeoutSecs\": 300,\r\n    \"viewRefresh\": true,\r\n    \"noViews\": false,\r\n    \"variables\": {\r\n        \"STATUS\": \"false\"\r\n    }\r\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/query?action=execute&db=todokeep",
+					"raw": "{{HOST}}/query?action=execute&dataSource=todokeep",
 					"host": [
 						"{{HOST}}"
 					],
@@ -263,7 +268,7 @@
 							"value": "execute"
 						},
 						{
-							"key": "db",
+							"key": "dataSource",
 							"value": "todokeep"
 						}
 					]

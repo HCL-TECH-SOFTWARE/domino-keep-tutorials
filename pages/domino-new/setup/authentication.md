@@ -15,6 +15,7 @@ slug:
 ### Postman Authentication
 
 #### Create Collection
+
 1. On the Collections tab, click the "New Collections" button.  
 2. In the "CREATE A NEW COLLECTION" dialog, set the Name as "keep-domino".  
 3. On the Variables tab of the dialog, add a new variable called "HOST". This should map to the Domino KEEP API url and should end "/api/v1". For example, if you're running Keep locally and with the default ports, this will be "http://localhost:8880/api/v1".  
@@ -22,6 +23,7 @@ slug:
 ![Postman Environment](../images/setup/collection.jpg)
 
 #### Create Authentication
+
 1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
 <img src="../images/setup/add-request.jpg" alt="Postman Add Request" width="250" />
 1. Name the request "authenticate" and click "Save to keep-domino".  
@@ -36,6 +38,7 @@ If you get a 404 message, verify the method is "POST" and the Content-Type heade
 {: .troubleshoot #trouble1}
 
 #### Store Bearer Token
+
 1. On the Tests tab add the following code:
     {% raw %}
     ~~~javascript

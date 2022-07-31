@@ -10,52 +10,7 @@ slug:
     - label: Query of Data
 ---
 
-With an appropriate Form Access Mode, data can also be queried. The Form Access Mode could be set up via the Admin GUI, but the APIs the Admin GUI uses are also available for authorised users. The Form Access Mode will be created via Postman.
-
-### Create Form Access Mode
-
-Add a request to the Postman collection.
-
-1. Rename it "Create DQL Mode"
-2. Change "GET" to "PUT"
-3. Set the request URL to "&#123;&#123;HOST&#125;&#125;/admin/database/&#123;&#123;CONTACTS&#125;&#125;/Contact".
-4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
-5. On the **Body** tab, select raw and enter:
-    {% raw %}
-    ~~~json
-    {
-      "modeName": "dql",
-      "readAccessFields": [
-        "Form",
-        "city",
-        "email",
-        "first_name",
-        "gender",
-        "last_name",
-        "state"
-      ],
-      "writeAccessFields": [
-        "Form",
-        "city",
-        "email",
-        "first_name",
-        "gender",
-        "last_name",
-        "state"
-      ],
-      "readAccessFormula": "",
-      "writeAccessFormula": "",
-      "deleteAccessFormula": "@false",
-      "onLoad": "",
-      "onSave": "",
-      "computeWithForm": false,
-      "strictInput": true,
-      "allowAnyField": false
-    }
-    ~~~
-    {: .code}
-    {% endraw %}
-6. Send the request.
+With an appropriate Form Access Mode, data can also be queried.
 
 ### Run Query
 
@@ -63,7 +18,7 @@ Add a request to the Postman collection.
 
 1. Rename it "DQL Query"
 2. Change "GET" to "PUT"
-3. Set the request URL to "&#123;&#123;HOST&#125;&#125;/query?action=execute&db=&#123;&#123;CONTACTS&#125;&#125;".
+3. Set the request URL to {% raw %}"{{HOST}}/query?action=execute&dataSource={{CONTACTS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:On the **Body** tab, select raw and enter:
     {% raw %}

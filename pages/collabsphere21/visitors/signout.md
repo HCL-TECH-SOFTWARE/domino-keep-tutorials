@@ -32,7 +32,7 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
     msg.headers = {
         "Authorization": global.get("AUTH_KEY")
     }
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byBadge?db=visitors&key=" + msg.badgeUpdate.badgeNo;
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/lists/byBadge?dataSource=visitors&key=" + msg.badgeUpdate.badgeNo;
     return msg;
     ~~~
     {: .code}
@@ -73,7 +73,8 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
         "Content-Type" : "application/json"
     }
     msg.payload = msg.badgeUpdate;
-    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document/" + unid + "?db=visitors&mode=default";
+    msg.payload.Form = "Visitor";
+    msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document/" + unid + "?dataSource=visitors&mode=default";
     return msg;
     ~~~
     {: .code}
@@ -101,7 +102,8 @@ You can test the flow using the dashboard.
 
 To improve the robustness, you could add another Form Access Mode specifically for signing out and only accept the time out. You could modify the default mode so that it could only be used to create documents and could not be used to modify documents (hint: if it's not a new document).
 {: .advanced}
+<p/>
 
 If you do not get the expected outcome you can use Postman to look at the documents in a view, as we did for the Contacts database. You can also connect the output from a function node (or any other node) to a debug node, to see what the payload was at that point in the flow. This can help diagnose incorrect content or HTTP responses.
 {: .troubleshoot}
-<br/>
+<p/>

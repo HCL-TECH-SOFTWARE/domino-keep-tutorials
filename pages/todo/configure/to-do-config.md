@@ -1,46 +1,48 @@
 ---
 layout: default
-prevPage: pages/todo/configure/keep-admin-gui
-nextPage: pages/todo/dataAccess
+prevPage: pages/todo/configure/keep-rest-config-ui
+nextPage: pages/todo/configure/to-do-scope
 slug:
     - label: Domino ToDo Database
       url: pages/todo
     - label: Configuring To Do
       url: pages/todo/configure
-    - To Do Database Configuration
+    - To Do Database Schema Configuration
 ---
 
 {::options parse_block_html="true" /}
 
-### To Do Database Configuration
+### To Do Database Schema Configuration
 
 #### Review Configuration
 
-1. Hover on the right-hand end of the "todo-keep" tile and click on the ellipsis (three dots).
+1. Ensure the slider against **Only show schemas configured with scopes** is switched off.
+1. Click on the "todo-keep" tile.
    ![To Do Menu](../images/configure/to-do-db-tile.png)
-1. Select Properties. You can now view and modify the top-level settings for this Keep Database.
-1. There are no agents in the database. So on the "Config" tab click to disable "Allow Code".
-1. Review the other tabs.
+1. You can now view and modify the settings for this Keep Schema. On the left-hand side of the page you see an overview of the configuration. On the right-hand side you can configure Database Forms, Database Views and Database Agents.
+   ![To Do Config](../images/configure/to-do-db-config.png)
+1. There are no agents in the database. So in the "Configuration" area click to disable "Enable Code". There is also no encrypted field content, so disable "Allow Decryption".
 1. Click the "Update" button.
+1. Click on the "Database Views" tab. No views are currently activated. Views will be activated later. This does not prevent documents being created.
 
 #### Configure "todo" Form
 
-1. Click on the "todo-keep" tile.
 1. On the left-hand side of the page you see an overview of the configuration. On the right-hand side you see the Forms available in the database. If you completed the [Nomad To Do application tutorial](http://paulswithers.github.io/domino_todo/index) you may also see a "dashboard" Form.
 1. Click on "todo" form and, when prompted to configure it for default access, click "Yes".
   ![todo Form Configure](../images/configure/to-do-configure.png)
 1. The "todo" Form will now show as configured, with one mode available.
 1. Click on the tile to open it. The Form configuration opens with the default mode open.
    ![Form Access Modes](../images/configure/form-modes.png)
-1. Click the + sign against each of the following and click "Both":
+1. Click the + sign against each of the following and click "Read / Write":
     - name
     - description
     - duedate
     - priority
+   The "duedate" field will automatically set Field Type to "Date-Time"
    ![Form Access Modes](../images/configure/to-do-form.png)
-2. Click the + sign against "completed" and click "Read Access".
-3. In the "Formula for Delete Access" box type `@False`. This means no one can delete To Dos at this Form Access Mode, regardless of their ACL access.
-4. In the "On Save Formula" box type the following:
+2. Click the + sign against "completed" and click "Read Only". De-select "Multi-Value". Although the field is defined as multi-value in the design, it does not make sense to accept multiple values.
+3. Ensure the "Formula for Delete Access" box has `@False`. This means no one can delete To Dos at this Form Access Mode, regardless of their ACL access.
+4. Scroll down to the "On Save Formula" box and type the following:
    {% raw %}
   ~~~
   @SetField("completed";"false");
@@ -53,10 +55,9 @@ slug:
 
 #### Mark-Complete Mode
 
-1. Click on the "+ Mode" button.
-1. Enter "change-complete" as the Mode Name for the new mode. The new mode appears behind the "default" mode.
-1. Do not add any fields to the "Read Access" area. This will return all fields on the document.
-2. Click the + sign against "completed" and click "Write Access".
+1. Click on the "+ Create Mode" button.
+1. Enter "change-complete" as the Mode Name for the new mode. The new mode replaces the "default" mode, with a drop-down to switch between the modes.
+1. Select all fields. Set "completed" to "Read / Write" but all other fields to "Read only". De-Select "Multi_Value" for the "completed" field.
 3. Click on the "Save" button at the top of the Form Access Mode.
 
 Write Access formulas are tested based on the last saved state of the document, so cannot be used for validation of the current payload. Domino KEEP does allow you to set validation rules for a Form Access Mode, but this tutorial does not cover that.

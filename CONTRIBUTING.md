@@ -63,6 +63,8 @@ Please test all changes locally before submitting. Like many GitHub Pages site, 
 
 Once you have the pre-requisites, open a Terminal window at the root of the repo. You can use Bundler to load the gems required, by issuing the command `bundle install`. Once all the gems are available locally, issue the command `bundle exec jekyll serve` to build the site. The output in the Terminal window will show you the base URL for the site. In the unlikely scenario where you have more than one GitHub Pages site running locally at the same time, append `--port=4001` to run on an alternate port, changing the port number as required.
 
+When you run `bundle install` you will receive a warning that Ruby Sass has reached end-of-life. This is addressed by [a jekyll-sass-converter issue](https://github.com/jekyll/jekyll-sass-converter/issues/74) and will be fixed in the Jekyll 4.0 release. However, GitHub Pages still has a dependency on Jekyll 3.9.2.
+
 ### Pull Requests
 
 Once a tutorial or fix has been tested locally, you're welcome to submit a Pull Request.

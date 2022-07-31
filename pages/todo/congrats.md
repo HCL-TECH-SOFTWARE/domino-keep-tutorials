@@ -18,8 +18,7 @@ You have:
 - Configured an NSF for access under the application name "todo-keep".
 - Configured the Form.
 - Created documents.
-- Viewed and searched the documents.
-- Created an Excel spreadsheet with live data feed.
+- Viewed the documents.
 </div>
 </div>
 
