@@ -15,7 +15,7 @@ slug:
 <div class="panel-body">
 
 You have:
-- Configured an NSF for access under the application name "todo-keep".
+- Configured an NSF for access under the application name "todokeep".
 - Configured the Form.
 - Created documents.
 - Viewed the documents.
