@@ -57,7 +57,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{ADMIN_HOST}}/acl/entries?dataSource=tutorials/ToDo.nsf",
+					"raw": "{{ADMIN_HOST}}/acl/entries?dataSource=ToDo.nsf",
 					"host": [
 						"{{ADMIN_HOST}}"
 					],
@@ -68,7 +68,7 @@
 					"query": [
 						{
 							"key": "dataSource",
-							"value": "tutorials/ToDo.nsf"
+							"value": "ToDo.nsf"
 						}
 					]
 				}

@@ -42,7 +42,7 @@ The **scope** defines _whether_ it is exposed and is stored centrally on the ser
 #### Create To Do Database Schema Configuration
 
 1. Click on the "+ Add Schema" button.
-1. Navigate down to the **tutorials\ToDo.nsf** and select it.
+1. Navigate down to the **ToDo.nsf** and select it.
    ![ToDo Keep](../images/configure/to-do-keep-db.png)
 1. Complete the api name and description. The api name cannot include spaces. Select a database icon.
 1. Click "CREATE".

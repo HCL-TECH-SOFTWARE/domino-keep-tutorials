@@ -33,7 +33,7 @@ KEEP requires authenticated access. You cannot access data anonymously. In addit
 To run through this tutorial you will need the following:
 
 - An HCL Domino server.
-- The XPages ToDo application, put on the Domino server at **tutorials/ToDo.nsf**. with an appropriate ACL.
+- The XPages ToDo application, put on the Domino server at **ToDo.nsf**. with an appropriate ACL.
   - It is included in the [XPages Extension Library release](https://extlib.openntf.org/main.nsf/project.xsp?r=project/XPages%20Extension%20Library/releases/90465DD127801C93852581D0005F915E)
 - A username and password that has is in the KEEPAdmins group on the server.
 - [Postman](https://www.postman.com/) installed.
