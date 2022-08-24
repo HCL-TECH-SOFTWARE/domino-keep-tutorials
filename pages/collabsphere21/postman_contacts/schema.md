@@ -14,7 +14,7 @@ slug:
 
 The schema could be updated via the REST Configuration UI. But because KEEP is API first, it can also be done via REST service calls with an authorized user.
 
-### Get Schema
+### Get Schema
 
 Add a request as previously.
 
@@ -24,7 +24,7 @@ Add a request as previously.
 
 The response will be the current schema, which can be used to update the schema.
 
-### Update Schema
+### Update Schema
 
 Add a request as previously.
 
