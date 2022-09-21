@@ -1,4 +1,4 @@
-# [LABS-###](https://jira01.hclpnp.com/browse/LABS-###)
+# Issue Number
 
 ## Changes description
 
