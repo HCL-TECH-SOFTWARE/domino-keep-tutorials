@@ -65,7 +65,6 @@ Before we can continue creating the design programmatically, we need to expose a
     {% raw %}
     ~~~json
     {
-        "Subject": "Domino Contacts",
         "apiName": "{{CONTACTS}}",
         "schemaName": "{{CONTACTS}}",
         "nsfPath": "collabsphere.nsf",

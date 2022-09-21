@@ -147,7 +147,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Subject\": \"Domino Customers\",\n    \"apiName\": \"customers\",\n    \"schemaName\": \"customers\",\n    \"nsfPath\": \"customers.nsf\",\n    \"isActive\": true\n}"
+					"raw": "{\n    \"apiName\": \"customers\",\n    \"schemaName\": \"customers\",\n    \"nsfPath\": \"customers.nsf\",\n    \"isActive\": true\n}"
 				},
 				"url": {
 					"raw": "{{HOST}}/admin/scope?createSchema=true",

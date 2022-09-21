@@ -51,7 +51,6 @@ Before we can continue creating the design programmatically, we need to expose a
     {% raw %}
     ~~~json
 {
-    "Subject": "Domino Customers",
     "apiName": "customers",
     "schemaName": "customers",
     "nsfPath": "customers.nsf",
