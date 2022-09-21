@@ -45,7 +45,6 @@ You should receive a response that includes the information about the newly-crea
     {% raw %}
     ~~~json
     {
-        "Subject": "Domino Contacts",
         "apiName": "{{VISITORS}}",
         "schemaName": "{{VISITORS}}",
         "nsfPath": "visitors.nsf",
