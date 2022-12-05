@@ -8,7 +8,7 @@
    version="1.1"
    id="svg298"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="HCL_KEEP_lightmode_horiz2.svg"
+   sodipodi:docname="HCL_KEEP_lightmode_horiz.svg"
    xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -337,11 +337,11 @@ AJD+/h9xttH0s8HOhQAAAABJRU5ErkJggg==
        x="0.32381976"
        y="0.11988593" /><text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,0,3.291533)"
+       transform="matrix(0.32075896,0,0,0.5215375,-8.7172868,-3.157501)"
        id="text523"
-       style="font-size:40px;white-space:pre;shape-inside:url(#rect525);fill:#000000"><tspan
+       style="font-size:40px;white-space:pre;shape-inside:url(#rect525);display:inline;fill:#000000"><tspan
          x="117.14844"
          y="41.611328"
-         id="tspan608"><tspan
-           style="font-weight:bold;-inkscape-font-specification:'sans-serif Bold'"
-           id="tspan606">Domino REST API</tspan></tspan></text></g></svg>
+         id="tspan646"><tspan
+           style="-inkscape-font-specification:sans-serif"
+           id="tspan644">Domino REST API</tspan></tspan></text></g></svg>
