@@ -1,1 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 139.86 21.95"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:url(#linear-gradient);}.cls-4{fill:#93a2ad;}.cls-5{fill:#1c262e;}</style><clipPath id="clip-path"><polygon class="cls-1" points="6.09 3.6 6.09 7.33 4 8.56 4 4.8 0 7.11 0 14.95 2.23 16.33 2.23 21.95 12.33 21.95 12.33 0 6.09 3.6"/></clipPath><linearGradient id="linear-gradient" x1="-685.48" y1="817.68" x2="-685.39" y2="817.68" gradientTransform="translate(87111.37 -103899.72) scale(127.08)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff7a7a"/><stop offset="1" stop-color="#ff7de5"/></linearGradient></defs><g id="Layer_2" data-name="Layer 2"><g id="Guides"><g class="cls-2"><rect class="cls-3" width="12.33" height="21.95"/></g><polygon class="cls-4" points="20.22 3.6 20.22 7.33 22.27 8.56 22.27 4.8 26.2 7.11 26.2 14.95 24.01 16.33 24.01 21.95 14.08 21.95 14.08 0 20.22 3.6"/><polygon class="cls-5" points="35.77 3.72 38.48 3.72 38.48 10.12 45.82 10.12 45.82 3.72 48.52 3.72 48.52 19.11 45.82 19.11 45.82 12.62 38.48 12.62 38.48 19.11 35.77 19.11 35.77 3.72"/><path class="cls-5" d="M50.92,11.46v0a7.8,7.8,0,0,1,7.94-8,8,8,0,0,1,6,2.4l-1.74,2a6.13,6.13,0,0,0-4.31-1.91,5.18,5.18,0,0,0-5.08,5.43v0a5.19,5.19,0,0,0,5.08,5.46,6,6,0,0,0,4.42-2L65,16.65a8,8,0,0,1-6.25,2.72,7.74,7.74,0,0,1-7.83-7.91"/><polygon class="cls-5" points="66.95 3.72 69.66 3.72 69.66 16.65 77.75 16.65 77.75 19.11 66.95 19.11 66.95 3.72"/><polygon class="cls-5" points="85.14 3.72 87.85 3.72 87.85 11.46 95.17 3.72 98.52 3.72 92.09 10.34 98.8 19.11 95.5 19.11 90.25 12.18 87.85 14.65 87.85 19.11 85.14 19.11 85.14 3.72"/><polygon class="cls-5" points="100.23 3.72 111.64 3.72 111.64 6.14 102.94 6.14 102.94 10.14 110.65 10.14 110.65 12.56 102.94 12.56 102.94 16.69 111.75 16.69 111.75 19.11 100.23 19.11 100.23 3.72"/><polygon class="cls-5" points="114.08 3.72 125.5 3.72 125.5 6.14 116.79 6.14 116.79 10.14 124.51 10.14 124.51 12.56 116.79 12.56 116.79 16.69 125.61 16.69 125.61 19.11 114.08 19.11 114.08 3.72"/><path class="cls-5" d="M127.94,3.72H134c3.6,0,5.85,2,5.85,5.14v.05c0,3.45-2.77,5.25-6.16,5.25h-3.06v4.95h-2.7V3.72Zm5.85,8c2,0,3.32-1.14,3.32-2.75v0c0-1.8-1.3-2.75-3.32-2.75h-3.15v5.54Z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 139.86 21.95"
+   version="1.1"
+   id="svg74"
+   sodipodi:docname="HCL_KEEP_lightmode_horiz.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview76"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="8.6515086"
+     inkscape:cx="69.93"
+     inkscape:cy="10.980744"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Guides" />
+  <defs
+     id="defs50">
+    <rect
+       x="28.896694"
+       y="2.1961488"
+       width="108.76716"
+       height="17.22243"
+       id="rect290" />
+    <style
+       id="style40">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:url(#linear-gradient);}.cls-4{fill:#93a2ad;}.cls-5{fill:#1c262e;}</style>
+    <clipPath
+       id="clip-path">
+      <polygon
+         class="cls-1"
+         points="6.09 3.6 6.09 7.33 4 8.56 4 4.8 0 7.11 0 14.95 2.23 16.33 2.23 21.95 12.33 21.95 12.33 0 6.09 3.6"
+         id="polygon42" />
+    </clipPath>
+    <linearGradient
+       id="linear-gradient"
+       x1="-685.48"
+       y1="817.68"
+       x2="-685.39"
+       y2="817.68"
+       gradientTransform="translate(87111.37 -103899.72) scale(127.08)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#ff7a7a"
+         id="stop45" />
+      <stop
+         offset="1"
+         stop-color="#ff7de5"
+         id="stop47" />
+    </linearGradient>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2">
+    <g
+       id="Guides">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g54">
+        <rect
+           class="cls-3"
+           width="12.33"
+           height="21.95"
+           id="rect52" />
+      </g>
+      <polygon
+         class="cls-4"
+         points="20.22 3.6 20.22 7.33 22.27 8.56 22.27 4.8 26.2 7.11 26.2 14.95 24.01 16.33 24.01 21.95 14.08 21.95 14.08 0 20.22 3.6"
+         id="polygon56" />
+      <text
+         xml:space="preserve"
+         id="text288"
+         style="white-space:pre;shape-inside:url(#rect290);fill:#000000"
+         transform="matrix(1.0466086,0,0,1.2364728,0.10091052,1.4378946)"><tspan
+           x="28.896484"
+           y="12.8125"
+           id="tspan361">Domino REST API</tspan></text>
+    </g>
+  </g>
+</svg>
