@@ -44,7 +44,7 @@ Before we can continue creating the design programmatically, we need to expose a
 6. Add an HTTP request header "Content-Type" set to "application/json".
 7. On the Body tab change the type to "Raw".
 8. Set the request body content to:
-   
+   {% raw %}
     ~~~json
     {
       "apiName": "demoapi",
