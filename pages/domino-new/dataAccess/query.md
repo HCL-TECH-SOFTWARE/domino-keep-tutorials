@@ -18,8 +18,8 @@ We didn't create a list of contacts. But we can run a dynamic query. Of course, 
 
 ### Getting Contacts for a Customer
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".   
-2. Name the request "create contact" and click "Save".
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".   
+2. Name the request "create contact".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/query?dataSource=customers&action=execute".
 5. Set the headers for "Authorization" and "Content-Type".
