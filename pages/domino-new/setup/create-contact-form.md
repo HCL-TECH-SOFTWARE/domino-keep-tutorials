@@ -15,9 +15,9 @@ slug:
 ### Create Contact Form
 
 1. Hover over the "customer form" request and click on the ellipsis (three dots). Select "Duplicate".  
-1. Change the name of the request to "contact form".
-1. Change the URL as "&#123;&#123;HOST&#125;&#125;/design/forms/Contact?dataSource=customers&nsfPath=tutorials/customers.nsf".
-1. On the Body tab set the request body content to:
+2. Change the name of the request to "contact form" and click save.
+3. Change the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Contact?dataSource=customers.
+4. On the Body tab set the request body content to:
     {% raw %}
     ~~~json
     {
@@ -59,7 +59,7 @@ slug:
     ~~~
     {: .code}
     {% endraw %}
-9. Click "Send" to make the request.
+5. Click "Send" to make the request.
 
 <div class="panel panel-success">
 **Congratulations!**

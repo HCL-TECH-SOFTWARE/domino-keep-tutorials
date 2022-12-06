@@ -12,30 +12,30 @@ slug:
 
 {::options parse_block_html="true" /}
 
-### Accessing Lists
+## Accessing Lists
 
 In the Setup part we created two lists, one of all customers and the other of active customers.
 
-#### Get All Customers
+### Get All Customers
 
-1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
-1. Name the request "get customers" and click "Save to keep-domino".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Customers?dataSource=customers".
-1. Set the headers for "Authorization".
-1. Click "Send".
-1. Save the request.
+1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+2. Name the request "get customers" and click "Save", change the request method to "GET".
+3. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Customers?dataSource=customers".
+4. Set the headers for "Authorization".
+5. Save the request.
+6. Click "Send".
 
 You will receive a list of entries for all customers, with name, category and address.
 {: .alert .alert-success}
 
-#### Get Active Customers
+### Get Active Customers
 
-1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".  
-1. Name the request "get active customers" and click "Save to keep-domino".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Active%20Customers?db=customers".
-1. Set the headers for "Authorization".
-1. Click "Send".
-1. Save the request.
+1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+2. Name the request "get active customers" and click "Save", change the request method to "GET".
+3. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Active%20Customers?dataSource=customers".
+4. Set the headers for "Authorization".
+5. Save the request.
+6. Click "Send".
 
 You will receive a list of entries for all customers, this time with just name and category.
 {: .alert .alert-success}

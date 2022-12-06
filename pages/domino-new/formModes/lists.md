@@ -10,7 +10,7 @@ slug:
     - Database Views
 ---
 
-### Database Views
+## Database Views
 
 In the breadcrumbs, navigate back to the "customers" schema configuration. Switch to the **Database Views** tab. There are three views - Customers, Active Customers and one without a name. The view without a name is automatically generated when the NSF is created and contains all documents in the database.<br/>
 <img src="../images/formModes/customers_schema.png" alt="Databases" width="400px"/>
