@@ -12,17 +12,20 @@ slug:
 
 {::options parse_block_html="true" /}
 
+
+## Contacts
+
 Before creating a contact, you will need to run the "create customer" request again, to have a valid customerUNID in the collection variables to tie the contact to.
 {: .alert .alert-warning}
-### Create a New Contact
+### Create a New Contact ( Document )
 
-1. Hover over the "keep-domino" collection name and click on the ellipsis (three dots). Select "Add Request".
-1. Name the request "create contact" and click "Save to keep-domino".
-1. Change the method from "GET" to "POST".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=customers".
-1. Set the headers for "Authorization" and "Content-Type".
-1. On the Body tab change the type to "Raw".
-1. Set the request body content as below, setting the customerUNID field to the **parentUNID** collection variable set when you created a customer:
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
+2. Name the request "create contact" and click "Save".
+3. Change the method from "GET" to "POST".
+4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=customers".
+5. Set the headers for "Authorization" and "Content-Type".
+6. On the Body tab change the type to "Raw".
+7. Set the request body content as below, setting the customerUNID field to the **parentUNID** collection variable set when you created a customer:
     {% raw %}
     ~~~json
     {
@@ -43,7 +46,7 @@ Before creating a contact, you will need to run the "create customer" request ag
 
 ### Create another New Contact
 
-1. Change the request body content as below:
+1. Change the request body content and repeat the step on the "Create Contact" as below:
     {% raw %}
     ~~~json
     {
@@ -58,4 +61,4 @@ Before creating a contact, you will need to run the "create customer" request ag
     ~~~
     {: .code}
     {% endraw %}
-1. Click "Send".
+2. Click "Send".

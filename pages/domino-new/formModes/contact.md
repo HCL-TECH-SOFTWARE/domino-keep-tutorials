@@ -12,12 +12,12 @@ slug:
 
 {::options parse_block_html="true" /}
 
-### Contact Form Mode
+## Add Contact Form to Configured Forms
 
 1. Click on "customers" in the breadcrumbs to get back to the main schema configuration.
-1. Click on the Contact form to configure it. You will be advised that it will automatically be configured as default, select "Yes". Click on Contact to open it to the form access mode.
-1. Switch the "Show fields from:" drop-down from "Customer" to "Contact".
-1. This will be used for basic CRUD, so select all fields.
+2. Click on the Contact form to configure it. You will be advised that it will automatically be configured as default, select "Yes". Click on Contact to open it to the form access mode.
+3. Switch the "Show fields from:" drop-down from "Customer" to "Contact".
+4. This will be used for basic CRUD, so select all fields.
 
 Designing the Form does not enforce a schema. By not specifying any fields for Read Access, no fields will be returned by GET requests or accepted for POST requests.<br/>
 
@@ -26,7 +26,7 @@ Designing the Form does not enforce a schema. By not specifying any fields for R
 {: .panel-heading}
 <div class="panel-body">
 
-This has configured the Contact form for Keep access. You should now have both forms configured.
+This has configured the Contact form for Domino REST API access. You should now have both forms configured.
 ![Form Access Modes Configured](../images/formModes/form_modes_configured.png)
 </div>
 </div>
