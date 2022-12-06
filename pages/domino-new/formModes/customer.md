@@ -53,9 +53,9 @@ The "Formula for Write Access" could be used to ensure only certain options are 
 {: .panel-heading}
 <div class="panel-body">
 
-This tutorial has enabled the user to:
+This has:
 
-- Configure the Customer form for Domino REST API access.
+- Configured the Customer form for Domino REST API access.
 - Ensured the status field cannot be set in REST API requests for new documents, but is always set to Active.
 - Ensured the default Form Access Mode can be used to read documents at any time, but can only be used to create new documents.
 - Enabled the "update" Form Access Mode for updating Customer documents.
