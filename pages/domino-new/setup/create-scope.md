@@ -26,7 +26,8 @@ The **scope** defines _whether_ it is exposed and is stored centrally on the ser
 Creating the NSF automatically creates a basic **schema**, although with nothing exposed.
 
 Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
-
+</div>
+</div>
 
 ### Viewing The Schema
 
