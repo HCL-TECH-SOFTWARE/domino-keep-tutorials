@@ -19,7 +19,7 @@ In the Setup part we created two lists, one of all customers and the other of ac
 ### Get All Customers
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
-2. Name the request "get customers" and click "Save", change the request method to "GET".
+2. Name the request "get customers", change the request method to "GET" and click "Save".
 3. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Customers?dataSource=customers".
 4. Set the headers for "Authorization".
 5. Save the request.
