@@ -14,7 +14,7 @@ slug:
 
 # Schemas and Scopes
 
-Exposing a database with HCL DOMINO REST API comprises two parts - the **DRAPI Schema** and the **DRAPI Scope**.
+Exposing a database with Domino REST API comprises two parts - the **Domino REST API Schema** and the **Domino REST API Scope**.
 
 The **schema** defines _what_ can be exposed and requires an understanding of the database design. It will usually be set up by a developer and is stored as part of the database.
 
@@ -22,7 +22,7 @@ The **scope** defines _whether_ it is exposed and is stored centrally on the ser
 
 Creating the NSF automatically creates a basic **schema**, although with nothing exposed.
 
-Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the HCL DRAPI REST Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
+Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
 
 
 ### Viewing The Schema
