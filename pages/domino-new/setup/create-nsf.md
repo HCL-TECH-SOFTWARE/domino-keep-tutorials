@@ -23,14 +23,14 @@ An **NSF** (Notes Storage Facility) is a repository for data. As a result, it is
 
 Each NSF has an **ACL** (Access Control List) which manages access to the Notes database, whether for **Users**, **Groups** or **Servers**.
 
-Not all NSFs on the Domino server are exposed via HCL Domino Rest API. You need to explicitly add a **HCL Domino Rest API** configuration for an NSF. This defines the alias for HCL DRAPI requests to use when accessing the database and what kinds of requests are exposed. Creating an NSF via HCL DRAPI automatically creates the DRAPI Database configuration for you.
+Not all NSFs on the Domino server are exposed via Domino Rest API. You need to explicitly add a **Domino Rest API** configuration (Schema) for an NSF. This defines the alias for Domino REST API requests to use when accessing the database and what kinds of requests are exposed. Creating an NSF via Domino REST API automatically creates the Domino REST API Database configuration for you.
 
-The same NSF can be exposed via multiple HCL DRAPI Database configurations. This can be useful for exposing a subset of content to a specific audience and enforcing tighter restrictions. This tutorial will not cover creating multiple HCL DRAPI Database configurations.
+The same NSF can be exposed via multiple Domino REST API Database configurations. This can be useful for exposing a subset of content to a specific audience and enforcing tighter restrictions. This tutorial will not cover creating multiple Domino REST API Database configurations.
 
 </div>
 </div>
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "create nsf" and click "Save".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/nsf?dataSource=customers".
@@ -48,7 +48,7 @@ The same NSF can be exposed via multiple HCL DRAPI Database configurations. This
     {: .code}
     {% endraw %}
     <p/>
-    The "dataSource" query parameter is the HCL DRAPI Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a HCL DRAPI Database Schema with default settings.
+    The "dataSource" query parameter is the Domino REST API Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Domino REST API Database Schema with default settings.
     {: .why #why1}
 9. Click "Send" to make the request.
 ![Create NSF](../images/setup/create-nsf.png)
@@ -57,12 +57,12 @@ The same NSF can be exposed via multiple HCL DRAPI Database configurations. This
     {: .trouble #trouble1}
 10. Save and close the request.
 
-If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a HCL DRAPI Database name as the "dataSource" query parameter.
+If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Domino REST API Database name as the "dataSource" query parameter.
 {: .alert .alert-danger}
 
 ### Creating The Schema (If not created via, Create NSF)
 
-1. Hover over the "HCL DOMINO REST API collection name and click on the ellipsis (three dots). Select "Add Request".
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
 2. Name the request "create schema" and click "Save".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/schema?configName=customer&nsfPath=customers.nsf".
