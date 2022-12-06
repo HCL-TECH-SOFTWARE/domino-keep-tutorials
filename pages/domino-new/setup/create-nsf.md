@@ -454,6 +454,6 @@ This request has:
     - Default has Editor access to the database. Any authenticated users can create, edit and delete documents.
     - Anonymous users have no access to the database.
     - OtherDomainServers group has no access to the database. Untrusted servers cannot access the database.
-- Created a HCL DOMINO REST API (DRAPI) Database Schema configuration under the name "customers" with default settings. REST service access is allowed, DQL (Domino Query Language) can be used by all authenticated users for querying data as well as pre-indexed lists of documents.
+- Created a Domino REST API Database Schema configuration under the name "customers" with default settings. REST service access is allowed, DQL (Domino Query Language) can be used by all authenticated users for querying data as well as pre-indexed lists of documents.
 </div>
 </div>
