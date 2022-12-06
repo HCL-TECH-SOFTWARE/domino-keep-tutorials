@@ -142,7 +142,7 @@ When creating a view, it will automatically be enabled.
 {: .panel-heading}
 <div class="panel-body">
 
-This has:
+This request has:
 
 - Created a list of Customers by name.
 - Created a list of only active customers.
