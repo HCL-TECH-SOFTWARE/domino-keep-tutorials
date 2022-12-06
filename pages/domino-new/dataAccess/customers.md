@@ -64,7 +64,7 @@ The customer will be created and the response will include metadata, including *
 
 ### Get The Customer
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "get customer" and click "Save" change the request to "GET" method.
 3. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{parentUNID}}?dataSource=customers&mode=default". This uses the collection variable set from the value for **@unid** you received when creating the customer.
 4. Set the headers for "Authorization".
@@ -75,7 +75,7 @@ The customer will be created and the response will include metadata, including *
 
 ### Set The Customer Inactive
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "update customer" and click "Save".
 3. Change the method from "GET" to "PUT".
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{parentUNID}}?dataSource=customers&mode=update".
@@ -110,7 +110,7 @@ The customer will be created and the response will include metadata, including *
 
 ### Delete The Customer
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request" and change the request type to "DELETE".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request" and change the request type to "DELETE".  
 2. Name the request "delete customer" and click "Save".
 3. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{parentUNID}}?dataSource=customers&mode=default", replacing UNID with the value for **@unid** you received when creating the customer.
 4. Set the headers for "Authorization".
