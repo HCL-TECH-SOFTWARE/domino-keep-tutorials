@@ -21,7 +21,7 @@ slug:
 3. Switch to the "Variables" tab and add the variables:
    - "HOST" - This should map to the Domino REST API url and should end "/api/v1". For example, if you're running Domino REST API locally and with the default ports, this will be "http://localhost:8880/api/v1".
    - "SETUP-HOST" - This should map to the Domino REST API url and should end "/api/setup-v1". For example, if you're running Domino REST API locally and with the default ports, this will be "http://localhost:8880/api/setup-v1".
-4. Click the save button.
+4. Click the "Save" button.
 
 #### Create Authentication
 
