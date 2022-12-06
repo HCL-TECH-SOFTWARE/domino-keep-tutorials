@@ -90,7 +90,7 @@ If you get a 404 message, verify the method is "PUT" and the Content-Type header
 {: .panel-heading}
 <div class="panel-body">
 
-For a Domino REST API Schema, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via Domino REST API will automatically create a blank Form Access Mode called "default". However, no fields are enabled at this point.
+For a Domino REST API, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via Domino REST API will automatically create a blank Form Access Mode called "default". However, no fields are enabled at this point.
 
 Form Access Modes provide more granular access to documents that use a specific Form. You can:
 
