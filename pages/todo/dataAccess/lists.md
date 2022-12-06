@@ -21,7 +21,7 @@ By default, no lists will be exposed. You need to choose which views should be a
 
 #### Configure Lists
 
-Back in the Keep REST Configuration UI, access the todokeep Keep Database again. This time, switch from "Database Forms" to "Database Views". Select all views.
+Back in the Domino REST API Admin UI, access the todokeep Domino REST API Database again. This time, switch from "Database Forms" to "Database Views". Select all views.
 ![Lists](../images/dataAccess/configure-lists.png)
 Remember to click "Save" to submit the changes.
 

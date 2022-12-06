@@ -18,11 +18,10 @@ If configuration allows DQL, you can also perform DQL queries against an NSF. A 
 
 ### Set Up dql Mode
 
-Back in the Keep REST Configuration UI, access the todokeep Keep Database again. 
+Back in the Domino REST API Admin UI, access the todokeep Domino REST API Database again. 
 
-1. Open the "todo" form and click "+ Create Mode".
-1. Set the mode name as `dql` and click "ADD".
-1. Click the cross on the "Add New Mode" panel to return to the list of fields.
+1. Open the "todo" form and click "+ Add Mode".
+1. Set the mode name as `dql` and click "Save".
 1. Add all fields, setting them all to Read Only.
    ![DQL Mode](../images/dataAccess/dql-mode.png)
 1. Click Save.
