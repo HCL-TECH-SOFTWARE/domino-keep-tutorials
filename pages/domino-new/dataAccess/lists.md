@@ -18,7 +18,7 @@ In the Setup part we created two lists, one of all customers and the other of ac
 
 ### Get All Customers
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "get customers" and click "Save", change the request method to "GET".
 3. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Customers?dataSource=customers".
 4. Set the headers for "Authorization".
@@ -30,8 +30,8 @@ You will receive a list of entries for all customers, with name, category and ad
 
 ### Get Active Customers
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
-2. Name the request "get active customers" and click "Save", change the request method to "GET".
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
+2. Name the request "get active customers", change the request method to "GET" and click "Save".
 3. Set the URL as "&#123;&#123;HOST&#125;&#125;/lists/Active%20Customers?dataSource=customers".
 4. Set the headers for "Authorization".
 5. Save the request.
