@@ -60,7 +60,7 @@ Before we can continue creating the design programmatically, we need to expose a
     ~~~
     {: .code}
     {% endraw %}
-    <p/>    
+    <p/>
 9. Click "Send" to make the request.
 10. Save and close the request.
 
@@ -69,6 +69,6 @@ Before we can continue creating the design programmatically, we need to expose a
 {: .panel-heading}
 <div class="panel-body">
 
-This request has enabled the new scope database to be administered via HCL Domino Rest API.
+This request has enabled the new scope database to be administered via Domino Rest API.
 </div>
 </div>
