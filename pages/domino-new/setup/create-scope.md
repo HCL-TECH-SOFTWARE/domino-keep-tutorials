@@ -58,7 +58,9 @@ Before we can continue creating the design programmatically, we need to expose a
       "server": "*" 
     }
     ~~~
-    
+    {: .code}
+    {% endraw %}
+    <p/>    
 9. Click "Send" to make the request.
 10. Save and close the request.
 
