@@ -14,7 +14,7 @@ slug:
 
 ### Create Customer Form
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "customer form" and click save.
 3. Change the method from "GET" to "PUT".
 4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Customer?dataSource=customers".
@@ -90,7 +90,7 @@ If you get a 404 message, verify the method is "PUT" and the Content-Type header
 {: .panel-heading}
 <div class="panel-body">
 
-For a HCL DOMINO REST API Schema, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via HCL DOMINO REST API will automatically create a blank Form Access Mode called "default". However, no fields are enabled at this point.
+For a Domino REST API Schema, Forms have to explicitly be enabled. Otherwise documents saved with that Form will not be returned by the API. Creating a Form via Domino REST API will automatically create a blank Form Access Mode called "default". However, no fields are enabled at this point.
 
 Form Access Modes provide more granular access to documents that use a specific Form. You can:
 
@@ -107,7 +107,7 @@ Form Access Modes provide more granular access to documents that use a specific 
 {: .panel-heading}
 <div class="panel-body">
 
-This request has:
+This has:
 
 - Created a form in the customers database Schema.
 - Added fields to the form.
