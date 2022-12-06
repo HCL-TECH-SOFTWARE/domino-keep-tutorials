@@ -12,7 +12,7 @@ slug:
 
 {::options parse_block_html="true" /}
 
-## Add a Form to Configured Forms
+## Add Contact Form to Configured Forms
 
 1. Click on "customers" in the breadcrumbs to get back to the main schema configuration.
 2. Click on the Contact form to configure it. You will be advised that it will automatically be configured as default, select "Yes". Click on Contact to open it to the form access mode.
@@ -26,7 +26,7 @@ Designing the Form does not enforce a schema. By not specifying any fields for R
 {: .panel-heading}
 <div class="panel-body">
 
-This has configured the Contact form for HCL DOMINO REST API access. You should now have both forms configured.
+This has configured the Contact form for Domino REST API access. You should now have both forms configured.
 ![Form Access Modes Configured](../images/formModes/form_modes_configured.png)
 </div>
 </div>
