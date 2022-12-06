@@ -19,7 +19,7 @@ Lists are collections of documents stored in Domino View design elements. This p
 
 #### "Customers By Name" Lists
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "customers list" and click Save by.
 3. Change the method from "GET" to "PUT".
 4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/views/Customers?dataSource=customers".
@@ -130,7 +130,7 @@ Setting `separatemultiplevalues` to true will display the same document multiple
 {: .panel-heading}
 <div class="panel-body">
 
-For a HCL Domino REST API Schema Database, lists have to explicitly be enabled for use. This provides flexibility for other methods of access to the NSF, e.g. Notes Client. It also provides the ability to create different Keep HCL DOMINO REST API database configurations for different audiences.
+For Domino REST API, lists have to explicitly be enabled for use. This provides flexibility for other methods of access to the NSF, e.g. Notes Client. It also provides the ability to create different database configurations for different audiences.
 
 When creating a view, it will automatically be enabled.
 
@@ -142,7 +142,7 @@ When creating a view, it will automatically be enabled.
 {: .panel-heading}
 <div class="panel-body">
 
-This request has:
+This has:
 
 - Created a list of Customers by name.
 - Created a list of only active customers.
