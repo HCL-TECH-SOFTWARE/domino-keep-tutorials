@@ -13,7 +13,10 @@ slug:
 {::options parse_block_html="true" /}
 
 # Schemas and Scopes
-
+<div class="panel panel-info">
+Schemas and Scopes
+{: .panel-heading}
+<div class="panel-body">
 Exposing a database with Domino REST API comprises two parts - the **Domino REST API Schema** and the **Domino REST API Scope**.
 
 The **schema** defines _what_ can be exposed and requires an understanding of the database design. It will usually be set up by a developer and is stored as part of the database.
