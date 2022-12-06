@@ -70,7 +70,7 @@ If an NSF already exists at the filepath, this API call will fail. It will also 
 6. Add an HTTP request header "Content-Type" set to "application/json".
 7. On the Body tab change the type to "Raw".
 8. Set the request body content to:
-   
+    {% raw %}
     ~~~json
       {
         "@unid": "6334EDA70A42ABB948258846002F115C",
@@ -437,7 +437,9 @@ If an NSF already exists at the filepath, this API call will fail. It will also 
         ]
     }
     ~~~
-    
+    {: .code}
+    {% endraw %}
+        
 9. Click "Send" to make the request.
 10. Save and close the request.
 
