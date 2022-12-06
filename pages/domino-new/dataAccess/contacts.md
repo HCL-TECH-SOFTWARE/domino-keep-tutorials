@@ -19,7 +19,7 @@ Before creating a contact, you will need to run the "create customer" request ag
 {: .alert .alert-warning}
 ### Create a New Contact ( Document )
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
 2. Name the request "create contact" and click "Save".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=customers".
