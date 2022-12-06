@@ -16,18 +16,19 @@ slug:
 
 #### Create Collection
 
-1. On the Collections tab, click the "New Collections" button.  
-2. In the "CREATE A NEW COLLECTION" dialog, set the Name as "HCL DOMINO REST API".  
-3. On the Variables tab of the dialog, add a new variable called "HOST". This should map to the Domino REST API url and should end "/api/v1". For example, if you're running DRAPI locally and with the default ports, this will be "http://localhost:8880/api/v1".  
-4. Click "Create".
-![Postman Environment](../images/setup/collection.jpg)
+1. On the Collections tab, click the "New" button and then select "Collection".
+2. In the "New Collection" screen, set the Name as "Domino-REST-API-NewDB".  
+3. Switch to the "Variables" tab and add the variables:
+   - "HOST" - This should map to the Domino REST API url and should end "/api/v1". For example, if you're running Domino REST API locally and with the default ports, this will be "http://localhost:8880/api/v1".
+   - "SETUP-HOST" - This should map to the Domino REST API url and should end "/api/setup-v1". For example, if you're running Domino REST API locally and with the default ports, this will be "http://localhost:8880/api/setup-v1".
+4. Click the save button.
 
 #### Create Authentication
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request".  
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 <img src="../images/setup/add-request.jpg" alt="Postman Add Request" width="250" />
 
-2. Name the request "authenticate" and click save.  
+2. Name the request "authenticate".  
 3. Change the method from "GET" to "POST".  
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/auth".  
 5. On the Headers tab add a header for "Content-Type", set to "application/json".  
