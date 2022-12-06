@@ -13,7 +13,7 @@ slug:
 
 ## Introduction
 
-HCL Domino REST API, provides secure REST API access into HCL Domino. This tutorial will walk you through:  
+HCL Domino REST API (previously known as HCL Project KEEP), provides secure REST API access into HCL Domino. This tutorial will walk you through:  
 
 - Creating a new Domino database.
 - Adding Forms for Customers and Contacts.
