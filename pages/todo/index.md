@@ -14,9 +14,9 @@ slug:
 HCL Domino REST API provides secure REST API access into HCL Domino. This tutorial will walk you through:  
 
 - Importing the XPages ToDo Application.
-- Configuring it for validated Keep API access.
+- Configuring it for validated Domino REST API access.
 - Adding validation to ensure status cannot be set to an invalid value.
-All steps will be done via the KeepAdmin GUI.
+All steps will be done via the Domino REST API Admin UI.
 
 <div class="panel panel-info">
 **Note**
