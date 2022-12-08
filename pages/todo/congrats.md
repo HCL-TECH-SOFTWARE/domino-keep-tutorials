@@ -15,7 +15,7 @@ slug:
 <div class="panel-body">
 
 You have:
-- Configured an NSF for access under the application name "todokeep".
+- Configured an NSF for access under the application name "todorest".
 - Configured the Form.
 - Created documents.
 - Viewed the documents.
@@ -27,6 +27,6 @@ Troubleshooting
 {: .panel-heading}
 <div class="panel-body">
 
-If you have encountered any problems, <a href="../todo/postman/keep-notes.postman_collection.json">here</a> is the Postman collection you should have. The authentication details and server name may vary.
+If you have encountered any problems, <a href="../todo/postman/domino-restapi-todo.postman_collection.json">here</a> is the Postman collection you should have. The authentication details and server name may vary.
 </div>
 </div>

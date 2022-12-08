@@ -18,20 +18,20 @@ If configuration allows DQL, you can also perform DQL queries against an NSF. A 
 
 ### Set Up dql Mode
 
-Back in the Domino REST API Admin UI, access the todokeep Domino REST API Database again. 
+Back in the Domino REST API Admin UI, access the todorest Domino REST API Database again. 
 
 1. Open the "todo" form and click "+ Add Mode".
-1. Set the mode name as `dql` and click "Save".
-1. Add all fields, setting them all to Read Only.
+2. Set the mode name as `dql` and click "Save".
+3. Add all fields, setting them all to Read Only.
    ![DQL Mode](../images/dataAccess/dql-mode.png)
-1. Click Save.
+4. Click Save.
 
 #### Run a Query
 
-1. Hover over the "keep-notes" collection name and click on the ellipsis (three dots). Select "Add Request".
-1. Name the request "query data" and click "Save to keep-notes".
+1. Hover over the "domino-restapi-todo" collection name and click on the ellipsis (three dots). Select "Add Request".
+1. Name the request "query data" and click "Save to domino-restapi-todo".
 1. Change the method from "GET" to "POST".
-1. Set the URL as {% raw %}"{{HOST}}/query?action=execute&dataSource=todokeep"{% endraw %}.
+1. Set the URL as {% raw %}"&#123;&#123;HOST&#125;&#125;/query?action=execute&dataSource=todorest"{% endraw %}.
 1. Set the headers for "Authorization" and Content-Type.
 1. On the Body tab change the type to "Raw".
 1. Set the request body content to:

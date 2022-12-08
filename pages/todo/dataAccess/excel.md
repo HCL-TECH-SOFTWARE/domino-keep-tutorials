@@ -22,7 +22,7 @@ slug:
 1. Launch Excel and open a new Workbook.
 1. On the Data tab, click on Get Data > From Other Sources > From OData Feed.
 <img src="../images/dataAccess/odata.jpg" alt="OData Feed" width="250px"/>
-1. In the dialog box, enter the URL mapping to the Domino KEEP OData endpoint at "/api/v1/odata/todo-keep". So if your Domino server is on the same machine, this will be "http://localhost:8880/api/v1/odata/todo-keep".
+1. In the dialog box, enter the URL mapping to the Domino REST API OData endpoint at "/api/v1/odata/todorest". So if your Domino server is on the same machine, this will be "http://localhost:8880/api/v1/odata/todorest".
 1. In the Navigator window, click on "todo"
 ![OData Navigator](../images/dataAccess/odata-navigator.jpg)
 1. Click "Load".

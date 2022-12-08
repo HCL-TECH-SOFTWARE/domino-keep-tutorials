@@ -7,7 +7,7 @@ slug:
       url: pages/todo
     - label: Configuring To Do
       url: pages/todo/configure
-    - Keep REST Configuration UI
+    - Domino REST API Configuration UI
 ---
 
 {::options parse_block_html="true" /}
@@ -18,14 +18,14 @@ slug:
 
 In a browser, open the Domino REST API homepage. This is "http://" + Domino fully qualified hostname + ":8880/". So if your Domino server is on the same machine, this will be "http://localhost:8880/".
 
-![Project KEEP Homepage](../images/configure/project-keep-landing.png)
+![Domino REST API Homepage](../images/configure/project-keep-landing.png)
 
 #### Logging In
 
 1. Click on the **Configuration** link.
 1. Log in with a username and password that has at least Editor access to the Domino REST API Configuration database.
 1. You are now on the Domino REST API Admin UI landing page. You can expand the sidebar by clicking on the hamburger icon. There are also links in boxes on the landing page.
-   ![HCL KEEP Admin Landing Page](../images/configure/project-keep-homepage.png)
+   ![Domino REST API Admin Landing Page](../images/configure/project-keep-homepage.png)
    1. **Database Management - REST API** allows you to define the schema for accessing an NSF. This defines the forms, views and agents exposed.
    1. **Database Management - Activation** manages scopes - whether or not schemas are exposed and under which name.
    1. **Application Management - OAUTH** allow access to one or more Domino REST API Scopes with app ID and app secret in addition to user authentication. This is designed for server-to-server access, where the app ID and app secret are only known to the application making the requests. Examples would be Node-RED nodes, a React application or a Java application. For requests direct from a browser the HTTP request headers can be viewed by the userd, so there is no point adding an app ID or app secret to this.
@@ -43,7 +43,7 @@ The **scope** defines _whether_ it is exposed and is stored centrally on the ser
 
 1. Click on the "+ Add Schema" button.
 1. Navigate down to the **ToDo.nsf** and select it.
-   ![ToDo Keep](../images/configure/to-do-keep-db.png)
+   ![ToDo Domino REST API](../images/configure/to-do-keep-db.png)
 1. Complete the api name and description. The api name cannot include spaces. Select a database icon.
 1. Click "CREATE".
 
