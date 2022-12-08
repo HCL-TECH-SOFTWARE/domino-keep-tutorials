@@ -18,4 +18,4 @@ All requests must be authenticated. As a result, all Postman requests are expect
 
 - HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;".
 - HTTP request header "Content-Type" set to "application/json" if it is a PUT or POST.
-- We have configured the NSF for access under the name "todokeep", so every API will use the querystring parameter `?dataSource=todokeep`.
+- We have configured the NSF for access under the name "todorest", so every API will use the querystring parameter `?dataSource=todorest`.

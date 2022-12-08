@@ -16,18 +16,18 @@ slug:
 
 #### Create ToDo
 
-1. Hover over the "keep-notes" collection name and click on the ellipsis (three dots). Select "Add Request".
-1. Name the request "create todo" and click "Save to keep-notes".
-1. Change the method from "GET" to "POST".
-1. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=todokeep".
-1. Set the headers for "Authorization" and "Content-Type".
-1. On the Body tab change the type to "Raw".
-1. Set the request body content to:
+1. Hover over the "domino-restapi-todo" collection name and click on the ellipsis (three dots). Select "Add Request".
+2. Name the request "create todo" and click "Save to domino-restapi-todo".
+3. Change the method from "GET" to "POST".
+4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=todorest".
+5. Set the headers for "Authorization" and "Content-Type".
+6. On the Body tab change the type to "Raw".
+7. Set the request body content to:
     {% raw %}
     ~~~json
     {
       "Form": "todo",
-      "name": "Sample to do from Keep",
+      "name": "Sample to do from rest",
       "description": "Create some To Dos",
       "duedate": "2021-06-07T08:00:00.000Z",
       "priority": "Medium"
@@ -35,7 +35,7 @@ slug:
     ~~~
     {: .code}
     {% endraw %}
-1. A future REST service will update the To Do. Instead of manually setting the UNID each time, JavaScript code can be run in a test to extract the UNID from the response and store it in a collection variable. On the Test tab add the following test:
+8. A future REST service will update the To Do. Instead of manually setting the UNID each time, JavaScript code can be run in a test to extract the UNID from the response and store it in a collection variable. On the Test tab add the following test:
     {% raw %}
      ~~~javascript
 pm.test("Status code is 200", function () {
@@ -56,7 +56,7 @@ pm.test("Create ToDo", function () {
 The ToDo will be created and the created document returned back. Note that it now has "completed" set to "false" and an @unid.
    ![Create ToDo](../images/dataAccess/create-todo.png)
 
-Click on the "keep-notes" collection and click on the Variables tab. You will see UNID has now been set with a value.
+Click on the "domino-restapi-todo" collection and click on the Variables tab. You will see UNID has now been set with a value.
    ![Collection Variables](../images/dataAccess/collection-vars.png)
 
 #### Bad Requests
@@ -67,10 +67,10 @@ Click on the "keep-notes" collection and click on the Variables tab. You will se
 
 #### Mark Complete / Incomplete
 
-1. Hover over the "keep-notes" collection name and click on the ellipsis (three dots). Select "Add Request".
-2. Name the request "change complete" and click "Save to keep-notes".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/{{UNID}}?db=todo-keep&dataSource=change-complete". The "create todo" request added a test that saved the UNID of the created document to the collection variables, so we can just reference that in the URL.
+1. Hover over the "domino-restapi-todo" collection name and click on the ellipsis (three dots). Select "Add Request".
+2. Name the request "change complete" and click "Save to domino-restapi-todo".
+3. Change the method from "GET" to "PUT".
+4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document/&#123;&#123;UNID&#125;&#125;?dataSource=todorest&mode=change-complete". The "create todo" request added a test that saved the UNID of the created document to the collection variables, so we can just reference that in the URL.
 5. Set the headers for "Authorization" and "Content-Type".
 6. On the Body tab change the type to "Raw".
 7. Set the request body content to:
@@ -83,8 +83,8 @@ Click on the "keep-notes" collection and click on the Variables tab. You will se
   ~~~
   {: .code}
   {% endraw %}
-8. Click "Send".
-9. Save the request.
+1. Click "Send".
+2. Save the request.
 
 #### Bad Request
 

@@ -7,7 +7,7 @@ slug:
 
 {::options parse_block_html="true" /}
 
-![Domino KEEP](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino KEEP")
+![Domino REST API](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino REST API")
 
 ### Introduction
 
@@ -35,7 +35,7 @@ To run through this tutorial you will need the following:
 - An HCL Domino server.
 - The XPages ToDo application, put on the Domino server at **ToDo.nsf**. with an appropriate ACL.
   - It is included in the [XPages Extension Library release](https://extlib.openntf.org/main.nsf/project.xsp?r=project/XPages%20Extension%20Library/releases/90465DD127801C93852581D0005F915E)
-- A username and password that has is in the KEEPAdmins group on the server.
+- A username and password that is in the KEEPAdmins group on the server.
 - [Postman](https://www.postman.com/) installed.
 
 <div class="panel panel-info">
@@ -51,7 +51,7 @@ Why Postman?
 {: .panel-heading}
 <div class="panel-body">
 
-Of course your end users would not use Postman to push data into HCL Domino via Domino REST API. And you would not use KEEP from a NotesHTTPRequest in LotusScript or an XPages application. But the (non-Domino) application you or a third-party build will use REST service calls to connect. Postman is an easy REST Client that allows you to test those REST service calls without needing to build a full web or rich client application. Command-line curl commands would be another option, but Postman has a lower barrier of entry. Once you're familiar with the REST service calls for Domino REST API, calling it from a web application is the same as calling any other REST service.
+Of course your end users would not use Postman to push data into HCL Domino via Domino REST API. And you would not use Domino REST API from a NotesHTTPRequest in LotusScript or an XPages application. But the (non-Domino) application you or a third-party build will use REST service calls to connect. Postman is an easy REST Client that allows you to test those REST service calls without needing to build a full web or rich client application. Command-line curl commands would be another option, but Postman has a lower barrier of entry. Once you're familiar with the REST service calls for Domino REST API, calling it from a web application is the same as calling any other REST service.
 </div>
 </div>
 
@@ -61,10 +61,10 @@ Of course your end users would not use Postman to push data into HCL Domino via 
 <div class="panel-body">
 HCL Domino REST API takes a "Security First" approach to Domino.
 
-- By default no NSFs are exposed for access via Domino REST API. **YOU** explicitly enable access. (Of course Domino REST API is also API first, so you could automate a process to generate Keep Schema and Scope configurations for multiple databases, if you wish.)
+- By default no NSFs are exposed for access via Domino REST API. **YOU** explicitly enable access. (Of course Domino REST API is also API first, so you could automate a process to generate Domino REST API Schema and Scope configurations for multiple databases, if you wish.)
 - When an NSF is exposed, by default no agents can be triggered, no Views are available and no Forms are configured.
 - Agents can be exposed - you choose which agents in the **Domino REST API Admin UI**.
-- DQL access is enabled by default, allowing users to run DQL queries. But if a DQL query returns a document whose Form is not configured, Keep will exclude it.
+- DQL access is enabled by default, allowing users to run DQL queries. But if a DQL query returns a document whose Form is not configured, Domino REST API will exclude it.
 - If you want to prevent DQL queries, it can be done by a click of the mouse in the Domino REST API Schema configuration.
 - When you configure a Form for Domino REST API access you decide:
   - Which fields are sent to the user.

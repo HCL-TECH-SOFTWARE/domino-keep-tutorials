@@ -17,9 +17,9 @@ slug:
 #### Review Configuration
 
 1. Ensure the slider against **Only show schemas configured with scopes** is switched off.
-1. Click on the "todo-keep" tile.
+1. Click on the "todorest" tile.
    ![To Do Menu](../images/configure/to-do-db-tile.png)
-1. You can now view and modify the settings for this Keep Schema. On the left-hand side of the page you see an overview of the configuration. On the right-hand side you can configure Database Forms, Database Views and Database Agents.
+1. You can now view and modify the settings for this Domino REST API Schema. On the left-hand side of the page you see an overview of the configuration. On the right-hand side you can configure Database Forms, Database Views and Database Agents.
 1. There are no agents in the database. So in the "Configuration" area click to disable "Enable Code". There is also no encrypted field content, so disable "Allow Decryption".
 1. Click the "Update" button.
 1. Click on the "Database Views" tab. No views are currently activated. Views will be activated later. This does not prevent documents being created.
@@ -57,9 +57,9 @@ slug:
 1. Click on the "+ Add Mode" button.
 1. Enter "change-complete" as the Mode Name for the new mode. The new mode replaces the "default" mode, with a drop-down to switch between the modes.
 1. Select all fields. Set "completed" to "Read / Write" but all other fields to "Read only". De-Select "Multi_Value" for the "completed" field.
-3. Click on the "Save" button at the top of the Form Access Mode.
+1. Click on the "Save" button at the top of the Form Access Mode.
 
-Write Access formulas are tested based on the last saved state of the document, so cannot be used for validation of the current payload. Domino KEEP does allow you to set validation rules for a Form Access Mode, but this tutorial does not cover that.
+Write Access formulas are tested based on the last saved state of the document, so cannot be used for validation of the current payload. Domino REST API does allow you to set validation rules for a Form Access Mode, but this tutorial does not cover that.
 {: .alert .alert-info}
 
 <div class="panel panel-success">

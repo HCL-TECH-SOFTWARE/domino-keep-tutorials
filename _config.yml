@@ -13,14 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: HCL KEEP Tutorials
-description: Tutorial for HCL KEEP
+title: HCL Domino REST API Tutorials
+description: Tutorial for HCL Domino REST API
 baseurl: /domino-keep-tutorials
 url:  # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  
 repository: hcl-tech-software/domino-keep-tutorials # GitHub repo, e.g. paulswithers/project-jig3dw
-copyright_info: "&copy; Copyright HCL America, Inc. 2021"
+copyright_info: "&copy; Copyright HCL America, Inc. 2022"
 
 # Build settings
 markdown: kramdown

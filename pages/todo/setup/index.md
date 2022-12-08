@@ -12,6 +12,6 @@ slug:
 
 ### Setup
 
-In the initial setup we will check connection to HCL Domino REST API and ACL of the ToDo database, via Postman.
+In the initial setup we will check the connection to HCL Domino REST API and ACL of the ToDo database, via Postman.
 
 Administering Domino REST API is generally done via the browser-based Domino REST API Admin UI. But HCL Domino REST API is "API first", and we will demonstrate that by accessing the ACL via Postman.

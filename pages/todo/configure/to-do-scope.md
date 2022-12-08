@@ -19,8 +19,8 @@ The To Do database has been configured with a **schema** to define _what_ we wan
 1. In the left-hand navigation, click on "Scopes" (the "target" icon).
    ![To Do Menu](../images/configure/to-do-scopes.png)
 1. Click on the "+ Add Scope" button.
-1. Expand **ToDo.nsf** and select the **todokeep** schema.
-1. Set the scope name to **todokeep**. A scope name does not have to be the same as the schema name. Having the same scope and schema name may make it easier to manage when lots of schemas have been set up. But it requires greater forethought to ensure uniqueness.
+1. Expand **ToDo.nsf** and select the **todorest** schema.
+1. Set the scope name to **todorest**. A scope name does not have to be the same as the schema name. Having the same scope and schema name may make it easier to manage when lots of schemas have been set up. But it requires greater forethought to ensure uniqueness.
     - The schema name only has to be unique for each database, only internal and just for developers and administrators managing Domino REST API.
     - The scope name has to be unique for all NSFs on the server, is visible to people consuming the REST APIs and will appear as the query string parameter to access the database via Domino REST API.
 1. Complete the other details, leaving the tick in "Active". If active, the scope and schema can be used from REST clients and anything that can make REST requests.
