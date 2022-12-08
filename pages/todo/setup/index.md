@@ -12,6 +12,6 @@ slug:
 
 ### Setup
 
-In the initial setup we will check connection to HCL Project KEEP and ACL of the ToDo database, via Postman.
+In the initial setup we will check connection to HCL Domino REST API and ACL of the ToDo database, via Postman.
 
-Administering KEEP is generally done via the browser-based REST Configuration GUI. But HCL Project KEEP is "API first", and we will demonstrate that by accessing the ACL via Postman.
+Administering Domino REST API is generally done via the browser-based Domino REST API Admin UI. But HCL Domino REST API is "API first", and we will demonstrate that by accessing the ACL via Postman.

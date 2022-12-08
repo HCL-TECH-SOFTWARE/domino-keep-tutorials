@@ -12,4 +12,4 @@ slug:
 
 ### Configuration
 
-We will now configure the To Do database for access via HCL Project KEEP. This is done via the REST Configuration UI, accessible from the Project KEEP homepage.
+We will now configure the To Do database for access via HCL Domino REST API. This is done via the REST Configuration UI, accessible from the Domino REST API homepage.

@@ -54,7 +54,7 @@ slug:
 
 #### Mark-Complete Mode
 
-1. Click on the "+ Create Mode" button.
+1. Click on the "+ Add Mode" button.
 1. Enter "change-complete" as the Mode Name for the new mode. The new mode replaces the "default" mode, with a drop-down to switch between the modes.
 1. Select all fields. Set "completed" to "Read / Write" but all other fields to "Read only". De-Select "Multi_Value" for the "completed" field.
 3. Click on the "Save" button at the top of the Form Access Mode.
@@ -67,7 +67,7 @@ Write Access formulas are tested based on the last saved state of the document, 
 {: .panel-heading}
 <div class="panel-body">
 
-This has configured the To Do form for Keep access, with two Form Modes. One is for updating various the To Do. The other can only be used for marking completed or not completed.
+This has configured the To Do form for Domino REST API access, with two Form Modes. One is for updating various the To Do. The other can only be used for marking completed or not completed.
 </div>
 </div>
 
@@ -76,6 +76,6 @@ This has configured the To Do form for Keep access, with two Form Modes. One is 
 {: .panel-heading}
 <div class="panel-body">
 
-An NSF can be exposed via multiple Keep Database configurations, with different settings. This is particularly useful for obfuscating access to administrative areas or exposing DQL access only for server-to-server access via Keep Application configurations.
+An NSF can be exposed via multiple Domino REST API Database configurations, with different settings. This is particularly useful for obfuscating access to administrative areas or exposing DQL access only for server-to-server access via Domino REST API Application configurations.
 </div>
 </div>
