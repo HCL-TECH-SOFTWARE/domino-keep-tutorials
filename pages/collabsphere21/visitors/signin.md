@@ -40,13 +40,13 @@ NOTE: The Node-RED dashboard is a single instance displayed for all connected us
 1. In the **dashboard** category, drag a **media** node onto the canvas. The node does not need wiring to anything.
    - On **Group**, click "Add new dashboard group...". Click the pencil. Against Tab click "Add new dashboard tab...". Click the pencil. Name the new tab "Home" and click "Add". Name the new group "New Visitor" and untick "Display group name". Set the Size to 12 and click "Add".
    - Set the Size to "2 x 1".
-   - On the Files tab, against Category, click the drop down and select "Add new...". Call it "keep".
+   - On the Files tab, against Category, click the drop down and select "Add new...". Call it "restapi".
    - Against "File", click the drop down and select "Add new...".
-   - Click the "Choose Files" button, select the KeepNewIcon.png image downloaded earlier. Click the upload button. Click Done.
+   - Click the "Choose Files" button, select the restapiIcon.png image downloaded earlier. Click the upload button. Click Done.
 2. In the **dashboard** category, drag a **text** node onto the canvas. The node does not need adding to anything.
    - Select the New Visitor group created in the last step.
    - Set the Size to "6 x 1".
-   - Set the Label to "KEEP VISITORS".
+   - Set the Label to "RESTAPI VISITORS".
 
 ### Sign In Form
 

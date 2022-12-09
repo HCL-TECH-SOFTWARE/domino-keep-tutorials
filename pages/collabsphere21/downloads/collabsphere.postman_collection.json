@@ -76,9 +76,9 @@
 					"raw": "{\n    \"nsfPath\" : \"collabsphere.nsf\",\n    \"title\" : \"Collabsphere Demo\"\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/nsf?dataSource={{CONTACTS}}",
+					"raw": "{{SETUPHOST}}/design/nsf?dataSource={{CONTACTS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -115,9 +115,9 @@
 					"raw": "{\n    \"apiName\": \"{{CONTACTS}}\",\n    \"schemaName\": \"{{CONTACTS}}\",\n    \"nsfPath\": \"collabsphere.nsf\",\n    \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/admin/scope?createSchema=true",
+					"raw": "{{SETUPHOST}}/admin/scope?createSchema=true",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"admin",
@@ -149,9 +149,9 @@
 					"raw": "{\n    \"name\" : \"Contact\",\n    \"alias\": \"\",\n    \"fields\" : [\n        {\n            \"name\" : \"first_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"last_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"email\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"gender\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"city\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"state\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/forms/Contact?dataSource={{CONTACTS}}",
+					"raw": "{{SETUPHOST}}/design/forms/Contact?dataSource={{CONTACTS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -184,9 +184,9 @@
 					"raw": "{\n    \"name\" : \"byName\",\n    \"selectionFormula\" : \"Form = \\\"Contact\\\"\",\n    \"columns\" : [\n\t\t{\n\t\t\t\"name\": \"firstName\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"firstName\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"email\",\n\t\t\t\"title\": \"Email\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"email\"\n\t\t},\n        {\n\t\t\t\"name\": \"city\",\n\t\t\t\"title\": \"City\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"city\"\n\t\t},\n        {\n\t\t\t\"name\": \"state\",\n\t\t\t\"title\": \"State\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"state\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byName?dataSource={{CONTACTS}}",
+					"raw": "{{SETUPHOST}}/design/views/byName?dataSource={{CONTACTS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -219,9 +219,9 @@
 					"raw": "{\n    \"name\" : \"byState\",\n    \"selectionFormula\" : \"Form = \\\"Contact\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"state\",\n\t\t\t\"title\": \"State\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"state\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"firstName\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"firstName\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"email\",\n\t\t\t\"title\": \"Email\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"email\"\n\t\t},\n        {\n\t\t\t\"name\": \"city\",\n\t\t\t\"title\": \"City\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"city\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byState?dataSource={{CONTACTS}}",
+					"raw": "{{SETUPHOST}}/design/views/byState?dataSource={{CONTACTS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -244,9 +244,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf",
+					"raw": "{{SETUPHOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"schema"
@@ -278,12 +278,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nsfPath\": \"collabsphere.nsf\",\n    \"iconName\": \"KEEP\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"description\": \"Collabsphere Demo\",\n    \"formulaEngine\": \"domino\",\n    \"schemaName\": \"contacts\",\n    \"requireRevisionToUpdate\": false,\n    \"allowDecryption\": false,\n    \"cacheTimestamp\": 1,\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@True\"\n    },\n    \"allowCode\": false,\n    \"openAccess\": true,\n    \"forms\": [\n        {\n            \"formName\": \"Contact\",\n            \"alias\": [\n                \"Contact\"\n            ],\n            \"formModes\": [\n                {\n                    \"modeName\": \"default\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"email\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"gender\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"city\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"state\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                },\n                {\n                    \"modeName\": \"dql\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"email\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"gender\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"city\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"state\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                }\n            ]\n        }\n    ],\n    \"isActive\": true,\n    \"prohibitRefresh\": true,\n    \"views\": [\n        {\n            \"name\": \"byState\",\n            \"alias\": [\n                \"byState\"\n            ],\n            \"unid\": \"ED543CAECB0A55D2C125888C00533B98\"\n        },\n        {\n            \"name\": \"byName\",\n            \"alias\": [\n                \"byName\"\n            ],\n            \"unid\": \"2DAFEAC3DAE99325C125888C0051AB94\"\n        }\n    ]\n}"
+					"raw": "{\n    \"nsfPath\": \"collabsphere.nsf\",\n    \"iconName\": \"postcard\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"description\": \"Collabsphere Demo\",\n    \"formulaEngine\": \"domino\",\n    \"schemaName\": \"contacts\",\n    \"requireRevisionToUpdate\": false,\n    \"allowDecryption\": false,\n    \"cacheTimestamp\": 1,\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@True\"\n    },\n    \"allowCode\": false,\n    \"openAccess\": true,\n    \"forms\": [\n        {\n            \"formName\": \"Contact\",\n            \"alias\": [\n                \"Contact\"\n            ],\n            \"formModes\": [\n                {\n                    \"modeName\": \"default\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"email\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"gender\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"city\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"state\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                },\n                {\n                    \"modeName\": \"dql\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"email\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"gender\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"city\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"state\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": true,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                }\n            ]\n        }\n    ],\n    \"isActive\": true,\n    \"prohibitRefresh\": true,\n    \"views\": [\n        {\n            \"name\": \"byState\",\n            \"alias\": [\n                \"byState\"\n            ],\n            \"unid\": \"ED543CAECB0A55D2C125888C00533B98\"\n        },\n        {\n            \"name\": \"byName\",\n            \"alias\": [\n                \"byName\"\n            ],\n            \"unid\": \"2DAFEAC3DAE99325C125888C0051AB94\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf",
+					"raw": "{{SETUPHOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"schema"
@@ -417,9 +417,9 @@
 					"raw": "{\n    \"nsfPath\" : \"visitors.nsf\",\n    \"title\" : \"Visitors Demo\"\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/nsf?dataSource={{VISITORS}}",
+					"raw": "{{SETUPHOST}}/design/nsf?dataSource={{VISITORS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -456,9 +456,9 @@
 					"raw": "{\n    \"apiName\": \"{{VISITORS}}\",\n    \"schemaName\": \"{{VISITORS}}\",\n    \"nsfPath\": \"visitors.nsf\",\n    \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/admin/scope?createSchema=true",
+					"raw": "{{SETUPHOST}}/admin/scope?createSchema=true",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"admin",
@@ -490,9 +490,9 @@
 					"raw": "{\n    \"name\" : \"Visitor\",\n    \"alias\": \"\",\n    \"fields\" : [\n        {\n            \"name\" : \"first_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"last_name\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"company\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"time_in\",\n            \"type\": \"datetime\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"time_out\",\n            \"type\": \"datetime\",\n            \"allowmultivalues\" : false\n        },\n        {\n            \"name\" : \"badgeNo\",\n            \"type\": \"text\",\n            \"allowmultivalues\" : false\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/forms/Visitor?dataSource={{VISITORS}}",
+					"raw": "{{SETUPHOST}}/design/forms/Visitor?dataSource={{VISITORS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -525,9 +525,9 @@
 					"raw": "{\n    \"name\" : \"byName\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\"\",\n    \"columns\" : [\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_out\",\n\t\t\t\"title\": \"Time Out\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_out\"\n\t\t},\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byName?dataSource={{VISITORS}}",
+					"raw": "{{SETUPHOST}}/design/views/byName?dataSource={{VISITORS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -560,9 +560,9 @@
 					"raw": "{\n    \"name\" : \"byBadge\",\n    \"selectionFormula\" : \"Form = \\\"Visitor\\\" & time_out = \\\"\\\"\",\n    \"columns\" : [\n        {\n\t\t\t\"name\": \"badgeNo\",\n\t\t\t\"title\": \"Badge Number\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"badgeNo\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"first_name\",\n\t\t\t\"title\": \"First Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"first_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"last_name\",\n\t\t\t\"title\": \"Last Name\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"last_name\"\n\t\t},\n        {\n\t\t\t\"name\": \"company\",\n\t\t\t\"title\": \"Company\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"company\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_in\",\n\t\t\t\"title\": \"Time In\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_in\"\n\t\t},\n        {\n\t\t\t\"name\": \"time_out\",\n\t\t\t\"title\": \"Time Out\",\n\t\t\t\"separatemultiplevalues\": false,\n\t\t\t\"sort\": \"ascending\",\n\t\t\t\"formula\": \"time_out\"\n\t\t}\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/design/views/byBadge?dataSource={{VISITORS}}",
+					"raw": "{{SETUPHOST}}/design/views/byBadge?dataSource={{VISITORS}}",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"design",
@@ -585,9 +585,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf",
+					"raw": "{{SETUPHOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"schema"
@@ -619,12 +619,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nsfPath\": \"visitors.nsf\",\n    \"iconName\": \"KEEP\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"description\": \"Visitors Demo\",\n    \"formulaEngine\": \"domino\",\n    \"schemaName\": \"visitors\",\n    \"requireRevisionToUpdate\": false,\n    \"allowDecryption\": false,\n    \"cacheTimestamp\": 1,\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@False\"\n    },\n    \"allowCode\": false,\n    \"openAccess\": true,\n    \"forms\": [\n        {\n            \"formName\": \"Visitor\",\n            \"formModes\": [\n                {\n                    \"modeName\": \"default\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"company\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"time_in\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"date-time\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"time_out\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"date-time\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"badgeNo\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                }\n            ]\n        }\n    ],\n    \"isActive\": true,\n    \"prohibitRefresh\": true,\n    \"@unid\": \"3A763052FED029BCC125888E004AB270\",\n    \"views\": [\n        {\n            \"name\": \"byBadge\",\n            \"alias\": [\n                \"byBadge\"\n            ],\n            \"unid\": \"285345B8A85520CDC125888E004B2B77\"\n        },\n        {\n            \"name\": \"byName\",\n            \"alias\": [\n                \"byName\"\n            ],\n            \"unid\": \"27C92F678277FD95C125888E004B2788\"\n        }\n    ]\n}"
+					"raw": "{\n    \"nsfPath\": \"visitors.nsf\",\n    \"iconName\": \"postcard\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"description\": \"Visitors Demo\",\n    \"formulaEngine\": \"domino\",\n    \"schemaName\": \"visitors\",\n    \"requireRevisionToUpdate\": false,\n    \"allowDecryption\": false,\n    \"cacheTimestamp\": 1,\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@False\"\n    },\n    \"allowCode\": false,\n    \"openAccess\": true,\n    \"forms\": [\n        {\n            \"formName\": \"Visitor\",\n            \"formModes\": [\n                {\n                    \"modeName\": \"default\",\n                    \"computeWithForm\": false,\n                    \"readAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"writeAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@True\"\n                    },\n                    \"deleteAccessFormula\": {\n                        \"formulaType\": \"domino\",\n                        \"formula\": \"@False\"\n                    },\n                    \"fields\": [\n                        {\n                            \"name\": \"first_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"last_name\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"company\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"time_in\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"date-time\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"time_out\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"date-time\",\n                            \"type\": \"string\"\n                        },\n                        {\n                            \"name\": \"badgeNo\",\n                            \"isMultiValue\": false,\n                            \"writeOnly\": false,\n                            \"readOnly\": false,\n                            \"format\": \"string\",\n                            \"type\": \"string\"\n                        }\n                    ],\n                    \"strictInput\": true\n                }\n            ]\n        }\n    ],\n    \"isActive\": true,\n    \"prohibitRefresh\": true,\n    \"@unid\": \"3A763052FED029BCC125888E004AB270\",\n    \"views\": [\n        {\n            \"name\": \"byBadge\",\n            \"alias\": [\n                \"byBadge\"\n            ],\n            \"unid\": \"285345B8A85520CDC125888E004B2B77\"\n        },\n        {\n            \"name\": \"byName\",\n            \"alias\": [\n                \"byName\"\n            ],\n            \"unid\": \"27C92F678277FD95C125888E004B2788\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf",
+					"raw": "{{SETUPHOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf",
 					"host": [
-						"{{HOST}}"
+						"{{SETUPHOST}}"
 					],
 					"path": [
 						"schema"
@@ -714,6 +714,10 @@
 			"value": ""
 		},
 		{
+			"key": "SETUPHOST",
+			"value": ""
+		},
+		{
 			"key": "USERNAME",
 			"value": ""
 		},
@@ -723,11 +727,11 @@
 		},
 		{
 			"key": "CONTACTS",
-			"value": ""
+			"value": "contacts"
 		},
 		{
 			"key": "VISITORS",
-			"value": ""
+			"value": "visitors"
 		}
 	]
 }

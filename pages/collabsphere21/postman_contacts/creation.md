@@ -20,7 +20,7 @@ Add a request as previously.
 
 1. Rename it "Create Contacts NSF"
 2. Change "GET" to "POST".
-3. Set the request URL to {% raw %}"{{HOST}}/design/nsf?dataSource={{CONTACTS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/nsf?dataSource={{CONTACTS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -34,17 +34,17 @@ Add a request as previously.
     {% endraw %}
 6. Send the request.
 
-You should receive a response that includes the information about the newly-created NSF. This request has also created a **KEEP Schema** for the new database.
+You should receive a response that includes the information about the newly-created NSF. This request has also created a **Domino REST API Schema** for the new database.
 
 ### Create Scope
 
-Before we can create design elements, we also need to create a **KEEP Scope** for the database.
+Before we can create design elements, we also need to create a **Domino REST API Scope** for the database.
 
 <div class="panel panel-info">
 Schemas and Scopes
 {: .panel-heading}
 <div class="panel-body">
-Exposing a database with KEEP comprises two parts - the **KEEP Schema** and the **KEEP Scope**.
+Exposing a database with Domino REST API comprises two parts - the **Domino REST API Schema** and the **Domino REST API Scope**.
 
 The **schema** defines _what_ can be exposed and requires an understanding of the database design. It will usually be set up by a developer and is stored as part of the database.
 
@@ -52,14 +52,14 @@ The **scope** defines _whether_ it is exposed and is stored centrally on the ser
 
 Creating the NSF automatically creates a basic **schema**, although with nothing exposed.
 
-Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the REST Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.html) is a tutorial that takes that approach. In this tutorial, the scope and schema will be managed via REST API calls.
+Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API's Admin UI. The [Domino ToDo Database tutorial](../../todo/index.html) is a tutorial that takes that approach. In this tutorial, the scope and schema will be managed via REST API calls.
 </div>
 </div>
 
 1. Add a request as previously.
 1. Rename it "Create Scope"
 2. Change "GET" to "POST".
-3. Set the request URL to {% raw %}"{{HOST}}/admin/scope?createSchema=true"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/admin/scope?createSchema=true"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -81,7 +81,7 @@ Add another request.
 
 1. Rename it "Create Form"
 2. Change "GET" to "PUT".
-3. Set the request URL to {% raw %}"{{HOST}}/design/forms/Contact?dataSource={{CONTACTS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/forms/Contact?dataSource={{CONTACTS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -136,7 +136,7 @@ Add another request.
 
 1. Rename it to "Create View By Name"
 2. Change "GET" to "PUT"
-3. Set the request URL to {% raw %}"{{HOST}}/design/views/byName?dataSource={{CONTACTS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/views/byName?dataSource={{CONTACTS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -195,7 +195,7 @@ Add another request.
 
 1. Rename it to "Create View By State"
 2. Change "GET" to "PUT"
-3. Set the request URL to {% raw %}"{{HOST}}/design/views/byState?dataSource={{CONTACTS}}".
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/views/byState?dataSource={{CONTACTS}}".
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}

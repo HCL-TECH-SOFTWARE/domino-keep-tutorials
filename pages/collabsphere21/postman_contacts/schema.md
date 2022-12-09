@@ -12,14 +12,14 @@ slug:
 
 {::options parse_block_html="true" /}
 
-The schema could be updated via the REST Configuration UI. But because KEEP is API first, it can also be done via REST service calls with an authorized user.
+The schema could be updated via the Domino REST API's Admin UI. But because Domino REST API is API first, it can also be done via REST service calls with an authorized user.
 
 ### Get Schema
 
 Add a request as previously.
 
 1. Rename it "Get Schema"
-1. Set the request URL to {% raw %}"{{HOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf"{% endraw %}.
+1. Set the request URL to {% raw %}"{{SETUPHOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf"{% endraw %}.
 1. Send the request.
 
 The response will be the current schema, which can be used to update the schema.
@@ -30,14 +30,14 @@ Add a request as previously.
 
 1. Rename it "Update Schema"
 1. Change "GET" to "POST".
-1. Set the request URL to {% raw %}"{{HOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf"{% endraw %}.
+1. Set the request URL to {% raw %}"{{SETUPHOST}}/schema?configName={{CONTACTS}}&nsfPath=collabsphere.nsf"{% endraw %}.
 1. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 1. On the **Body** tab, select raw and enter:
     {% raw %}
     ~~~json
     {
         "nsfPath": "collabsphere.nsf",
-        "iconName": "KEEP",
+        "iconName": "postcard",
         "icon": "Base64 stuff, preferably SVG",
         "description": "Collabsphere Demo",
         "formulaEngine": "domino",
@@ -226,7 +226,7 @@ Add a request as previously.
     <div class="panel-body">
     The schema looks complicated, so it will be useful to deconstruct it.
 
-    - The `dqlFormula` object tells KEEP to use the Domino formula `@True` to determine whether DQL can be used.
+    - The `dqlFormula` object tells Domino REST API to use the Domino formula `@True` to determine whether DQL can be used.
     - The `forms` property enables the Contact form with all fields read-write in "default" mode and all fields only read-only in "dql" mode.
     - The `views` property exposes the "byState" view.
     </div>
