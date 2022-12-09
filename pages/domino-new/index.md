@@ -9,7 +9,7 @@ slug:
 
 <!-- image here of hcl drapi and not keep -->
 
-![Domino KEEP](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino KEEP")
+![Domino REST API](../../images/HCL_KEEP_lightmode_horiz.svg "Domino REST API")
 
 ## Introduction
 
@@ -20,7 +20,7 @@ HCL Domino REST API (previously known as HCL Project KEEP), provides secure REST
 - Adding Views.
 - Configuring it for validated REST API access.
 - Updating the access for the database.
-Some steps will be done via the KeepAdmin GUI, some will be done via Postman.
+Some steps will be done via the Domino REST API Admin UI, some will be done via Postman.
 
 <div class="panel panel-info">
 **Note**

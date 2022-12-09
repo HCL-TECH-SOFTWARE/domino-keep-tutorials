@@ -14,11 +14,12 @@ slug:
 
 ### Downloads
 
-You will need to download and extract <a href="../downloads/KEEP-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find five files:
+You will need to download and extract <a href="../downloads/DOMINORESTAPI-NODE-RED.zip">Node-RED Docker ZIP</a>. You will find six files:
 - **Dockerfile** for building the Docker image.
-- **keepAuthentication.js** which will perform the authentication.
-- **HCL_KEEP_Icon_Boxed.png** which will be used as the image for the Node-RED admin console.
-- **keepTheme.css** which will be used to style the Node-RED admin console.
+- **restapiAuthentication.js** which will perform the authentication.
+- **restapi_icon_boxed.png** which will be used as the image for the Node-RED admin console.
+- **restapiIcon.png** additional icon.
+- **restapiTheme.css** which will be used to style the Node-RED admin console.
 - **settings.js** which is the modified settings file for Node-RED.
 
 ### Authentication Explanation
@@ -33,20 +34,20 @@ The value of AUTHENTICATION_HOST will need to be the URL to connect to your Domi
 
 - If the Domino REST API server has a DNS-enabled hostname, use that.
 - If the Domino REST API server is installed on your operating system and running on the default port, "http://localhost:8880" should be used.
-- If the Domino REST API server is running in Docker on your host machine, the standard Docker approach will work, i.e. PROTOCOL + CONTAINER_NAME + PORT, e.g. "http://domino-keep:8880".
+- If the Domino REST API server is running in Docker on your host machine, the standard Docker approach will work, i.e. PROTOCOL + CONTAINER_NAME + PORT, e.g. "http://dominorestapi:8880".
 
 ### Docker
 
-To create a Docker image, open a terminal window to the directory containing the Dockerfile and other files. Then issue the command `docker build -t node-red-keep-collabsphere:1.0.0 .` Remember the full stop at the end or it won't run. This starts from the latest Node-RED Docker image, copies the files across to the data directory and sets the required permissions.
+To create a Docker image, open a terminal window to the directory containing the Dockerfile and other files. Then issue the command `docker build -t node-red-restapi-collabsphere:1.0.0 .` Remember the full stop at the end or it won't run. This starts from the latest Node-RED Docker image, copies the files across to the data directory and sets the required permissions.
 
-You can now create a Docker container using the command `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" --name nrCSphere21 node-red-keep-collabsphere:1.0.0`.
+You can now create a Docker container using the command `docker run -it -p 1880:1880 -e "AUTHENTICATION_HOST=http://MY.HOST.COM" --name nrCSphere21 node-red-restapi-collabsphere:1.0.0`
 
 You will need to add the container to a network that your Domino server is in. This sounds complicated, but is not. If your Domino server was started using Docker Compose, it will already have a network created. To find out inspect the Docker container (`docker inspect CONTAINER_NAME`) and look at "Networks" near the bottom.
 ![Networks](../images/nodered_contacts/network.png)
 
-If there is a network, you can make a note of the name and issue the command `docker network connect NETWORK_NAME nrCSphere21`.
+If there is a network, you can make a note of the name and issue the command `docker network connect NETWORK_NAME nrCSphere21`
 
-If there is no network, you can create one called **csphere21** with the command `docker network create csphere21`. Then issue the command `docker network connect csphere21 nrCSphere21` to connect your Node-RED Docker container to the network and repeat the process for your Domino Docker container, changing the container name at the end.
+If there is no network, you can create one called **csphere21** with the command `docker network create csphere21`  . Then issue the command `docker network connect csphere21 nrCSphere21` to connect your Node-RED Docker container to the network and repeat the process for your Domino Docker container, changing the container name at the end.
 
 ### Manual Modification
 
@@ -54,26 +55,26 @@ If you wish to modify an existing Node-RED installation, you will need to make t
 
 #### Security
 
-The "Security" section has been modified to call keepAuthentication for its authentication function. The following line has been added:
-`adminAuth: require('./keepAuthentication'),`
+The "Security" section has been modified to call restapiAuthentication for its authentication function. The following line has been added:
+`adminAuth: require('./restapiAuthentication'),`
 
-"keepAuthentication.js" should be put in the same directory as the settings.js.
+"restapiAuthentication.js" should be put in the same directory as the settings.js.
 
 #### Editor Theme
 
-The final change is to enable the new theme. This is near the bottom of the settings.js in the "Customising the editor" section. In the **editorTheme** object the following entries are added (add a comma after the last element). You will need to modify the filepaths to be **absolute filepaths for your operating system** for the relevant files.
+The final change is to enable the new theme. This is near the bottom of the settings.js in the "Customizing the editor" section. In the **editorTheme** object the following entries are added (add a comma after the last element). You will need to modify the filepaths to be **absolute filepaths for your operating system** for the relevant files.
 ```js
         page: {
-			title: "HCL KEEP Demo",
-			favicon: "/data/HCL_KEEP_Icon_Boxed.png",
-			css: "/data/keepTheme.css"
+			title: "Domino REST API Demo",
+			favicon: "/data/restapi_icon_boxed.png",
+			css: "/data/restapiTheme.css"
 		},
 		header: {
-			title: "HCL KEEP Demo",
-			image: "/data/HCL_KEEP_Icon_Boxed.png",
+			title: "Domino REST API Demo",
+			image: "/data/restapi_icon_boxed.png",
 		},
 		login: {
-			image: "/data/HCL_KEEP_Icon_Boxed.png" // a 256x256 image
+			image: "/data/restapi_icon_boxed.png" // a 256x256 image
 		}
 ```
 

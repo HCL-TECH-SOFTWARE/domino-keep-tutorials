@@ -28,6 +28,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
 ### World Map Flow
 1. Drag the **worldmap in** node onto the canvas.
 2. Drag a **function** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the JavaScript:
     {% raw %}
     ~~~js
@@ -40,10 +41,12 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
     This loads the states object into the message payload ready for the next node.
    -  Wire the worldmap in node to this function node.
 3. Drag a **split** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Tick "copy key to".
    - In the input box after "msg." enter `key`. This will ensure each state code can be accessed from msg.key.
    - Wire the function node to this split node.
 4. Drag a **function** node onto the canvas. This will be used to take the key and seed the HTTP request to Domino REST API to retrieve the number of contacts for that state.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the JavaScript:
     {% raw %}
     ~~~js
@@ -55,12 +58,14 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
     ~~~
     {: .code}
     {% endraw %}
-    This sets the authorization header and the URL. The URL consists of the AUTHENTICATION_HOST environment variable, the path to access the byState collection of entries in the KEEP Database "collabsphere", filtered by key on the state code, `msg.key` passed into this node.
+   -  This sets the authorization header and the URL. The URL consists of the AUTHENTICATION_HOST environment variable, the path to access the byState collection of entries in the database "collabsphere", filtered by key on the state code, `msg.key` passed into this node.
    -  Wire the split node to this function node.
 5. Drag an **http request** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
    - Wire the function node to this http request node.
 6. Drag a **function** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the JavaScript:
     {% raw %}
     ~~~js
@@ -80,6 +85,7 @@ New nodes will be installed in the palette on the left-hand area of Node-RED, un
     {% endraw %}
    - Wire the http request node to this function node.
 7. Drag the **worldmap** node onto the canvas. This is the node that take input but has no output.
+   - Double click the node to open the Properties dialog.
    - Set Latitude to 39.04.
    - Set Longitude to -95.69.
    - Set Zoom to 5.

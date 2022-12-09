@@ -7,9 +7,9 @@ slug:
 
 {::options parse_block_html="true" /}
 
-![Domino KEEP](../../images/HCL_KEEP_lightmode_horiz.svg "HCL Labs - Domino KEEP")
+![Domino REST API](../../images/HCL_KEEP_lightmode_horiz.svg "Domino REST API")
 
-This tutorial was created for a workshop for the Collabsphere 2021 conference. It walks through creating two databases and working with the data from Node-RED. The Node-RED admin GUI will authenticate against Domino via Domino REST API. The databases are:
+This tutorial was created for a workshop for the Collabsphere 2021 conference and updated for the Domino REST API V1 release. It walks through creating two databases and working with the data from Node-RED. The Node-RED admin GUI will authenticate against Domino via Domino REST API. The databases are:
 
 - A Contacts database with city and state. Totals per state will be projected onto a map.
 - A Visitors database, where visitors to a company can check in and out.
@@ -33,7 +33,7 @@ Databases will be created programmatically, so ensure the user ID you are using 
 {: .panel-heading}
 <div class="panel-body">
 You will need the following zip file for connecting Node-RED to Domino REST API.
-<a href="../collabsphere21/downloads/KEEP-NODE-RED.zip">Node-RED Modifications ZIP</a>
+<a href="../collabsphere21/downloads/DOMINORESTAPI-NODE-RED.zip">Node-RED Modifications ZIP</a>
 </div>
 </div>
 

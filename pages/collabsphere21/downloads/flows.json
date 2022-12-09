@@ -1,1 +1,1379 @@
-[{"id":"ff3ce81aad41bb8b","type":"tab","label":"Flow 1_Complete","disabled":false,"info":""},{"id":"24b4f9305dde9428","type":"tab","label":"Flow 2_Complete","disabled":false,"info":""},{"id":"f53c6b5f38dac5f7","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"a7b6a71e0afd44b6","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"}},"angularTheme":{"primary":"indigo","accents":"blue","warn":"red","background":"grey","palette":"light"}},"site":{"name":"Node-RED Dashboard","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"true","dateFormat":"DD/MM/YYYY","sizes":{"sx":48,"sy":48,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"24e9cfe5b5717599","type":"ui_tab","name":"Home","icon":"dashboard","disabled":false,"hidden":false},{"id":"a8dd0a7bdda34ffc","type":"ui_group","name":"New Visitor","tab":"24e9cfe5b5717599","order":1,"disp":false,"width":"12","collapse":false,"className":""},{"id":"03d9f9b7d266c79d","type":"inject","z":"ff3ce81aad41bb8b","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"","payloadType":"date","x":130,"y":140,"wires":[["4f20c873bcb946d5"]]},{"id":"4f20c873bcb946d5","type":"http request","z":"ff3ce81aad41bb8b","name":"","method":"GET","ret":"obj","paytoqs":"ignore","url":"https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json","tls":"","persist":false,"proxy":"","authType":"","x":310,"y":140,"wires":[["f5bf5f6790aace4a"]]},{"id":"4a69484a1de0355f","type":"debug","z":"ff3ce81aad41bb8b","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":630,"y":140,"wires":[]},{"id":"81ea531c7ac993f7","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"var states = flow.get(\"stateLongLat\");\nmsg.payload = states;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":290,"y":220,"wires":[["c0d5d8ee71f8b660"]]},{"id":"f5bf5f6790aace4a","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"flow.set('stateLongLat',msg.payload);\nflow.set('count',0);\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":480,"y":140,"wires":[["4a69484a1de0355f"]]},{"id":"c0d5d8ee71f8b660","type":"split","z":"ff3ce81aad41bb8b","name":"","splt":"\\n","spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key","x":450,"y":220,"wires":[["238f30172b2ac2a5"]]},{"id":"9e2a637558258704","type":"catch","z":"ff3ce81aad41bb8b","name":"","scope":null,"uncaught":false,"x":880,"y":80,"wires":[["1df3468f1d41ba03"]]},{"id":"1df3468f1d41ba03","type":"debug","z":"ff3ce81aad41bb8b","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1030,"y":80,"wires":[]},{"id":"238f30172b2ac2a5","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"msg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byState?db=contacts&key=\" + msg.key;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":620,"y":220,"wires":[["1801b7c624c888f2"]]},{"id":"47424a67b0146e8a","type":"inject","z":"ff3ce81aad41bb8b","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"","payloadType":"date","x":130,"y":60,"wires":[[]]},{"id":"c4082eb7e631314f","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"msg.payload={\n    \"username\": env.get(\"AUTHENTICATION_USERNAME\"),\n    \"password\": env.get(\"AUTHENTICATION_PASSWORD\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/auth\";\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":290,"y":60,"wires":[["5e8cd5c45c1579e8"]]},{"id":"5e8cd5c45c1579e8","type":"http request","z":"ff3ce81aad41bb8b","name":"","method":"POST","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":450,"y":60,"wires":[["7c29a6af1e013a11"]]},{"id":"7c29a6af1e013a11","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"global.set(\"AUTH_KEY\", \"Bearer \" + msg.payload.bearer);\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":620,"y":60,"wires":[["4a69484a1de0355f"]]},{"id":"253e2d92f91fce1c","type":"function","z":"ff3ce81aad41bb8b","name":"","func":"var obj = {};\nvar stateKey = msg.responseUrl.substr(msg.responseUrl.length - 2);\nvar stateLongLongData = flow.get(\"stateLongLat\")[stateKey];\nobj.name = stateLongLongData.name;\nobj.label = obj.name + \": \" + msg.payload.length.toString();\nobj.lat = stateLongLongData.lat;\nobj.lon = stateLongLongData.long;\nobj.icon = \"globe\";\nobj.iconColor = \"#FFDC02\";\nmsg.payload = obj;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":340,"y":300,"wires":[["cb80da01699d4618"]]},{"id":"1801b7c624c888f2","type":"http request","z":"ff3ce81aad41bb8b","name":"","method":"GET","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":170,"y":300,"wires":[["253e2d92f91fce1c"]]},{"id":"37dcaaa779a6da23","type":"function","z":"24b4f9305dde9428","name":"","func":"msg.payload.Form = \"Visitor\";\nmsg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\"),\n    \"Content-Type\": \"application/json\"\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/document?db=visitors\";\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":330,"y":220,"wires":[["28481b73980fb291"]]},{"id":"28481b73980fb291","type":"http request","z":"24b4f9305dde9428","name":"","method":"POST","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":520,"y":220,"wires":[["807a21263de0c5fc"]]},{"id":"807a21263de0c5fc","type":"switch","z":"24b4f9305dde9428","name":"","property":"statusCode","propertyType":"msg","rules":[{"t":"eq","v":"200","vt":"str"},{"t":"else"}],"checkall":"true","repair":false,"outputs":2,"x":690,"y":220,"wires":[["7b7e0e9cfe5981e6"],["b128777b3328d6d3"]]},{"id":"b128777b3328d6d3","type":"function","z":"24b4f9305dde9428","name":"","func":"msg.topic = \"Failed\";\nmsg.payload = msg.payload.message\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":850,"y":260,"wires":[["38033ff3d4c418f5","bc38600eef76cb92"]]},{"id":"7b7e0e9cfe5981e6","type":"change","z":"24b4f9305dde9428","name":"","rules":[{"t":"set","p":"topic","pt":"msg","to":"Success","tot":"str"},{"t":"set","p":"payload","pt":"msg","to":"You are booked in!","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":850,"y":180,"wires":[["bc38600eef76cb92"]]},{"id":"5d6366e0aa82c294","type":"catch","z":"24b4f9305dde9428","name":"","scope":null,"uncaught":false,"x":680,"y":40,"wires":[["38033ff3d4c418f5","06d9993b5c9d79c3"]]},{"id":"38033ff3d4c418f5","type":"debug","z":"24b4f9305dde9428","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":1030,"y":40,"wires":[]},{"id":"06d9993b5c9d79c3","type":"change","z":"24b4f9305dde9428","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"error.message","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":840,"y":100,"wires":[["bc38600eef76cb92"]]},{"id":"788dbf0d0fe190a2","type":"change","z":"24b4f9305dde9428","name":"","rules":[{"t":"move","p":"payload","pt":"msg","to":"badgeUpdate","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":360,"y":320,"wires":[["2d93d25e004a2898"]]},{"id":"2d93d25e004a2898","type":"function","z":"24b4f9305dde9428","name":"","func":"msg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byBadge?db=visitors&key=\" + msg.badgeUpdate.badgeNo;\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":580,"y":320,"wires":[["662c4bbdb582c426"]]},{"id":"662c4bbdb582c426","type":"http request","z":"24b4f9305dde9428","name":"","method":"GET","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":480,"y":400,"wires":[["2e6835cc20b65c3b"]]},{"id":"505d8274304c23d3","type":"function","z":"24b4f9305dde9428","name":"","func":"var unid = msg.payload[0]['@unid'];\nmsg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\"),\n    \"Content-Type\" : \"application/json\"\n}\nmsg.payload = msg.badgeUpdate;\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/document/\" + unid + \"?db=visitors&mode=default\";\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":320,"y":480,"wires":[["de92c7db1f85e3e2"]]},{"id":"de92c7db1f85e3e2","type":"http request","z":"24b4f9305dde9428","name":"","method":"PUT","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":490,"y":480,"wires":[["8c72fdb2e435fc69"]]},{"id":"8c72fdb2e435fc69","type":"switch","z":"24b4f9305dde9428","name":"","property":"statusCode","propertyType":"msg","rules":[{"t":"eq","v":"200","vt":"str"},{"t":"else"}],"checkall":"true","repair":false,"outputs":2,"x":690,"y":480,"wires":[["fb8c5334c18d8953"],["b128777b3328d6d3"]]},{"id":"fb8c5334c18d8953","type":"change","z":"24b4f9305dde9428","name":"","rules":[{"t":"set","p":"topic","pt":"msg","to":"Success","tot":"str"},{"t":"set","p":"payload","pt":"msg","to":"You are booked out!","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":860,"y":480,"wires":[["bc38600eef76cb92"]]},{"id":"cb80da01699d4618","type":"worldmap","z":"ff3ce81aad41bb8b","name":"","lat":"39.04","lon":"-95.69","zoom":"5","layer":"OSM grey","cluster":"","maxage":"","usermenu":"show","layers":"show","panit":"false","panlock":"false","zoomlock":"false","hiderightclick":"false","coords":"none","showgrid":"false","allowFileDrop":"false","path":"/worldmap","mapname":"","mapurl":"","mapopt":"","mapwms":false,"x":510,"y":300,"wires":[]},{"id":"7f60f09233bccede","type":"worldmap in","z":"ff3ce81aad41bb8b","name":"","path":"/worldmap","events":"all","x":110,"y":220,"wires":[["81ea531c7ac993f7"]]},{"id":"29133d7d6817f25b","type":"ui_media","z":"24b4f9305dde9428","group":"a8dd0a7bdda34ffc","name":"","width":"2","height":"1","order":1,"category":"keep","file":"KeepNewIcon.png","layout":"adjust","showcontrols":false,"loop":false,"onstart":false,"scope":"local","tooltip":"","x":130,"y":60,"wires":[[]]},{"id":"cd062ca4f4431b60","type":"ui_text","z":"24b4f9305dde9428","group":"a8dd0a7bdda34ffc","order":2,"width":"6","height":"1","name":"","label":"KEEP VISITORS","format":"{{msg.payload}}","layout":"row-spread","className":"","x":340,"y":60,"wires":[]},{"id":"7e1234b4b9e2e7c3","type":"ui_form","z":"24b4f9305dde9428","name":"","label":"Sign In","group":"a8dd0a7bdda34ffc","order":3,"width":"6","height":"8","options":[{"label":"First Name","value":"first_name","type":"text","required":true,"rows":null},{"label":"Last Name","value":"last_name","type":"text","required":true,"rows":null},{"label":"Company","value":"company","type":"text","required":true,"rows":null},{"label":"Time In","value":"time_in","type":"time","required":true,"rows":null},{"label":"Badge Number","value":"badgeNo","type":"text","required":true,"rows":null}],"formValue":{"first_name":"","last_name":"","company":"","time_in":"","badgeNo":""},"payload":"","submit":"submit","cancel":"cancel","topic":"topic","topicType":"msg","splitLayout":"","className":"","x":150,"y":220,"wires":[["37dcaaa779a6da23"]]},{"id":"5ab975da0192e657","type":"ui_form","z":"24b4f9305dde9428","name":"","label":"Sign Out","group":"a8dd0a7bdda34ffc","order":3,"width":"6","height":"4","options":[{"label":"Badge Number","value":"badgeNo","type":"text","required":true,"rows":null},{"label":"Time Out","value":"time_out","type":"time","required":true,"rows":null}],"formValue":{"badgeNo":"","time_out":""},"payload":"","submit":"submit","cancel":"cancel","topic":"topic","topicType":"msg","splitLayout":"","className":"","x":140,"y":320,"wires":[["788dbf0d0fe190a2"]]},{"id":"bc38600eef76cb92","type":"ui_toast","z":"24b4f9305dde9428","position":"bottom right","displayTime":"3","highlight":"","sendall":true,"outputs":0,"ok":"OK","cancel":"","raw":false,"className":"","topic":"","name":"","x":1090,"y":220,"wires":[]},{"id":"2e6835cc20b65c3b","type":"function","z":"24b4f9305dde9428","name":"","func":"if (msg.statusCode == 200) {\n    if (msg.payload.length == 0) {\n        msg.topic = \"Failed\";\n        msg.payload = \"No document found for this badge number\";\n        return [msg, null];\n    }\n    return [null, msg];\n}\nmsg.topic = \"Failed\";\nmsg.payload = msg.payload.message;\nreturn [msg, null];","outputs":2,"noerr":0,"initialize":"","finalize":"","libs":[],"x":640,"y":400,"wires":[["bc38600eef76cb92"],["505d8274304c23d3"]]},{"id":"048508e311d3c474","type":"inject","z":"f53c6b5f38dac5f7","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"","payloadType":"date","x":120,"y":80,"wires":[["07846905406f2835"]]},{"id":"07846905406f2835","type":"function","z":"f53c6b5f38dac5f7","name":"","func":" msg.payload = {\n   \"username\": env.get(\"AUTHENTICATION_USERNAME\"),\n   \"password\": env.get(\"AUTHENTICATION_PASSWORD\")\n };\n msg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/auth\";\n return msg;\n\n","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":310,"y":80,"wires":[["ad6b6a1c37a08976"]]},{"id":"ad6b6a1c37a08976","type":"http request","z":"f53c6b5f38dac5f7","name":"","method":"POST","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":480,"y":80,"wires":[["c86377c3feaf0137"]]},{"id":"c86377c3feaf0137","type":"function","z":"f53c6b5f38dac5f7","name":"","func":" global.set(\"AUTH_KEY\", \"Bearer \" + msg.payload.bearer);\n return msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":640,"y":80,"wires":[["f5496a2c9538a7f2"]]},{"id":"f5496a2c9538a7f2","type":"debug","z":"f53c6b5f38dac5f7","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":810,"y":80,"wires":[]},{"id":"a2986c4a549f4200","type":"catch","z":"f53c6b5f38dac5f7","name":"","scope":null,"uncaught":false,"x":610,"y":40,"wires":[["5a6fd49db7542cba"]]},{"id":"5a6fd49db7542cba","type":"debug","z":"f53c6b5f38dac5f7","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":760,"y":40,"wires":[]},{"id":"4ad3b109bde3d87e","type":"inject","z":"f53c6b5f38dac5f7","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"","payloadType":"date","x":120,"y":160,"wires":[["973f5f1ba52ed048"]]},{"id":"973f5f1ba52ed048","type":"http request","z":"f53c6b5f38dac5f7","name":"","method":"GET","ret":"obj","paytoqs":"ignore","url":"https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json","tls":"","persist":false,"proxy":"","authType":"","x":300,"y":160,"wires":[["983dc0affda6d66f"]]},{"id":"983dc0affda6d66f","type":"function","z":"f53c6b5f38dac5f7","name":"","func":"flow.set('stateLongLat',msg.payload);\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":460,"y":160,"wires":[["f5496a2c9538a7f2"]]},{"id":"f76059fd9a4c01a2","type":"worldmap in","z":"f53c6b5f38dac5f7","name":"","path":"/worldmap","events":"all","x":130,"y":260,"wires":[["63b7babed53826ab"]]},{"id":"63b7babed53826ab","type":"function","z":"f53c6b5f38dac5f7","name":"","func":" var states = flow.get(\"stateLongLat\");\n msg.payload = states;\n return msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":310,"y":260,"wires":[["cefdd1dd3b659671"]]},{"id":"cefdd1dd3b659671","type":"split","z":"f53c6b5f38dac5f7","name":"","splt":"\\n","spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key","x":470,"y":260,"wires":[["563d4117f9d9b90a"]]},{"id":"563d4117f9d9b90a","type":"function","z":"f53c6b5f38dac5f7","name":"","func":" msg.headers = {\n     \"Authorization\": global.get(\"AUTH_KEY\")\n }\n msg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byState?db=contacts&key=\" + msg.key;\n return msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":630,"y":260,"wires":[["64cf54a2d1cea8be"]]},{"id":"64cf54a2d1cea8be","type":"http request","z":"f53c6b5f38dac5f7","name":"","method":"GET","ret":"obj","paytoqs":"ignore","url":"","tls":"","persist":false,"proxy":"","authType":"","x":260,"y":340,"wires":[["ab0e1bf9184df141"]]},{"id":"ab0e1bf9184df141","type":"function","z":"f53c6b5f38dac5f7","name":"","func":" var obj = {};\n var stateKey = msg.responseUrl.substr(msg.responseUrl.length - 2);\n var stateLongLatData = flow.get(\"stateLongLat\")[stateKey];\n obj.name = stateLongLatData.name;\n obj.label = obj.name + \": \" + msg.payload.length.toString();\n obj.lat = stateLongLatData.lat;\n obj.lon = stateLongLatData.long;\n obj.icon = \"globe\";\n obj.iconColor = \"#FFDC02\";\n msg.payload = obj;\n return msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":460,"y":340,"wires":[["a565eada7946bb25"]]},{"id":"a565eada7946bb25","type":"worldmap","z":"f53c6b5f38dac5f7","name":"","lat":"","lon":"","zoom":"","layer":"","cluster":"","maxage":"","usermenu":"show","layers":"show","panit":"false","panlock":"false","zoomlock":"false","hiderightclick":"false","coords":"false","showgrid":"false","allowFileDrop":"false","path":"/worldmap","mapname":"","mapurl":"","mapopt":"","mapwms":false,"x":650,"y":340,"wires":[]}]
+[
+	{
+		"id": "ff3ce81aad41bb8b",
+		"type": "tab",
+		"label": "Flow 1_Complete",
+		"disabled": false,
+		"info": ""
+	},
+	{
+		"id": "24b4f9305dde9428",
+		"type": "tab",
+		"label": "Flow 2_Complete",
+		"disabled": false,
+		"info": ""
+	},
+	{
+		"id": "f53c6b5f38dac5f7",
+		"type": "tab",
+		"label": "Flow 1",
+		"disabled": false,
+		"info": ""
+	},
+	{
+		"id": "a7b6a71e0afd44b6",
+		"type": "ui_base",
+		"theme": {
+			"name": "theme-light",
+			"lightTheme": {
+				"default": "#0094CE",
+				"baseColor": "#0094CE",
+				"baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+				"edited": true,
+				"reset": false
+			},
+			"darkTheme": {
+				"default": "#097479",
+				"baseColor": "#097479",
+				"baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+				"edited": false
+			},
+			"customTheme": {
+				"name": "Untitled Theme 1",
+				"default": "#4B7930",
+				"baseColor": "#4B7930",
+				"baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+			},
+			"themeState": {
+				"base-color": {
+					"default": "#0094CE",
+					"value": "#0094CE",
+					"edited": false
+				},
+				"page-titlebar-backgroundColor": {
+					"value": "#0094CE",
+					"edited": false
+				},
+				"page-backgroundColor": {
+					"value": "#fafafa",
+					"edited": false
+				},
+				"page-sidebar-backgroundColor": {
+					"value": "#ffffff",
+					"edited": false
+				},
+				"group-textColor": {
+					"value": "#1bbfff",
+					"edited": false
+				},
+				"group-borderColor": {
+					"value": "#ffffff",
+					"edited": false
+				},
+				"group-backgroundColor": {
+					"value": "#ffffff",
+					"edited": false
+				},
+				"widget-textColor": {
+					"value": "#111111",
+					"edited": false
+				},
+				"widget-backgroundColor": {
+					"value": "#0094ce",
+					"edited": false
+				},
+				"widget-borderColor": {
+					"value": "#ffffff",
+					"edited": false
+				},
+				"base-font": {
+					"value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+				}
+			},
+			"angularTheme": {
+				"primary": "indigo",
+				"accents": "blue",
+				"warn": "red",
+				"background": "grey",
+				"palette": "light"
+			}
+		},
+		"site": {
+			"name": "Node-RED Dashboard",
+			"hideToolbar": "false",
+			"allowSwipe": "false",
+			"lockMenu": "false",
+			"allowTempTheme": "true",
+			"dateFormat": "DD/MM/YYYY",
+			"sizes": {
+				"sx": 48,
+				"sy": 48,
+				"gx": 6,
+				"gy": 6,
+				"cx": 6,
+				"cy": 6,
+				"px": 0,
+				"py": 0
+			}
+		}
+	},
+	{
+		"id": "24e9cfe5b5717599",
+		"type": "ui_tab",
+		"name": "Home",
+		"icon": "dashboard",
+		"disabled": false,
+		"hidden": false
+	},
+	{
+		"id": "a8dd0a7bdda34ffc",
+		"type": "ui_group",
+		"name": "New Visitor",
+		"tab": "24e9cfe5b5717599",
+		"order": 1,
+		"disp": false,
+		"width": "12",
+		"collapse": false,
+		"className": ""
+	},
+	{
+		"id": "03d9f9b7d266c79d",
+		"type": "inject",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": true,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payloadType": "date",
+		"x": 130,
+		"y": 140,
+		"wires": [
+			[
+				"4f20c873bcb946d5"
+			]
+		]
+	},
+	{
+		"id": "4f20c873bcb946d5",
+		"type": "http request",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"method": "GET",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 310,
+		"y": 140,
+		"wires": [
+			[
+				"f5bf5f6790aace4a"
+			]
+		]
+	},
+	{
+		"id": "4a69484a1de0355f",
+		"type": "debug",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "true",
+		"targetType": "full",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 630,
+		"y": 140,
+		"wires": []
+	},
+	{
+		"id": "81ea531c7ac993f7",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "var states = flow.get(\"stateLongLat\");\nmsg.payload = states;\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 290,
+		"y": 220,
+		"wires": [
+			[
+				"c0d5d8ee71f8b660"
+			]
+		]
+	},
+	{
+		"id": "f5bf5f6790aace4a",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "flow.set('stateLongLat',msg.payload);\nflow.set('count',0);\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 480,
+		"y": 140,
+		"wires": [
+			[
+				"4a69484a1de0355f"
+			]
+		]
+	},
+	{
+		"id": "c0d5d8ee71f8b660",
+		"type": "split",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"splt": "\\n",
+		"spltType": "str",
+		"arraySplt": 1,
+		"arraySpltType": "len",
+		"stream": false,
+		"addname": "key",
+		"x": 450,
+		"y": 220,
+		"wires": [
+			[
+				"238f30172b2ac2a5"
+			]
+		]
+	},
+	{
+		"id": "9e2a637558258704",
+		"type": "catch",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"scope": null,
+		"uncaught": false,
+		"x": 880,
+		"y": 80,
+		"wires": [
+			[
+				"1df3468f1d41ba03"
+			]
+		]
+	},
+	{
+		"id": "1df3468f1d41ba03",
+		"type": "debug",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "true",
+		"targetType": "full",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 1030,
+		"y": 80,
+		"wires": []
+	},
+	{
+		"id": "238f30172b2ac2a5",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "msg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byState?db=contacts&key=\" + msg.key;\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 620,
+		"y": 220,
+		"wires": [
+			[
+				"1801b7c624c888f2"
+			]
+		]
+	},
+	{
+		"id": "47424a67b0146e8a",
+		"type": "inject",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": true,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payloadType": "date",
+		"x": 130,
+		"y": 60,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "c4082eb7e631314f",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "msg.payload={\n    \"username\": env.get(\"AUTHENTICATION_USERNAME\"),\n    \"password\": env.get(\"AUTHENTICATION_PASSWORD\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/auth\";\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 290,
+		"y": 60,
+		"wires": [
+			[
+				"5e8cd5c45c1579e8"
+			]
+		]
+	},
+	{
+		"id": "5e8cd5c45c1579e8",
+		"type": "http request",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"method": "POST",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 450,
+		"y": 60,
+		"wires": [
+			[
+				"7c29a6af1e013a11"
+			]
+		]
+	},
+	{
+		"id": "7c29a6af1e013a11",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "global.set(\"AUTH_KEY\", \"Bearer \" + msg.payload.bearer);\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 620,
+		"y": 60,
+		"wires": [
+			[
+				"4a69484a1de0355f"
+			]
+		]
+	},
+	{
+		"id": "253e2d92f91fce1c",
+		"type": "function",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"func": "var obj = {};\nvar stateKey = msg.responseUrl.substr(msg.responseUrl.length - 2);\nvar stateLongLongData = flow.get(\"stateLongLat\")[stateKey];\nobj.name = stateLongLongData.name;\nobj.label = obj.name + \": \" + msg.payload.length.toString();\nobj.lat = stateLongLongData.lat;\nobj.lon = stateLongLongData.long;\nobj.icon = \"globe\";\nobj.iconColor = \"#FFDC02\";\nmsg.payload = obj;\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 340,
+		"y": 300,
+		"wires": [
+			[
+				"cb80da01699d4618"
+			]
+		]
+	},
+	{
+		"id": "1801b7c624c888f2",
+		"type": "http request",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"method": "GET",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 170,
+		"y": 300,
+		"wires": [
+			[
+				"253e2d92f91fce1c"
+			]
+		]
+	},
+	{
+		"id": "37dcaaa779a6da23",
+		"type": "function",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"func": "msg.payload.Form = \"Visitor\";\nmsg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\"),\n    \"Content-Type\": \"application/json\"\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/document?db=visitors\";\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 330,
+		"y": 220,
+		"wires": [
+			[
+				"28481b73980fb291"
+			]
+		]
+	},
+	{
+		"id": "28481b73980fb291",
+		"type": "http request",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"method": "POST",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 520,
+		"y": 220,
+		"wires": [
+			[
+				"807a21263de0c5fc"
+			]
+		]
+	},
+	{
+		"id": "807a21263de0c5fc",
+		"type": "switch",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"property": "statusCode",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "200",
+				"vt": "str"
+			},
+			{
+				"t": "else"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 690,
+		"y": 220,
+		"wires": [
+			[
+				"7b7e0e9cfe5981e6"
+			],
+			[
+				"b128777b3328d6d3"
+			]
+		]
+	},
+	{
+		"id": "b128777b3328d6d3",
+		"type": "function",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"func": "msg.topic = \"Failed\";\nmsg.payload = msg.payload.message\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 850,
+		"y": 260,
+		"wires": [
+			[
+				"38033ff3d4c418f5",
+				"bc38600eef76cb92"
+			]
+		]
+	},
+	{
+		"id": "7b7e0e9cfe5981e6",
+		"type": "change",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "topic",
+				"pt": "msg",
+				"to": "Success",
+				"tot": "str"
+			},
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "You are booked in!",
+				"tot": "str"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 850,
+		"y": 180,
+		"wires": [
+			[
+				"bc38600eef76cb92"
+			]
+		]
+	},
+	{
+		"id": "5d6366e0aa82c294",
+		"type": "catch",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"scope": null,
+		"uncaught": false,
+		"x": 680,
+		"y": 40,
+		"wires": [
+			[
+				"38033ff3d4c418f5",
+				"06d9993b5c9d79c3"
+			]
+		]
+	},
+	{
+		"id": "38033ff3d4c418f5",
+		"type": "debug",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "true",
+		"targetType": "full",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 1030,
+		"y": 40,
+		"wires": []
+	},
+	{
+		"id": "06d9993b5c9d79c3",
+		"type": "change",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "error.message",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 840,
+		"y": 100,
+		"wires": [
+			[
+				"bc38600eef76cb92"
+			]
+		]
+	},
+	{
+		"id": "788dbf0d0fe190a2",
+		"type": "change",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"rules": [
+			{
+				"t": "move",
+				"p": "payload",
+				"pt": "msg",
+				"to": "badgeUpdate",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 360,
+		"y": 320,
+		"wires": [
+			[
+				"2d93d25e004a2898"
+			]
+		]
+	},
+	{
+		"id": "2d93d25e004a2898",
+		"type": "function",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"func": "msg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\")\n}\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byBadge?db=visitors&key=\" + msg.badgeUpdate.badgeNo;\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 580,
+		"y": 320,
+		"wires": [
+			[
+				"662c4bbdb582c426"
+			]
+		]
+	},
+	{
+		"id": "662c4bbdb582c426",
+		"type": "http request",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"method": "GET",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 480,
+		"y": 400,
+		"wires": [
+			[
+				"2e6835cc20b65c3b"
+			]
+		]
+	},
+	{
+		"id": "505d8274304c23d3",
+		"type": "function",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"func": "var unid = msg.payload[0]['@unid'];\nmsg.headers = {\n    \"Authorization\": global.get(\"AUTH_KEY\"),\n    \"Content-Type\" : \"application/json\"\n}\nmsg.payload = msg.badgeUpdate;\nmsg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/document/\" + unid + \"?db=visitors&mode=default\";\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 320,
+		"y": 480,
+		"wires": [
+			[
+				"de92c7db1f85e3e2"
+			]
+		]
+	},
+	{
+		"id": "de92c7db1f85e3e2",
+		"type": "http request",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"method": "PUT",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 490,
+		"y": 480,
+		"wires": [
+			[
+				"8c72fdb2e435fc69"
+			]
+		]
+	},
+	{
+		"id": "8c72fdb2e435fc69",
+		"type": "switch",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"property": "statusCode",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "200",
+				"vt": "str"
+			},
+			{
+				"t": "else"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 690,
+		"y": 480,
+		"wires": [
+			[
+				"fb8c5334c18d8953"
+			],
+			[
+				"b128777b3328d6d3"
+			]
+		]
+	},
+	{
+		"id": "fb8c5334c18d8953",
+		"type": "change",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "topic",
+				"pt": "msg",
+				"to": "Success",
+				"tot": "str"
+			},
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "You are booked out!",
+				"tot": "str"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 860,
+		"y": 480,
+		"wires": [
+			[
+				"bc38600eef76cb92"
+			]
+		]
+	},
+	{
+		"id": "cb80da01699d4618",
+		"type": "worldmap",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"lat": "39.04",
+		"lon": "-95.69",
+		"zoom": "5",
+		"layer": "OSM grey",
+		"cluster": "",
+		"maxage": "",
+		"usermenu": "show",
+		"layers": "show",
+		"panit": "false",
+		"panlock": "false",
+		"zoomlock": "false",
+		"hiderightclick": "false",
+		"coords": "none",
+		"showgrid": "false",
+		"allowFileDrop": "false",
+		"path": "/worldmap",
+		"mapname": "",
+		"mapurl": "",
+		"mapopt": "",
+		"mapwms": false,
+		"x": 510,
+		"y": 300,
+		"wires": []
+	},
+	{
+		"id": "7f60f09233bccede",
+		"type": "worldmap in",
+		"z": "ff3ce81aad41bb8b",
+		"name": "",
+		"path": "/worldmap",
+		"events": "all",
+		"x": 110,
+		"y": 220,
+		"wires": [
+			[
+				"81ea531c7ac993f7"
+			]
+		]
+	},
+	{
+		"id": "29133d7d6817f25b",
+		"type": "ui_media",
+		"z": "24b4f9305dde9428",
+		"group": "a8dd0a7bdda34ffc",
+		"name": "",
+		"width": "2",
+		"height": "1",
+		"order": 1,
+		"category": "Domino REST API",
+		"file": "restapiIcon.png",
+		"layout": "adjust",
+		"showcontrols": false,
+		"loop": false,
+		"onstart": false,
+		"scope": "local",
+		"tooltip": "",
+		"x": 130,
+		"y": 60,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "cd062ca4f4431b60",
+		"type": "ui_text",
+		"z": "24b4f9305dde9428",
+		"group": "a8dd0a7bdda34ffc",
+		"order": 2,
+		"width": "6",
+		"height": "1",
+		"name": "",
+		"label": "Domino REST API VISITORS",
+		"format": "{{msg.payload}}",
+		"layout": "row-spread",
+		"className": "",
+		"x": 340,
+		"y": 60,
+		"wires": []
+	},
+	{
+		"id": "7e1234b4b9e2e7c3",
+		"type": "ui_form",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"label": "Sign In",
+		"group": "a8dd0a7bdda34ffc",
+		"order": 3,
+		"width": "6",
+		"height": "8",
+		"options": [
+			{
+				"label": "First Name",
+				"value": "first_name",
+				"type": "text",
+				"required": true,
+				"rows": null
+			},
+			{
+				"label": "Last Name",
+				"value": "last_name",
+				"type": "text",
+				"required": true,
+				"rows": null
+			},
+			{
+				"label": "Company",
+				"value": "company",
+				"type": "text",
+				"required": true,
+				"rows": null
+			},
+			{
+				"label": "Time In",
+				"value": "time_in",
+				"type": "time",
+				"required": true,
+				"rows": null
+			},
+			{
+				"label": "Badge Number",
+				"value": "badgeNo",
+				"type": "text",
+				"required": true,
+				"rows": null
+			}
+		],
+		"formValue": {
+			"first_name": "",
+			"last_name": "",
+			"company": "",
+			"time_in": "",
+			"badgeNo": ""
+		},
+		"payload": "",
+		"submit": "submit",
+		"cancel": "cancel",
+		"topic": "topic",
+		"topicType": "msg",
+		"splitLayout": "",
+		"className": "",
+		"x": 150,
+		"y": 220,
+		"wires": [
+			[
+				"37dcaaa779a6da23"
+			]
+		]
+	},
+	{
+		"id": "5ab975da0192e657",
+		"type": "ui_form",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"label": "Sign Out",
+		"group": "a8dd0a7bdda34ffc",
+		"order": 3,
+		"width": "6",
+		"height": "4",
+		"options": [
+			{
+				"label": "Badge Number",
+				"value": "badgeNo",
+				"type": "text",
+				"required": true,
+				"rows": null
+			},
+			{
+				"label": "Time Out",
+				"value": "time_out",
+				"type": "time",
+				"required": true,
+				"rows": null
+			}
+		],
+		"formValue": {
+			"badgeNo": "",
+			"time_out": ""
+		},
+		"payload": "",
+		"submit": "submit",
+		"cancel": "cancel",
+		"topic": "topic",
+		"topicType": "msg",
+		"splitLayout": "",
+		"className": "",
+		"x": 140,
+		"y": 320,
+		"wires": [
+			[
+				"788dbf0d0fe190a2"
+			]
+		]
+	},
+	{
+		"id": "bc38600eef76cb92",
+		"type": "ui_toast",
+		"z": "24b4f9305dde9428",
+		"position": "bottom right",
+		"displayTime": "3",
+		"highlight": "",
+		"sendall": true,
+		"outputs": 0,
+		"ok": "OK",
+		"cancel": "",
+		"raw": false,
+		"className": "",
+		"topic": "",
+		"name": "",
+		"x": 1090,
+		"y": 220,
+		"wires": []
+	},
+	{
+		"id": "2e6835cc20b65c3b",
+		"type": "function",
+		"z": "24b4f9305dde9428",
+		"name": "",
+		"func": "if (msg.statusCode == 200) {\n    if (msg.payload.length == 0) {\n        msg.topic = \"Failed\";\n        msg.payload = \"No document found for this badge number\";\n        return [msg, null];\n    }\n    return [null, msg];\n}\nmsg.topic = \"Failed\";\nmsg.payload = msg.payload.message;\nreturn [msg, null];",
+		"outputs": 2,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 640,
+		"y": 400,
+		"wires": [
+			[
+				"bc38600eef76cb92"
+			],
+			[
+				"505d8274304c23d3"
+			]
+		]
+	},
+	{
+		"id": "048508e311d3c474",
+		"type": "inject",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": true,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payloadType": "date",
+		"x": 120,
+		"y": 80,
+		"wires": [
+			[
+				"07846905406f2835"
+			]
+		]
+	},
+	{
+		"id": "07846905406f2835",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": " msg.payload = {\n   \"username\": env.get(\"AUTHENTICATION_USERNAME\"),\n   \"password\": env.get(\"AUTHENTICATION_PASSWORD\")\n };\n msg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/auth\";\n return msg;\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 310,
+		"y": 80,
+		"wires": [
+			[
+				"ad6b6a1c37a08976"
+			]
+		]
+	},
+	{
+		"id": "ad6b6a1c37a08976",
+		"type": "http request",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"method": "POST",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 480,
+		"y": 80,
+		"wires": [
+			[
+				"c86377c3feaf0137"
+			]
+		]
+	},
+	{
+		"id": "c86377c3feaf0137",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": " global.set(\"AUTH_KEY\", \"Bearer \" + msg.payload.bearer);\n return msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 640,
+		"y": 80,
+		"wires": [
+			[
+				"f5496a2c9538a7f2"
+			]
+		]
+	},
+	{
+		"id": "f5496a2c9538a7f2",
+		"type": "debug",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "true",
+		"targetType": "full",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 810,
+		"y": 80,
+		"wires": []
+	},
+	{
+		"id": "a2986c4a549f4200",
+		"type": "catch",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"scope": null,
+		"uncaught": false,
+		"x": 610,
+		"y": 40,
+		"wires": [
+			[
+				"5a6fd49db7542cba"
+			]
+		]
+	},
+	{
+		"id": "5a6fd49db7542cba",
+		"type": "debug",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "true",
+		"targetType": "full",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 760,
+		"y": 40,
+		"wires": []
+	},
+	{
+		"id": "4ad3b109bde3d87e",
+		"type": "inject",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": true,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payloadType": "date",
+		"x": 120,
+		"y": 160,
+		"wires": [
+			[
+				"973f5f1ba52ed048"
+			]
+		]
+	},
+	{
+		"id": "973f5f1ba52ed048",
+		"type": "http request",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"method": "GET",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 300,
+		"y": 160,
+		"wires": [
+			[
+				"983dc0affda6d66f"
+			]
+		]
+	},
+	{
+		"id": "983dc0affda6d66f",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": "flow.set('stateLongLat',msg.payload);\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 460,
+		"y": 160,
+		"wires": [
+			[
+				"f5496a2c9538a7f2"
+			]
+		]
+	},
+	{
+		"id": "f76059fd9a4c01a2",
+		"type": "worldmap in",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"path": "/worldmap",
+		"events": "all",
+		"x": 130,
+		"y": 260,
+		"wires": [
+			[
+				"63b7babed53826ab"
+			]
+		]
+	},
+	{
+		"id": "63b7babed53826ab",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": " var states = flow.get(\"stateLongLat\");\n msg.payload = states;\n return msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 310,
+		"y": 260,
+		"wires": [
+			[
+				"cefdd1dd3b659671"
+			]
+		]
+	},
+	{
+		"id": "cefdd1dd3b659671",
+		"type": "split",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"splt": "\\n",
+		"spltType": "str",
+		"arraySplt": 1,
+		"arraySpltType": "len",
+		"stream": false,
+		"addname": "key",
+		"x": 470,
+		"y": 260,
+		"wires": [
+			[
+				"563d4117f9d9b90a"
+			]
+		]
+	},
+	{
+		"id": "563d4117f9d9b90a",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": " msg.headers = {\n     \"Authorization\": global.get(\"AUTH_KEY\")\n }\n msg.url = env.get(\"AUTHENTICATION_HOST\") + \"/api/v1/lists/byState?db=contacts&key=\" + msg.key;\n return msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 630,
+		"y": 260,
+		"wires": [
+			[
+				"64cf54a2d1cea8be"
+			]
+		]
+	},
+	{
+		"id": "64cf54a2d1cea8be",
+		"type": "http request",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"method": "GET",
+		"ret": "obj",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 260,
+		"y": 340,
+		"wires": [
+			[
+				"ab0e1bf9184df141"
+			]
+		]
+	},
+	{
+		"id": "ab0e1bf9184df141",
+		"type": "function",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"func": " var obj = {};\n var stateKey = msg.responseUrl.substr(msg.responseUrl.length - 2);\n var stateLongLatData = flow.get(\"stateLongLat\")[stateKey];\n obj.name = stateLongLatData.name;\n obj.label = obj.name + \": \" + msg.payload.length.toString();\n obj.lat = stateLongLatData.lat;\n obj.lon = stateLongLatData.long;\n obj.icon = \"globe\";\n obj.iconColor = \"#FFDC02\";\n msg.payload = obj;\n return msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"libs": [],
+		"x": 460,
+		"y": 340,
+		"wires": [
+			[
+				"a565eada7946bb25"
+			]
+		]
+	},
+	{
+		"id": "a565eada7946bb25",
+		"type": "worldmap",
+		"z": "f53c6b5f38dac5f7",
+		"name": "",
+		"lat": "",
+		"lon": "",
+		"zoom": "",
+		"layer": "",
+		"cluster": "",
+		"maxage": "",
+		"usermenu": "show",
+		"layers": "show",
+		"panit": "false",
+		"panlock": "false",
+		"zoomlock": "false",
+		"hiderightclick": "false",
+		"coords": "false",
+		"showgrid": "false",
+		"allowFileDrop": "false",
+		"path": "/worldmap",
+		"mapname": "",
+		"mapurl": "",
+		"mapopt": "",
+		"mapwms": false,
+		"x": 650,
+		"y": 340,
+		"wires": []
+	}
+]

@@ -1,0 +1,40 @@
+#red-ui-header {
+	background: #1966B3;
+	color: #000000;
+}
+#red-ui-header #red-ui-header-button-deploy {
+	background:#FFDC02;
+	color:#000000;
+}
+#red-ui-header #red-ui-header-button-deploy.disabled {
+	color: #ffffff;
+}
+#red-ui-header .red-ui-deploy-button {
+	background:#000000;
+	color:#ffffff;
+}
+#red-ui-header ul.red-ui-menu-dropdown {
+	background: #ffffff;
+}
+#red-ui-header ul.red-ui-menu-dropdown>li>a:hover,
+#red-ui-header ul.red-ui-menu-dropdown>li>a:focus,
+#red-ui-header ul.red-ui-menu-dropdown>li:hover>a,
+#red-ui-header ul.red-ui-menu-dropdown>li:focus>a {
+ background:#ffffe6 !important
+}
+#red-ui-header ul.red-ui-menu-dropdown li a {
+	color: #1966B3;
+	font-weight: bold;
+}
+#red-ui-header ul.red-ui-menu-dropdown li.disabled a {
+	color: #ffffff;
+}
+#node-dialog-login {
+	background-color: #1966B3;
+}
+.ui-dialog .ui-dialog-titlebar {
+	background-color: #1966B3;
+}
+.red-ui-editor-dialog .form-row {
+	color: #ffffff;
+}

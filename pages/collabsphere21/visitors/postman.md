@@ -18,7 +18,7 @@ In Postman, add a request to the Collabsphere collection.
 
 1. Rename it "Create Visitors NSF"
 2. Change "GET" to "POST".
-3. Set the request URL to {% raw %}"{{HOST}}/design/nsf?dataSource={{VISITORS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/nsf?dataSource={{VISITORS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -39,7 +39,7 @@ You should receive a response that includes the information about the newly-crea
 1. Add a request as previously.
 1. Rename it "Create Scope"
 2. Change "GET" to "POST".
-3. Set the request URL to {% raw %}"{{HOST}}/admin/scope?createSchema=true"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/admin/scope?createSchema=true"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -61,7 +61,7 @@ Add another request.
 
 1. Rename it "Create Visitors Form"
 2. Change "GET" to "PUT".
-3. Set the request URL to {% raw %}"{{HOST}}/design/forms/Visitor?dataSource={{VISITORS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/forms/Visitor?dataSource={{VISITORS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -116,7 +116,7 @@ Add another request.
 
 1. Rename it to "Create Visitors By Name"
 2. Change "GET" to "PUT"
-3. Set the request URL to {% raw %}"{{HOST}}/design/views/byName?dataSource={{VISITORS}}"{% endraw %}.
+3. Set the request URL to {% raw %}"{{SETUPHOST}}/design/views/byName?dataSource={{VISITORS}}"{% endraw %}.
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -181,7 +181,7 @@ Add another request.
 
 1. Rename it to "Create View By Badge"
 2. Change "GET" to "PUT"
-3. Set the request URL to "&#123;&#123;HOST&#125;&#125;/design/views/byBadge?db=&#123;&#123;VISITORS&#125;&#125;".
+3. Set the request URL to "&#123;&#123;SETUPHOST&#125;&#125;/design/views/byBadge?db=&#123;&#123;VISITORS&#125;&#125;".
 4. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 5. On the **Body** tab, select raw and enter:
     {% raw %}
@@ -240,7 +240,7 @@ You should receive a JSON response `{"success": true}`.
 Add another request.
 
 1. Rename it "Get Visitors Schema"
-1. Set the request URL to {% raw %}"{{HOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf"{% endraw %}.
+1. Set the request URL to {% raw %}"{{SETUPHOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf"{% endraw %}.
 1. Send the request.
 
 The response will be the current schema, which can be used to update the schema.
@@ -249,14 +249,14 @@ Add a request as previously.
 
 1. Rename it "Update Visitors Schema"
 1. Change "GET" to "POST".
-1. Set the request URL to {% raw %}"{{HOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf"{% endraw %}.
+1. Set the request URL to {% raw %}"{{SETUPHOST}}/schema?configName={{VISITORS}}&nsfPath=visitors.nsf"{% endraw %}.
 1. On the **Headers** tab, add a header "Content-Type" set to "application/json".
 1. On the **Body** tab, select raw and enter:
     {% raw %}
     ~~~json
     {
         "nsfPath": "visitors.nsf",
-        "iconName": "KEEP",
+        "iconName": "postcard",
         "icon": "Base64 stuff, preferably SVG",
         "description": "Visitors Demo",
         "formulaEngine": "domino",

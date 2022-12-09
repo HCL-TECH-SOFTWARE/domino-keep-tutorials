@@ -37,9 +37,11 @@ The **debug** node is used to print to the Debug tab of the right-hand area of N
 
 ### Authentication
 
-1. Drag an **inject** node onto the canvas.
+1. Drag an **inject** node onto the canvas. 
+   - Double click the node to open the Properties dialog.
    - Tick "Inject once after 0.1 seconds"
 2. Drag a **function** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the JavaScript:
     {% raw %}
     ~~~js
@@ -52,14 +54,16 @@ The **debug** node is used to print to the Debug tab of the right-hand area of N
     ~~~
     {: .code}
     {% endraw %}
-    This should be easy to follow, creating the payload for the authentication to Domino REST API and mapping to the same URL used in Postman. The payload is in the same format as Postman, but is retrieving from environment variables set when logging into Node-RED (as defined in **keepAuthentication.js**).
+    This should be easy to follow, creating the payload for the authentication to Domino REST API and mapping to the same URL used in Postman. The payload is in the same format as Postman, but is retrieving from environment variables set when logging into Node-RED (as defined in **restapiAuthentication.js**).
     - Wire the inject node to this function node.
 3. Drag an **http request** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Change the **Method** to "POST" because authentication is a POST action.
    - The url and payload will be passed from the function node, so we don't need to set those on this HTTP request node.
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
    - Wire the function node to this http request node.
 4. Drag a **function** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the following JavaScript to store the bearer token in the global object, for use across our flows:
      {% raw %}
     ~~~js
@@ -70,32 +74,38 @@ The **debug** node is used to print to the Debug tab of the right-hand area of N
     {% endraw %}
    - Wire the http request node to this function node.
 5. Drag a **debug** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Set the **Output** to "complete msg object".
    - Wire the function node to this debug node.
 6. Drag a **catch** node onto the canvas. This does not need wiring to anything.
 7. Drag a **debug** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Set the **Output** to "complete msg object".
    - Wire the catch node to this debug node.
 8. Deploy the updates to the flow by clicking the "Deploy" button.
 9. Test the flow by clicking on the inject node.
+10. Open the debug tab in the right side of NODE-RED to see the output.
 
-If successful, the debug tab on the right area of Node-RED will display the output from the HTTP request, a statusCode 200 and a payload containing the bearer token.
+If successful, the debug tab will display the output from the HTTP request, a statusCode 200 and a payload containing the bearer token.
 
 If the request is unsuccessful, the errors property displays what went wrong.
 {: .troubleshoot}
 
 ### Retrieving States Information
 
-The map will need longitude and latitude of US states, retrieved according to the two-letter acronym for the state. A search of the internet found a gist on GitHub with this information at https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json. This flow will retrieve that and store it for later use.
+The map will need longitude and latitude of US states, retrieved according to the two-letter acronym for the state. A search of the internet found a gist on GitHub with this information at https://gist.githubusercontent.com/jpriebe/d62a45e29f24e843c974/raw/b1d3066d245e742018bce56e41788ac7afa60e29/us_state_capitals.json . This flow will retrieve that and store it for later use.
 
 1. Drag an **inject** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - Tick "Inject once after 0.1 seconds"
 2. Drag an **http request** onto the canvas
+   - Double click the node to open the Properties dialog.
    - The Method can remain as GET
    - Paste the URL above as the URL.
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
    - Wire the inject node to this http request node.
 3. Drag a **function** node onto the canvas.
+   - Double click the node to open the Properties dialog.
    - On the **On Message** tab enter the following JavaScript to store the bearer token in the global object, for use across our flows:
      {% raw %}
      ~~~js
@@ -108,8 +118,9 @@ The map will need longitude and latitude of US states, retrieved according to th
    - Wire this function node to the debug node created in step 6 of the Authentication, so that both flows end at the same function node.
 4. Deploy the updates to the flow by clicking the "Deploy" button.
 5. Test the flow by clicking on the inject node.
+6. Open the debug tab in the right side of NODE-RED to see the output.
 
-If successful, the debug tab on the right area of Node-RED will display the output from the HTTP request, with payload being an object where the keys are the states and the value is another object containing its name, capital, latitude and longitude.
+If successful, the debug tab will display the output from the HTTP request, with payload being an object where the keys are the states and the value is another object containing its name, capital, latitude and longitude.
 
 The final flow should look like this:
 ![Setup Flow](../images/nodered_contacts/setup_flow.png)
