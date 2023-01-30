@@ -100,7 +100,7 @@ Lists are collections of documents stored in Domino View design elements. This p
     {
         "name": "Active Customers",
         "selectionFormula": "Form = \"Customer\" & \"status\" = \"Active\"",
-        "fields": [
+        "columns": [
             {
                 "name": "name",
                 "title": "name",
