@@ -74,6 +74,7 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
     }
     msg.payload = msg.badgeUpdate;
     msg.payload.Form = "Visitor";
+    msg.method = "PATCH";
     msg.url = env.get("AUTHENTICATION_HOST") + "/api/v1/document/" + unid + "?dataSource=visitors&mode=default";
     return msg;
     ~~~
@@ -82,7 +83,7 @@ The sign out form doesn't create a document. Instead, it needs to capture a badg
     This prepares the HTTP request to update the document, setting the URL to the document update endpoint, passing the UNID received previously and updating the document at the "default" Form Access Mode.
    -  Wire the second output from the previous function node to this function node.
 7. Drag an **http request** node onto the canvas.
-   - Change the Method to PUT
+   - Change the Method to "- set by msg.method -".
    - Change the Return to "a parsed JSON object" so that Node-RED will automatically convert the response to a JSON object.
    - Wire the function node to this http request node.
 8. Drag a **switch** node onto the canvas.
