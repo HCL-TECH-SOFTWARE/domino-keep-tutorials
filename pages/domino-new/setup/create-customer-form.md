@@ -78,7 +78,7 @@ slug:
     ~~~
     {: .code}
     {% endraw %}
-1. Click "Send" to make the request.
+9. Click "Send" to make the request.
 
 If you get a 404 message, verify the method is "PUT" and the Content-Type header is set correctly. The same endpoint is used for creating or updating forms, so it is a PUT rather than a POST.
 {: .troubleshoot #trouble1}

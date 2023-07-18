@@ -87,7 +87,7 @@ Lists are collections of documents stored in Domino View design elements. This p
     ~~~
     {: .code}
     {% endraw %}
-1. Click "Send" to make the request.
+9. Click "Send" to make the request.
 
 #### Active Customers List
 

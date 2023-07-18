@@ -106,13 +106,15 @@ If an NSF already exists at the filepath, this API call will fail. It will also 
 <div class="panel-body">
 
 This request has:
+
 - Created a new Domino database at the filepath specified.
 - Configured it with a default ACL:
-    - LocalDomainServers group has Manager access to the database. This means other trusted servers have full access.
-    - LocalDomainAdmins group has Manager access to the database. This means all administrators for the server have full access.
-    - Default has Editor access to the database. Any authenticated users can create, edit and delete documents.
-    - Anonymous users have no access to the database.
-    - OtherDomainServers group has no access to the database. Untrusted servers cannot access the database.
+  - LocalDomainServers group has Manager access to the database. This means other trusted servers have full access.
+  - LocalDomainAdmins group has Manager access to the database. This means all administrators for the server have full access.
+  - Default has Editor access to the database. Any authenticated users can create, edit and delete documents.
+  - Anonymous users have no access to the database.
+  - OtherDomainServers group has no access to the database. Untrusted servers cannot access the database.
 - Created a Domino REST API Database Schema configuration under the name "customers" with default settings. REST service access is allowed, DQL (Domino Query Language) can be used by all authenticated users for querying data as well as pre-indexed lists of documents.
+
 </div>
 </div>

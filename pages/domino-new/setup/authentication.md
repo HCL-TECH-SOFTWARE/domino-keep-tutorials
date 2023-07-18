@@ -42,15 +42,17 @@ If you get a 404 message, verify the method is "POST" and the Content-Type heade
 #### Store Bearer Token
 
 1. On the Tests tab add the following code:
-  {% raw %}
-  ~~~javascript
-  var jsonData = pm.response.json();
-  pm.collectionVariables.set("bearer", "Bearer " + jsonData.bearer);
-  ~~~
-  {: .code}
-  {% endraw %}
-  - Line 1 extracts the HTTP response as JSON. 
-  - Line 2 extract the bearer token from the response and stores it in a collection variable for use in all future authenticated requests.
+    {% raw %}
+    ~~~javascript
+    var jsonData = pm.response.json();
+    pm.collectionVariables.set("bearer", "Bearer " + jsonData.bearer);
+    ~~~
+    {: .code}
+    {% endraw %}
+
+    - Line 1 extracts the HTTP response as JSON.
+    - Line 2 extract the bearer token from the response and stores it in a collection variable for use in all future authenticated requests.
+
 2. Click "Send" to make the request again.
 3. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Edit" and check the Variables tab. You should now see the bearer token also stored.
 ![Bearer token](../images/setup/bearer.png)

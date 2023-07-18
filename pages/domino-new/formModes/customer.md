@@ -16,7 +16,8 @@ slug:
 
 Click on the "Database Forms" tab. The Customers database has two Forms available for configuration - the two Forms that were created from Postman. In this part the Customer form will be configured for two different access settings.
 
-#### Default Mode
+### Default Mode
+
 1. Click on the Customer Form. You will be prompted that it will be configured as default, select "Yes". Click to open the Customer form access mode.
 2. The Form configuration opens with the default mode open.
 ![Form Access Modes](../images/formModes/form-modes.png)
@@ -35,7 +36,7 @@ Click on the "Database Forms" tab. The Customers database has two Forms availabl
 6. In the "On Save Formula" box type `@SetField("Status";"Active")`. This will force the "status" field to be "Active" for new documents.
 7. Click on the "Save" button at the top of the default Form Access Mode.
 
-#### Update Mode
+### Update Mode
 
 1. Click on the "+ Mode" button.
 2. Enter "update" as the Mode Name for the new mode and click "ADD".

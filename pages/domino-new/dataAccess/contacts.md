@@ -12,11 +12,11 @@ slug:
 
 {::options parse_block_html="true" /}
 
-
 ## Contacts
 
 Before creating a contact, you will need to run the "create customer" request again, to have a valid customerUNID in the collection variables to tie the contact to.
 {: .alert .alert-warning}
+
 ### Create a New Contact ( Document )
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".

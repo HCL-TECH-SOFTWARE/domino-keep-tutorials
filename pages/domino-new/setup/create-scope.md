@@ -13,6 +13,7 @@ slug:
 {::options parse_block_html="true" /}
 
 # Schemas and Scopes
+
 <div class="panel panel-info">
 Schemas and Scopes
 {: .panel-heading}
@@ -29,7 +30,7 @@ Before we can continue creating the design programmatically, we need to expose a
 </div>
 </div>
 
-### Viewing The Schema
+## Viewing The Schema
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request" Change the request to "GET" method.
 2. Name the request "get schema" and click "Save".
@@ -38,7 +39,7 @@ Before we can continue creating the design programmatically, we need to expose a
 5. Click "Send" to make the request.
 6. Save and close the request. The JSON object for the schema will be returned. This can be used to make update requests to the schema.
 
-### Creating The Scope
+## Creating The Scope
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
 2. Name the request "create scope" and click "Save".
@@ -62,7 +63,6 @@ Before we can continue creating the design programmatically, we need to expose a
     ~~~
     {: .code}
     {% endraw %}
-    <p/>
 9. Click "Send" to make the request.
 10. Save and close the request.
 

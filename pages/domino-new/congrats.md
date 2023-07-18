@@ -15,10 +15,12 @@ slug:
 <div class="panel-body">
 
 You have:
+
 - Created a new NSF, Forms and Views
 - Configured it for access under the application name "customers".
 - Created, updated and deleted documents.
 - Viewed the documents.
+
 </div>
 </div>
 
