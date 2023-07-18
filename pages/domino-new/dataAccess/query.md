@@ -19,7 +19,7 @@ We didn't create a list of contacts. But we can run a dynamic query. Of course, 
 ### Getting Contacts for a Customer
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".   
-2. Name the request "create contact".
+2. Name the request "get contact from customer UNID".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/query?dataSource=customers&action=execute".
 5. Set the headers for "Authorization" and "Content-Type".

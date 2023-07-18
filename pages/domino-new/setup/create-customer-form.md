@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-scope
+prevPage: pages/domino-new/setup/create-nsf
 nextPage: pages/domino-new/setup/create-contact-form
 slug:
     - label: New Domino Database
@@ -17,7 +17,7 @@ slug:
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "customer form" and click save.
 3. Change the method from "GET" to "PUT".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Customer?dataSource=customers".
+4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Customer?nsfPath=customers.nsf".
 5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
 6. Add an HTTP request header "Content-Type" set to "application/json".
 7. On the Body tab change the type to "Raw".

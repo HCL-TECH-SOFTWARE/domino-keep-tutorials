@@ -32,7 +32,7 @@ Before creating a contact, you will need to run the "create customer" request ag
       "Form": "Contact",
       "first_name": "Marvin",
       "last_name": "Acme",
-      "customerUNID": "INSERT_UNID_HERE",
+      "customerUNID": "{{parentUNID}}",
       "job_title": "Chairman",
       "email": "marvin.acme@acme.com",
       "phone": ""
@@ -40,9 +40,9 @@ Before creating a contact, you will need to run the "create customer" request ag
     ~~~
     {: .code}
     {% endraw %}
-1. Click "Send".
+8. Click "Send".
     ![Create Contact](../images/data/create_contact.png)
-1. Save the request.
+9. Save the request.
 
 ### Create another New Contact
 

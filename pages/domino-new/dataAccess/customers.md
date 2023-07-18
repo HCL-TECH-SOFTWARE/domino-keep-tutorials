@@ -106,7 +106,7 @@ The customer will be created and the response will include metadata, including *
 9. Save the request.
 10. Send the request.
 
-![Get Customer](../images/data/update_customer.png)
+![Update Customer](../images/data/update_customer.png)
 
 ### Delete The Customer
 

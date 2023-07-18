@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/dataAccess/contacts
-nextPage: pages/domino-new/congrats
+nextPage: ages/domino-new/dataAccess/query
 slug:
     - label: New Domino Database
       url: pages/domino-new

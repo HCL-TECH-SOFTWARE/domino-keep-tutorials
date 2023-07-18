@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/setup/create-contact-form
-nextPage: pages/domino-new/formModes/index
+nextPage: pages/domino-new/setup/create-scope
 slug:
     - label: New Domino Database
       url: pages/domino-new
@@ -22,7 +22,7 @@ Lists are collections of documents stored in Domino View design elements. This p
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
 2. Name the request "customers list" and click Save by.
 3. Change the method from "GET" to "PUT".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/views/Customers?dataSource=customers".
+4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/views/Customers?nsfPath=customers.nsf".
 5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
 6. Add an HTTP request header "Content-Type" set to "application/json".
 7. On the Body tab change the type to "Raw".
@@ -31,7 +31,7 @@ Lists are collections of documents stored in Domino View design elements. This p
     ~~~json
     {
         "name": "Customers",
-        "selectionFormula": "Form = \"Customer\"",
+        "selectionFormula": "SELECT (Form=\"Customer\")",
         "columns": [
             {
                 "name": "name",
@@ -92,14 +92,14 @@ Lists are collections of documents stored in Domino View design elements. This p
 #### Active Customers List
 
 1. Hover over the "customers list" request and click on the ellipsis (three dots). Select "Duplicate".  
-2. Change the name of the request to "active customers list and click save".
-3. Change the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/views/Active%20Customers?dataSource=customers".
+2. Change the name of the request to "active customers list" and click save.
+3. Change the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/views/Active%20Customers?nsfPath=customers.nsf".
 4. On the Body tab set the request body content to:
     {% raw %}
     ~~~json
     {
         "name": "Active Customers",
-        "selectionFormula": "Form = \"Customer\" & \"status\" = \"Active\"",
+        "selectionFormula": "SELECT (Form=\"Customer\" & status=\"Active\")",
         "columns": [
             {
                 "name": "name",
@@ -131,8 +131,6 @@ Setting `separatemultiplevalues` to true will display the same document multiple
 <div class="panel-body">
 
 For Domino REST API, lists have to explicitly be enabled for use. This provides flexibility for other methods of access to the NSF, e.g. Notes Client. It also provides the ability to create different database configurations for different audiences.
-
-When creating a view, it will automatically be enabled.
 
 </div>
 </div>

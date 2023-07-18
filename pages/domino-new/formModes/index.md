@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-customers-lists
+prevPage: pages/domino-new/setup/create-scope
 nextPage: pages/domino-new/formModes/customer
 slug:
     - label: New Domino Database
@@ -29,12 +29,13 @@ With versions 1.5.x and 1.6.x there is a bug with the Schema Configuration gener
 1. Hover over the "get schema" request and click on the ellipsis (three dots). Select "Duplicate".
 2. Change the name of the request to "update schema".
 3. Change the method from "GET" to "POST".
-4. On the Headers tab, add an HTTP request header "Content-Type" set to "application/json".
-5. The current schema will be needed to update the schema. Open and run the "get schema" Postman request created earlier. Copy the response.
-6. Back on the "update schema" request go to the Body tab. Paste the response from "get schema" into the request body.
-7. Delete the "configuredForms" element.
-8. Remove the content from the "forms" element, so it is an empty array.
-9. Click "Send" to make the request.
+4. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
+5. Add an HTTP request header "Content-Type" set to "application/json".
+6. The current schema will be needed to update the schema. Open and run the "get schema" Postman request created earlier. Copy the response.
+7. Back on the "update schema" request go to the Body tab and set it to "raw". Paste the response from "get schema" into the request body.
+8. Delete the "configuredForms" element.
+9. Remove the content from the "forms" element, so it is an empty array.
+10. Click "Send" to make the request.
 
 </div>
 </div>

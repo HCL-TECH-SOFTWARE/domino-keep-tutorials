@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/setup/authentication
-nextPage: pages/domino-new/setup/create-scope
+nextPage: pages/domino-new/setup/create-customer-form
 slug:
     - label: New Domino Database
       url: pages/domino-new
@@ -52,7 +52,6 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
     {: .why #why1}
 9. Click "Send" to make the request.
 ![Create NSF](../images/setup/create-nsf.png)
-<!-- wrong screenshot -->
   If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
     {: .trouble #trouble1}
 10. Save and close the request.
@@ -60,7 +59,7 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
 If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Domino REST API Database name as the "dataSource" query parameter.
 {: .alert .alert-danger}
 
-### Creating The Schema (If not created via, Create NSF)
+### Creating The Schema
 
 1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
 2. Name the request "create schema" and click "Save".
@@ -77,319 +76,13 @@ If an NSF already exists at the filepath, this API call will fail. It will also 
         "agents": [],
         "allowCode": true,
         "allowDecryption": true,
-        "apiName": "customer",
         "description": "Customer database",
         "dqlAccess": true,
         "dqlFormula": {
-          "formula": "@True",
-          "formulaType": "domino"
+            "formula": "@True",
+            "formulaType": "domino"
         },
-        "formAliases": {
-          "Customer": "Customer",
-          "Entry": "Entry",
-          "IdPConfig": "IdP Configuration",
-          "OdataSampleForm": "OdataSampleForm",
-          "SampleEntry": "SampleEntry",
-          "TestForm": "TestForm"
-        },
-        "forms": [
-          {
-            "formModes": [
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "format": "authors",
-                    "name": "Owner",
-                    "type": "string"
-                  },
-                  {
-                    "format": "richtext",
-                    "name": "Body",
-                    "type": "object"
-                  },
-                  {
-                    "items": {
-                      "type": "string"
-                    },
-                    "name": "hobbies",
-                    "type": "array"
-                  },
-                  {
-                    "name": "Form",
-                    "readOnly": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "Pet",
-                    "type": "string"
-                  },
-                  {
-                    "name": "color",
-                    "type": "string"
-                  },
-                  {
-                    "name": "email",
-                    "type": "string"
-                  },
-                  {
-                    "name": "employee_count",
-                    "type": "integer"
-                  },
-                  {
-                    "name": "first_name",
-                    "type": "string"
-                  },
-                  {
-                    "name": "last_name",
-                    "type": "string"
-                  }
-                ],
-                "modeName": "default",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "required": [
-                  "Form",
-                  "email",
-                  "first_name"
-                ],
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              },
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "items": {
-                      "type": "string"
-                    },
-                    "name": "hobbies",
-                    "type": "array"
-                  },
-                  {
-                    "name": "Form",
-                    "readOnly": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "Pet",
-                    "type": "string"
-                  },
-                  {
-                    "name": "color",
-                    "type": "string"
-                  },
-                  {
-                    "name": "email",
-                    "type": "string"
-                  },
-                  {
-                    "name": "first_name",
-                    "type": "string"
-                  },
-                  {
-                    "name": "last_name",
-                    "type": "string"
-                  }
-                ],
-                "modeName": "dql",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "required": [
-                  "Form",
-                  "email",
-                  "first_name"
-                ],
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              }
-            ],
-            "formName": "Customer"
-          },
-          {
-            "formModes": [
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "name": "Assets",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Country",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Form",
-                    "readOnly": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "FullName",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Industry",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Newsletter",
-                    "type": "string"
-                  },
-                  {
-                    "name": "email",
-                    "type": "string"
-                  },
-                  {
-                    "name": "gender",
-                    "type": "string",
-                    "writeOnly": true
-                  }
-                ],
-                "modeName": "default",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              }
-            ],
-            "formName": "Marketing"
-          },
-          {
-            "formModes": [
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "name": "Color",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Form",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Shape",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Taste",
-                    "type": "string"
-                  }
-                ],
-                "modeName": "default",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              },
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "name": "Color",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Form",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Shape",
-                    "type": "string"
-                  },
-                  {
-                    "name": "Taste",
-                    "type": "string"
-                  }
-                ],
-                "modeName": "odata",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              }
-            ],
-            "formName": "SampleForm"
-          },
-          {
-            "formModes": [
-              {
-                "computeWithForm": false,
-                "deleteAccessFormula": {
-                  "formula": "@False",
-                  "formulaType": "domino"
-                },
-                "fields": [
-                  {
-                    "name": "Form",
-                    "readOnly": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "colour",
-                    "readOnly": true,
-                    "type": "string"
-                  },
-                  {
-                    "name": "name",
-                    "type": "string"
-                  }
-                ],
-                "modeName": "default",
-                "readAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                },
-                "writeAccessFormula": {
-                  "formula": "@True",
-                  "formulaType": "domino"
-                }
-              }
-            ],
-            "formName": "TestForm"
-          }
-        ],
+        "forms": [],
         "formulaEngine": "domino",
         "icon": "Base64 stuff, preferably SVG",
         "iconName": "mountain",
@@ -397,45 +90,9 @@ If an NSF already exists at the filepath, this API call will fail. It will also 
         "nsfPath": "customers.nsf",
         "openAccess": true,
         "requireRevisionToUpdate": false,
-        "schemaName": "demoapi",
-        "views": [
-          {
-            "alias": [
-              "($All)"
-            ],
-            "name": "($All)",
-            "unid": "0E35D520A1EBBB5B48258435003E8284"
-          },
-          {
-            "alias": [
-              "ChineseCustomers"
-            ],
-            "name": "ChineseCustomers",
-            "unid": "3FE5CD63E179F21600258680006DB25B"
-          },
-          {
-            "alias": [
-              "Customers"
-            ],
-            "name": "Customers",
-            "unid": "86C72C1BF64B6DF04825847100373215"
-          },
-          {
-            "alias": [
-              "MarketingInfo"
-            ],
-            "name": "MarketingInfo",
-            "unid": "10EA9EC66EA748BC4825851100420810"
-          },
-          {
-            "alias": [
-              "Samples"
-            ],
-            "name": "Samples",
-            "unid": "5318911D496571410025860D00544B17"
-          }
-        ]
-    }
+        "schemaName": "customer",
+        "views": []
+      }
     ~~~
     {: .code}
     {% endraw %}

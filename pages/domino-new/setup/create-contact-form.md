@@ -16,7 +16,7 @@ slug:
 
 1. Hover over the "customer form" request and click on the ellipsis (three dots). Select "Duplicate".  
 2. Change the name of the request to "contact form" and click save.
-3. Change the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Contact?dataSource=customers.
+3. Change the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/forms/Contact?nsfPath=customers.nsf"
 4. On the Body tab set the request body content to:
     {% raw %}
     ~~~json

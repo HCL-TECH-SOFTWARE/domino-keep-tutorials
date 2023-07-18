@@ -1,7 +1,7 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-nsf
-nextPage: pages/domino-new/setup/create-customer-form
+prevPage: pages/domino-new/setup/create-customers-lists
+nextPage: pages/domino-new/formModes/index
 slug:
     - label: New Domino Database
       url: pages/domino-new
@@ -31,7 +31,7 @@ Before we can continue creating the design programmatically, we need to expose a
 
 ### Viewing The Schema
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request" Change the request to "GET" method.
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request" Change the request to "GET" method.
 2. Name the request "get schema" and click "Save".
 3. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/schema?configName=customers&nsfPath=customers.nsf".
 4. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
@@ -40,7 +40,7 @@ Before we can continue creating the design programmatically, we need to expose a
 
 ### Creating The Scope
 
-1. Hover over the "HCL DOMINO REST API collection name and click on the ellipsis (three dots). Select "Add Request".
+1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
 2. Name the request "create scope" and click "Save".
 3. Change the method from "GET" to "POST".
 4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/admin/scope?createSchema=true".
@@ -51,15 +51,13 @@ Before we can continue creating the design programmatically, we need to expose a
    {% raw %}
     ~~~json
     {
-      "apiName": "demoapi",
-      "createSchema": false,
-      "description": "The famous demo database",
+      "apiName": "customers",
+      "description": "Customer scope",
       "icon": "Base64 stuff, preferably SVG",
       "iconName": "beach",
       "isActive": true,
-      "nsfPath": "Demo.nsf",
-      "schemaName": "demoapi",
-      "server": "*" 
+      "nsfPath": "customers.nsf",
+      "schemaName": "customers"
     }
     ~~~
     {: .code}
