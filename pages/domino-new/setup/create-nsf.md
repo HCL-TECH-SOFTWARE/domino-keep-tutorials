@@ -41,8 +41,8 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
     {% raw %}
     ~~~json
     {
-        "nsfPath": "customers.nsf",
-        "title": "Customers"
+      "nsfPath": "customers.nsf",
+      "title": "Customers"
     }
     ~~~
     {: .code}
@@ -59,47 +59,6 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
 If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Domino REST API Database name as the "dataSource" query parameter.
 {: .alert .alert-danger}
 
-### Creating The Schema
-
-1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
-2. Name the request "create schema" and click "Save".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/schema?configName=customer&nsfPath=customers.nsf".
-5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-6. Add an HTTP request header "Content-Type" set to "application/json".
-7. On the Body tab change the type to "Raw".
-8. Set the request body content to:
-    {% raw %}
-    ~~~json
-      {
-        "@unid": "6334EDA70A42ABB948258846002F115C",
-        "agents": [],
-        "allowCode": true,
-        "allowDecryption": true,
-        "description": "Customer database",
-        "dqlAccess": true,
-        "dqlFormula": {
-            "formula": "@True",
-            "formulaType": "domino"
-        },
-        "forms": [],
-        "formulaEngine": "domino",
-        "icon": "Base64 stuff, preferably SVG",
-        "iconName": "mountain",
-        "isActive": true,
-        "nsfPath": "customers.nsf",
-        "openAccess": true,
-        "requireRevisionToUpdate": false,
-        "schemaName": "customer",
-        "views": []
-      }
-    ~~~
-    {: .code}
-    {% endraw %}
-        
-9. Click "Send" to make the request.
-10. Save and close the request.
-
 <div class="panel panel-success">
 **Congratulations!**
 {: .panel-heading}
@@ -114,7 +73,6 @@ This request has:
   - Default has Editor access to the database. Any authenticated users can create, edit and delete documents.
   - Anonymous users have no access to the database.
   - OtherDomainServers group has no access to the database. Untrusted servers cannot access the database.
-- Created a Domino REST API Database Schema configuration under the name "customers" with default settings. REST service access is allowed, DQL (Domino Query Language) can be used by all authenticated users for querying data as well as pre-indexed lists of documents.
 
 </div>
 </div>

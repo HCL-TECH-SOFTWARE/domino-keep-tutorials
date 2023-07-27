@@ -32,8 +32,19 @@ slug:
 3. Change the method from "GET" to "POST".  
 4. Set the URL as "&#123;&#123;HOST&#125;&#125;/auth".  
 5. On the Headers tab add a header for "Content-Type", set to "application/json".  
-6. On the Body tab change the type to "Raw" and enter the username and password as a JSON payload.
-7. Click "Send" to make the request.
+6. On the Body tab change the type to “Raw”.
+7. Enter the following json in the body replacing the values for your username and password with your actual username and password.
+    {% raw %}
+    ~~~json
+    {
+      "username" : "replaceWithUsername",
+      "password" : "replaceWithPassword"
+    }
+    ~~~
+     {: .code}
+    {% endraw %}
+    <p/>
+8. Click "Send" to make the request.
 ![Postman Environment](../images/setup/authentication.jpg)
 
 If you get a 404 message, verify the method is "POST" and the Content-Type header is set correctly. Validation requires these.

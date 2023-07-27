@@ -78,44 +78,6 @@
       "response": []
     },
     {
-      "name": "create schema",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "{{bearer}}",
-            "type": "text"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"@unid\": \"6334EDA70A42ABB948258846002F115C\",\n    \"agents\": [],\n    \"allowCode\": true,\n    \"allowDecryption\": true,\n    \"description\": \"Customer database\",\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formula\": \"@True\",\n        \"formulaType\": \"domino\"\n    },\n    \"forms\": [],\n    \"formulaEngine\": \"domino\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"iconName\": \"mountain\",\n    \"isActive\": true,\n    \"nsfPath\": \"customers.nsf\",\n    \"openAccess\": true,\n    \"requireRevisionToUpdate\": false,\n    \"schemaName\": \"customer\",\n    \"views\": []\n}"
-        },
-        "url": {
-          "raw": "{{SETUP_HOST}}/schema?configName=customer&nsfPath=customers.nsf",
-          "host": ["{{SETUP_HOST}}"],
-          "path": ["schema"],
-          "query": [
-            {
-              "key": "configName",
-              "value": "customer"
-            },
-            {
-              "key": "nsfPath",
-              "value": "customers.nsf"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
       "name": "customer form",
       "request": {
         "method": "PUT",
@@ -252,18 +214,31 @@
       "response": []
     },
     {
-      "name": "get schema",
+      "name": "view schema",
       "request": {
         "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "create scope",
-      "request": {
-        "method": "GET",
-        "header": []
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{bearer}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{SETUP_HOST}}/schema?configName=customers&nsfPath=customers.nsf",
+          "host": ["{{SETUP_HOST}}"],
+          "path": ["schema"],
+          "query": [
+            {
+              "key": "configName",
+              "value": "customers"
+            },
+            {
+              "key": "nsfPath",
+              "value": "customers.nsf"
+            }
+          ]
+        }
       },
       "response": []
     },
@@ -285,7 +260,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"apiName\": \"NONE\",\n    \"nsfPath\": \"customers.nsf\",\n    \"iconName\": \"KEEP\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"description\": \"Customers\",\n    \"formulaEngine\": \"domino\",\n    \"schemaName\": \"customers\",\n    \"requireRevisionToUpdate\": false,\n    \"allowDecryption\": false,\n    \"dqlAccess\": true,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@False\"\n    },\n    \"allowCode\": false,\n    \"openAccess\": true,\n    \"maximumAccessLevel\": \"Editor\",\n    \"forms\": [],\n    \"views\": [],\n    \"agents\": [],\n    \"available\": true,\n    \"isActive\": false,\n    \"prohibitRefresh\": true\n}"
+          "raw": "{\n    \"schemaName\": \"customers\",\n    \"nsfPath\": \"customers.nsf\",\n    \"description\": \"My customers schema\",\n    \"isActive\": false,\n    \"icon\": \"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOiNERTRDM0M7IiBwb2ludHM9IjMwOC45NjYsMjYuNDgzIDI1NiwwIDI1Niw1Mi45NjYgIi8+DQo8cmVjdCB4PSIyNDcuMTcyIiBzdHlsZT0iZmlsbDojQ0ZDRkNGOyIgd2lkdGg9IjE3LjY1NSIgaGVpZ2h0PSIxMzIuNDE0Ii8+DQo8cG9seWdvbiBzdHlsZT0iZmlsbDojODdDRUQ5OyIgcG9pbnRzPSI0MTQuODk3LDE5NC4yMDcgMzkzLjU4NywyMjQuMDM1IDM0NC4yNzYsMTUwLjA2OSAzMTcuNzkzLDE5NC4yMDcgMjU2LDk3LjEwMyAxOTQuNjc1LDE4NC43MTcgMTY3LjcyNCwxNTAuMDY5IDAsMzcwLjc1OSAwLDUxMiA1MTIsNTEyIDUxMiwzNzkuNTg2ICIvPg0KPHBhdGggc3R5bGU9ImZpbGw6IzcxQzREMTsiIGQ9Ik00NTIuNTM3LDI2Ni4wNjNDMzE3LjU4MSw0MDAuMTAyLDk3LjE0OCw0NjAuMTU2LDAsNDgyLjI0MlY1MTJoNTEyVjM3OS41ODZMNDUyLjUzNywyNjYuMDYzeiIvPg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6IzcyOUUxQzsiIHBvaW50cz0iMjI5LjUxNyw1MTIgNDE0Ljg5NywzNTMuMTAzIDQ1OS4wMzQsMzg4LjQxNCA1MTIsMzM1LjQ0OCA1MTIsNTEyICIvPg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6IzhCQjM0MDsiIHBvaW50cz0iMjU2LDQyMy43MjQgMjMxLjExNSw0NDguNjA5IDEzNi4yNzEsMzM0LjkwMSAxMTIuMDMxLDM2NS4yNTkgMjYuNDgzLDI2NC44MjggMCwzMDAuMTM4IDAsNTEyIDMyNi42MjEsNTEyICIvPg0KPHJlY3QgeD0iNTIuOTY2IiB5PSI0NDEuMzc5IiBzdHlsZT0iZmlsbDojNzU0NjJFOyIgd2lkdGg9IjE3LjY1NSIgaGVpZ2h0PSIzNS4zMSIgLz4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOiM3MjlFMUM7IiBwb2ludHM9IjM1LjMxLDQ0MS4zNzkgODguMjc2LDQ0MS4zNzkgNjEuNzkzLDM2MS45MzEgIiAvPg0KPHBvbHlnb24gc3R5bGU9ImZpbGw6IzcyOUUxQzsiIHBvaW50cz0iOTcuMTAzLDUxMiAxNTAuMDY5LDUxMiAxMjMuNTg2LDQzMi41NTIgIiAvPg0KPHJlY3QgeD0iNDUwLjIwNyIgeT0iNDU5LjAzNCIgc3R5bGU9ImZpbGw6Izc1NDYyRTsiIHdpZHRoPSIxNy42NTUiIGhlaWdodD0iNDQuMTM4Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojNzFDNEQxOyIgZD0iTTI3OC44NzIsMjU0Ljg3bC0zMS43LTM4LjA0N2wtMzEuNywzOC4wNDdjLTMuMTE2LDMuNzQzLTguNjg2LDQuMjU1LTEyLjQyOSwxLjEzOSBDMjAzLjAzNCwyNTYsMjAzLjAzNCwyNTYsMjAzLjAzNCwyNTZsMCwwYy0zLjc0My0zLjExNi00LjI1NS04LjY4Ni0xLjEzOS0xMi40MjljMCwwLDAsMCwwLjAwOS0wLjAwOWwzOC40NzktNDYuMTc3IGMzLjExNi0zLjc1Miw4LjY4Ni00LjI2NCwxMi40MjktMS4xNDhjMC40MTUsMC4zNDQsMC44MDMsMC43MzMsMS4xNDgsMS4xNDhsMzguNDc5LDQ2LjE3N2MzLjEyNSwzLjc0MywyLjYyMiw5LjMxMy0xLjEyMSwxMi40MjkgQzI5MS4zMSwyNTYsMjkxLjMxLDI1NiwyOTEuMzEsMjU2bDAsMEMyODcuNTY3LDI1OS4xMjUsMjgxLjk5NywyNTguNjIyLDI3OC44NzIsMjU0Ljg3TDI3OC44NzIsMjU0Ljg3eiIvPg0KPHJlY3QgeD0iMTY3LjcyNCIgeT0iMzg4LjQxNCIgc3R5bGU9ImZpbGw6Izc1NDYyRTsiIHdpZHRoPSIxNy42NTUiIGhlaWdodD0iMzUuMzEiLz4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOiM3MjlFMUM7IiBwb2ludHM9IjE1MC4wNjksMzg4LjQxNCAyMDMuMDM0LDM4OC40MTQgMTc2LjU1MiwzMDguOTY2ICIvPg0KPHJlY3QgeD0iMzcwLjc1OSIgeT0iNDMyLjU1MiIgc3R5bGU9ImZpbGw6Izc1NDYyRTsiIHdpZHRoPSIxNy42NTUiIGhlaWdodD0iMzUuMzEiLz4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOiM4OEIzMzc7IiBwb2ludHM9IjM1My4xMDMsNDMyLjU1MiA0MDYuMDY5LDQzMi41NTIgMzc5LjU4NiwzNTMuMTAzICIgLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM3MUM0RDE7IiBkPSJNMjI2LjIxNiwyMzUuMDM0Yy0yLjcxOSwwLTUuMjg4LTEuMjQ1LTYuOTY1LTMuMzlsLTU1LjE3Mi03MC42MjEgYy0zLjAwMS0zLjg0LTIuMzIyLTkuMzkzLDEuNTE4LTEyLjM5NGMzLjg0LTMuMDAxLDkuMzkzLTIuMzIyLDEyLjM5NCwxLjUxOGw1NS4xNzIsNzAuNjIxYzMuMDAxLDMuODQsMi4zMjIsOS4zOTMtMS41MTgsMTIuMzk0IEMyMzAuMSwyMzQuMzcyLDIyOC4xODQsMjM1LjAzNCwyMjYuMjE2LDIzNS4wMzR6IiAvPg0KPHBhdGggc3R5bGU9ImZpbGw6IzcxQzREMTsiIGQ9Ik0zNzYuNjY0LDI1NS44NDFjLTQuODczLDAtOC44MjgtMy45NTUtOC44MTktOC44MzZjMC0xLjkzMywwLjYzNi0zLjgxNCwxLjgxLTUuMzVsMzYuMDE3LTQ4LjM5MyBjMi45NTctMy44NzUsOC41MDEtNC42MTcsMTIuMzc2LTEuNjZjMy44NzUsMi45NTcsNC42MTcsOC41MDEsMS42NiwxMi4zNzZsLTM2LjAxNyw0OC4zOTMgQzM4Mi4wMjMsMjU0LjU2MSwzNzkuNDE4LDI1NS44NDEsMzc2LjY2NCwyNTUuODQxeiIgLz4NCjxwb2x5Z29uIHN0eWxlPSJmaWxsOiM4OEIzMzc7IiBwb2ludHM9IjQzMi41NTIsNDY3Ljg2MiA0ODUuNTE3LDQ2Ny44NjIgNDU5LjAzNCwzODguNDE0ICIgLz4NCjxyZWN0IHg9IjUyLjk2NiIgeT0iNDQxLjM3OSIgc3R5bGU9ImZpbGw6IzVFMzgyNTsiIHdpZHRoPSIxNy42NTUiIGhlaWdodD0iOC44MjgiIC8+DQo8cmVjdCB4PSIxNjcuNzI0IiB5PSIzODguNDE0IiBzdHlsZT0iZmlsbDojNUUzODI1OyIgd2lkdGg9IjE3LjY1NSIgaGVpZ2h0PSI4LjgyOCIgLz4NCjxyZWN0IHg9IjM3MC43NTkiIHk9IjQzMi41NTIiIHN0eWxlPSJmaWxsOiM1RTM4MjU7IiB3aWR0aD0iMTcuNjU1IiBoZWlnaHQ9IjguODI4IiAvPg0KPHJlY3QgeD0iNDUwLjIwNyIgeT0iNDY3Ljg2MiIgc3R5bGU9ImZpbGw6IzVFMzgyNTsiIHdpZHRoPSIxNy42NTUiIGhlaWdodD0iOC44MjgiIC8+DQo8L3N2Zz4NCg==\",\n    \"iconName\": \"mountain\",\n    \"formulaEngine\": \"domino\",\n    \"allowCode\": false,\n    \"dqlAccess\": true,\n    \"openAccess\": true,\n    \"allowDecryption\": false,\n    \"dqlFormula\": {\n        \"formulaType\": \"domino\",\n        \"formula\": \"@False\"\n    },\n    \"requireRevisionToUpdate\": false,\n    \"agents\": [],\n    \"views\": [],\n    \"owners\": [],\n    \"forms\": [],\n    \"@unid\": \"841342997EC17BF7002589F90050A575\"\n}"
         },
         "url": {
           "raw": "{{SETUP_HOST}}/schema?configName=customers&nsfPath=customers.nsf",
@@ -299,6 +274,40 @@
             {
               "key": "nsfPath",
               "value": "customers.nsf"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create scope",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{bearer}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"apiName\": \"customers\",\n    \"description\": \"Customer scope\",\n    \"icon\": \"Base64 stuff, preferably SVG\",\n    \"iconName\": \"beach\",\n    \"isActive\": true,\n    \"nsfPath\": \"customers.nsf\",\n    \"schemaName\": \"customers\"\n}"
+        },
+        "url": {
+          "raw": "{{SETUP_HOST}}/admin/scope?createSchema=true",
+          "host": ["{{SETUP_HOST}}"],
+          "path": ["admin", "scope"],
+          "query": [
+            {
+              "key": "createSchema",
+              "value": "true"
             }
           ]
         }

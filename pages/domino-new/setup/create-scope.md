@@ -1,6 +1,6 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-customers-lists
+prevPage: pages/domino-new/setup/update-schema
 nextPage: pages/domino-new/formModes/index
 slug:
     - label: New Domino Database
@@ -12,32 +12,19 @@ slug:
 
 {::options parse_block_html="true" /}
 
-# Schemas and Scopes
+# Scopes
 
 <div class="panel panel-info">
-Schemas and Scopes
+Scopes
 {: .panel-heading}
 <div class="panel-body">
-Exposing a database with Domino REST API comprises two parts - the **Domino REST API Schema** and the **Domino REST API Scope**.
-
-The **schema** defines _what_ can be exposed and requires an understanding of the database design. It will usually be set up by a developer and is stored as part of the database.
+**Domino REST API Scope** is the first part on exposing a database with Domino REST API.
 
 The **scope** defines _whether_ it is exposed and is stored centrally on the server. Depending on the division of responsibilities for the Domino server, this may be done by an administrator or a developer.
-
-Creating the NSF automatically creates a basic **schema**, although with nothing exposed.
 
 Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
 </div>
 </div>
-
-## Viewing The Schema
-
-1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request" Change the request to "GET" method.
-2. Name the request "get schema" and click "Save".
-3. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/schema?configName=customers&nsfPath=customers.nsf".
-4. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-5. Click "Send" to make the request.
-6. Save and close the request. The JSON object for the schema will be returned. This can be used to make update requests to the schema.
 
 ## Creating The Scope
 

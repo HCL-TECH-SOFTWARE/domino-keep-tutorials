@@ -1,7 +1,7 @@
 ---
 layout: default
 prevPage: pages/domino-new/setup/create-contact-form
-nextPage: pages/domino-new/setup/create-scope
+nextPage: pages/domino-new/setup/update-schema
 slug:
     - label: New Domino Database
       url: pages/domino-new
