@@ -12,7 +12,7 @@ slug:
 
 {::options parse_block_html="true" /}
 
-### Create NSF
+# Create NSF
 
 <div class="panel panel-info">
 **Note**
@@ -30,13 +30,13 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
 </div>
 </div>
 
-1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".  
-2. Name the request "create nsf" and click "Save".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/design/nsf?dataSource=customers".
-5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-6. Add an HTTP request header "Content-Type" set to "application/json".
-7. On the Body tab change the type to "Raw".
+1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
+2. Name the request `create nsf` and click **Save**.
+3. Change the method from **GET** to **POST**.
+4. Set the URL as {% raw %}`{{SETUP_HOST}}/design/nsf?dataSource=customers`{% endraw %}.
+5. On the Headers tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
+6. Add an HTTP request header **Content-Type** set to `application/json`.
+7. On the **Body** tab change the type to `Raw`.
 8. Set the request body content to:
     {% raw %}
     ~~~json
@@ -48,15 +48,15 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
     {: .code}
     {% endraw %}
     <p/>
-    The "dataSource" query parameter is the Domino REST API Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Domino REST API Database Schema with default settings.
+    The `dataSource` query parameter is the Domino REST API Database Schema name you wish to create. The request creates an NSF on the Domino server at the filepath requested, sets up the ACL and creates a Domino REST API Database Schema with default settings.
     {: .why #why1}
-9. Click "Send" to make the request.
-![Create NSF](../images/setup/create-nsf.png)
-  If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
+9. Click **Send** to make the request.
+    ![Create NSF](../images/setup/create-nsf.png)
+    If you get a 403 response, check to ensure that the user you are authenticated as has access to create databases in the Server document, as covered in the [Prerequisites](../index.html#pre-requisites)
     {: .trouble #trouble1}
-10. Save and close the request.
+10. **Save** and close the request.
 
-If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Domino REST API Database name as the "dataSource" query parameter.
+If an NSF already exists at the filepath, this API call will fail. It will also fail if you attempt to pass a Domino REST API Database name as the `dataSource` query parameter.
 {: .alert .alert-danger}
 
 <div class="panel panel-success">
@@ -68,11 +68,11 @@ This request has:
 
 - Created a new Domino database at the filepath specified.
 - Configured it with a default ACL:
-  - LocalDomainServers group has Manager access to the database. This means other trusted servers have full access.
-  - LocalDomainAdmins group has Manager access to the database. This means all administrators for the server have full access.
-  - Default has Editor access to the database. Any authenticated users can create, edit and delete documents.
-  - Anonymous users have no access to the database.
-  - OtherDomainServers group has no access to the database. Untrusted servers cannot access the database.
+  - **LocalDomainServers** group has Manager access to the database. This means other trusted servers have full access.
+  - **LocalDomainAdmins** group has Manager access to the database. This means all administrators for the server have full access.
+  - **Default** has Editor access to the database. Any authenticated users can create, edit and delete documents.
+  - **Anonymous** users have no access to the database.
+  - **OtherDomainServers** group has no access to the database. Untrusted servers cannot access the database.
 
 </div>
 </div>

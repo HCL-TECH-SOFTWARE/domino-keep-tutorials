@@ -3,29 +3,29 @@ layout: default
 prevPage: pages/domino-new/dataAccess/customers
 nextPage: pages/domino-new/dataAccess/lists
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Data Access
-      url: pages/domino-new/dataAccess
-    - Contacts
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Data Access
+    url: pages/domino-new/dataAccess
+  - Contacts
 ---
 
 {::options parse_block_html="true" /}
 
-## Contacts
+# Contacts
 
-Before creating a contact, you will need to run the "create customer" request again, to have a valid customerUNID in the collection variables to tie the contact to.
+Before creating a contact, you will need to run the `create customer` request again (in case you deleted a created customer), to have a valid `customerUNID` in the collection variables to tie the contact to.
 {: .alert .alert-warning}
 
-### Create a New Contact ( Document )
+## Create Contact
 
-1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
-2. Name the request "create contact" and click "Save".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;HOST&#125;&#125;/document?dataSource=customers".
-5. Set the headers for "Authorization" and "Content-Type".
-6. On the Body tab change the type to "Raw".
-7. Set the request body content as below, setting the customerUNID field to the **parentUNID** collection variable set when you created a customer:
+1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
+2. Name the request `create contact` and click **Save**.
+3. Change the method from **GET** to **POST**.
+4. Set the URL as {% raw %}`{{HOST}}/document?dataSource=customers`{% endraw %}.
+5. Set the headers for **Authorization** and **Content-Type**.
+6. On the **Body** tab change the type to `Raw`.
+7. Set the request body content as below, setting the `customerUNID` field to the `parentUNID` collection variable set when you created a customer:
     {% raw %}
     ~~~json
     {
@@ -40,13 +40,12 @@ Before creating a contact, you will need to run the "create customer" request ag
     ~~~
     {: .code}
     {% endraw %}
-8. Click "Send".
+8. Click **Send**.
     ![Create Contact](../images/data/create_contact.png)
-9. Save the request.
 
-### Create another New Contact
+## Create Another Contact
 
-1. Change the request body content and repeat the step on the "Create Contact" as below:
+1. Change the request body content and repeat the step on the **Create Contact** as below:
     {% raw %}
     ~~~json
     {
@@ -61,4 +60,4 @@ Before creating a contact, you will need to run the "create customer" request ag
     ~~~
     {: .code}
     {% endraw %}
-2. Click "Send".
+2. Click **Send**.

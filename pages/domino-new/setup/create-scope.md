@@ -3,16 +3,16 @@ layout: default
 prevPage: pages/domino-new/setup/update-schema
 nextPage: pages/domino-new/formModes/index
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Setup
-      url: pages/domino-new/setup
-    - Create Scope
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Setup
+    url: pages/domino-new/setup
+  - Create Scope
 ---
 
 {::options parse_block_html="true" /}
 
-# Scopes
+# Create Scope
 
 <div class="panel panel-info">
 Scopes
@@ -28,13 +28,13 @@ Before we can continue creating the design programmatically, we need to expose a
 
 ## Creating The Scope
 
-1. Hover over the "Domino-REST-API-NewDB" collection name and click on the ellipsis (three dots). Select "Add Request".
-2. Name the request "create scope" and click "Save".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/admin/scope?createSchema=true".
-5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-6. Add an HTTP request header "Content-Type" set to "application/json".
-7. On the Body tab change the type to "Raw".
+1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
+2. Name the request `create scope` and click **Save**.
+3. Change the method from **GET** to **POST**.
+4. Set the URL as {% raw %}`{{SETUP_HOST}}/admin/scope?createSchema=true`{% endraw %}.
+5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
+6. Add an HTTP request header **Content-Type** set to `application/json`.
+7. On the **Body** tab change the type to `Raw`.
 8. Set the request body content to:
    {% raw %}
     ~~~json
@@ -50,8 +50,7 @@ Before we can continue creating the design programmatically, we need to expose a
     ~~~
     {: .code}
     {% endraw %}
-9. Click "Send" to make the request.
-10. Save and close the request.
+9. Click **Send** to make the request.
 
 <div class="panel panel-success">
 **Congratulations!**

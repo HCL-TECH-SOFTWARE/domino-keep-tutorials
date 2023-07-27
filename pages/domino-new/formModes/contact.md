@@ -3,23 +3,22 @@ layout: default
 prevPage: pages/domino-new/formModes/customer
 nextPage: pages/domino-new/formModes/lists
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Form Modes
-      url: pages/domino-new/formModes
-    - Create Contact Form Mode
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Form Modes
+    url: pages/domino-new/formModes
+  - Create Contact Form Mode
 ---
 
 {::options parse_block_html="true" /}
 
-## Add Contact Form to Configured Forms
+# Add Contact Form to Configured Forms
 
-1. Click on "customers" in the breadcrumbs to get back to the main schema configuration.
-2. Click on the Contact form to configure it. You will be advised that it will automatically be configured as default, select "Yes". Click on Contact to open it to the form access mode.
-3. Switch the "Show fields from:" drop-down from "Customer" to "Contact".
-4. This will be used for basic CRUD, so select all fields.
+1. Click on `customers` in the breadcrumbs to get back to the main schema configuration.
+2. Click on the **Contact** form to configure it. You will be advised that it will automatically be configured as default, select **Yes**. Click on **Contact** to open it to the form access mode.
+3. Select all fields since these will be used for basic CRUD.
 
-Designing the Form does not enforce a schema. By not specifying any fields for Read Access, no fields will be returned by GET requests or accepted for POST requests.<br/>
+Designing the Form does not enforce a schema. By not specifying any fields for Read Access, no fields will be returned by **GET** requests or accepted for **POST** requests.<br/>
 
 <div class="panel panel-success">
 **Congratulations!**
