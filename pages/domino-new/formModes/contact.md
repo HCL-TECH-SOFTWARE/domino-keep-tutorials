@@ -18,7 +18,7 @@ slug:
 2. Click on the **Contact** form to configure it. You will be advised that it will automatically be configured as default, select **Yes**. Click on **Contact** to open it to the form access mode.
 3. Select all fields since these will be used for basic CRUD.
 
-Designing the Form does not enforce a schema. By not specifying any fields for Read Access, no fields will be returned by **GET** requests or accepted for **POST** requests.<br/>
+<br/>
 
 <div class="panel panel-success">
 **Congratulations!**
