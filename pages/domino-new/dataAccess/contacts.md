@@ -25,7 +25,7 @@ Before creating a contact, you will need to run the `create customer` request ag
 4. Set the URL as {% raw %}`{{HOST}}/document?dataSource=customers`{% endraw %}.
 5. Set the headers for **Authorization** and **Content-Type**.
 6. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
-7. Set the request body content as below, setting the `customerUNID` field to the `parentUNID` collection variable set when you created a customer:
+7. Set the request body content as below:
     {% raw %}
     ~~~json
     {
@@ -40,6 +40,14 @@ Before creating a contact, you will need to run the `create customer` request ag
     ~~~
     {: .code}
     {% endraw %}
+
+    <div class="panel panel-info">
+    NOTE
+    {: .panel-heading}
+    <div class="panel-body">
+    Notice the `customerUNID` is set to {% raw %}`{{parentUNID}}`{% endraw %} collection variable set when you created the customer.
+    </div>
+    </div>
 8. Click **Send**.
     ![Create Contact](../images/data/create_contact.png)
 
