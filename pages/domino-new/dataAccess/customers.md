@@ -71,7 +71,15 @@ The customer will be created and the response will include metadata (`@meta`), i
 
 1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.  
 2. Name the request `get customer` and click **Save**.
-3. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}. This uses the collection variable set from the value for `unid` you received when creating the customer.
+3. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}.
+    <div class="panel panel-info">
+    NOTE
+    {: .panel-heading}
+    <div class="panel-body">
+    {% raw %}`{{parentUNID}}`{% endraw %} is the UNID 
+    This uses the collection variable set from the value for `unid` you received when creating the customer.
+    </div>
+    </div>
 4. Set the headers for **Authorization**.
 5. Click **Send**.
 6. **Save** and close the request.
