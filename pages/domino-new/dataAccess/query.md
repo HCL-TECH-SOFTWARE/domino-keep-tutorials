@@ -14,7 +14,7 @@ slug:
 
 # Querying The Database
 
-We didn't create a list of contacts. But we can run a dynamic query. Of course, performance is not quite as good as for an indexed list.
+Remember when we set the `dqlFormula` of the schema to `@True` and added `dql` form mode in `Contact` form? Both of these steps are required in order for us to run a DQL query.
 
 ## Getting Contacts for a Customer
 

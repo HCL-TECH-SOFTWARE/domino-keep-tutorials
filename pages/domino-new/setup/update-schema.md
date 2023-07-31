@@ -54,14 +54,15 @@ Creating an NSF automatically creates a basic schema, although with nothing expo
     {: .code}
     {% endraw %}
 11. Replace `description` with `My favorite Customers database`.
-12. Click **Send** to make the request.
-13. **Save** and close the request.
+12. Find `dqlFormula` and replace its `formula` value with `@True`. This enables the use of DQL queries on this schema.
+13. Click **Send** to make the request.
+14. **Save** and close the request.
 
 <div class="panel panel-success">
 **Congratulations!**
 {: .panel-heading}
 <div class="panel-body">
 
-This request has updated our schema with a new description and icon.
+This request has updated our schema with a new description and icon, and enabled DQL queries to be used.
 </div>
 </div>

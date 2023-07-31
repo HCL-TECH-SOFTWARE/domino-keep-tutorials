@@ -18,6 +18,21 @@ slug:
 2. Click on the **Contact** form to configure it. You will be advised that it will automatically be configured as default, select **Yes**. Click on **Contact** to open it to the form access mode.
 3. Select all fields since these will be used for basic CRUD.
 
+## Add DQL Form Mode
+
+1. Click on the **+ Add Mode** button.
+2. Enter `dql` as the mode name for the new mode and click **Save**.
+3. Click the `+` sign against all fields to add them.
+4. Click on the **Save** button at the top of the Form Access Mode.
+
+    <div class="panel panel-info">
+    **Note**
+    {: .panel-heading}
+    <div class="panel-body">
+    Adding in `dql` form mode for **Contact** declares what fields it returns for DQL queries on this form.
+    </div>
+    </div>
+
 <br/>
 
 <div class="panel panel-success">
