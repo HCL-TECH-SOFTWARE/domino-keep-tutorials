@@ -34,7 +34,7 @@ Before we can continue creating the design programmatically, we need to expose a
 4. Set the URL as {% raw %}`{{SETUP_HOST}}/admin/scope?createSchema=true`{% endraw %}.
 5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 6. Add an HTTP request header **Content-Type** set to `application/json`.
-7. On the **Body** tab change the type to `Raw`.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 8. Set the request body content to:
    {% raw %}
     ~~~json
@@ -51,6 +51,7 @@ Before we can continue creating the design programmatically, we need to expose a
     {: .code}
     {% endraw %}
 9. Click **Send** to make the request.
+10. **Save** and close the request.
 
 <div class="panel panel-success">
 **Congratulations!**

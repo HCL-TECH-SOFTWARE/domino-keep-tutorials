@@ -20,12 +20,12 @@ Lists are collections of documents stored in Domino view design elements. This p
 ## Customers By Name List
 
 1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
-2. Name the request `customers list` and click save.
+2. Name the request `customers list` and click **Save**.
 3. Change the method from **GET** to **PUT**.
 4. Set the URL as {% raw %}`{{SETUP_HOST}}/design/views/Customers?nsfPath=customers.nsf`{% endraw %}.
 5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 6. Add an HTTP request header **Content-Type** set to `application/json`.
-7. On the **Body** tab change the type to `Raw`.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 8. Set the request body content to:
     {% raw %}
     ~~~json
@@ -88,12 +88,13 @@ Lists are collections of documents stored in Domino view design elements. This p
     {: .code}
     {% endraw %}
 9. Click **Send** to make the request.
+10. **Save** and close the request.
 
 ## Active Customers List
 
 1. Hover over the `customers list` request and click on the ellipsis (three dots). Select **Duplicate**.
-2. Change the name of the request to `active customers list` and click save.
-3. Change the URL as {% raw %}`{{SETUP_HOST}}/design/views/Active%20Customers?nsfPath=customers.nsf`{% endraw %}.
+2. Open the duplicated request named `customers list Copy`, rename it to `active customers list` and click **Save**.
+3. Change the URL to {% raw %}`{{SETUP_HOST}}/design/views/Active%20Customers?nsfPath=customers.nsf`{% endraw %}.
 4. On the **Body** tab set the request body content to:
     {% raw %}
     ~~~json
@@ -121,6 +122,7 @@ Lists are collections of documents stored in Domino view design elements. This p
     {: .code}
     {% endraw %}
 5. Click **Send** to make the request.
+6. **Save** and close the request.
 
 Setting `separatemultiplevalues` to `true` will display the same document multiple times in the list, once for each value in that field. This option will typically be used in lists indexed specifically by those fields.
 {: .alert .alert-info}

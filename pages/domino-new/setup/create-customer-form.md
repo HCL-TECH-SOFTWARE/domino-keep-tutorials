@@ -15,12 +15,12 @@ slug:
 # Create Customer Form
 
 1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
-2. Name the request `customer form` and click save.
+2. Name the request `customer form` and click **Save**.
 3. Change the method from **GET** to **PUT**.
 4. Set the URL as {% raw %}`{{SETUP_HOST}}/design/forms/Customer?nsfPath=customers.nsf`{% endraw %}.
 5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 6. Add an HTTP request header **Content-Type** set to `application/json`.
-7. On the **Body** tab change the type to `Raw`.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 8. Set the request body content to:
     {% raw %}
     ~~~json
@@ -79,6 +79,7 @@ slug:
     {: .code}
     {% endraw %}
 9. Click **Send** to make the request.
+10. **Save** and close the request.
 
 If you get a 404 message, verify the method is **PUT** and the **Content-Type** header is set correctly. The same endpoint is used for creating or updating forms, so it is a **PUT** rather than a **POST**.
 {: .troubleshoot #trouble1}

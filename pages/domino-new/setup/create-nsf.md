@@ -3,11 +3,11 @@ layout: default
 prevPage: pages/domino-new/setup/authentication
 nextPage: pages/domino-new/setup/create-customer-form
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Setup
-      url: pages/domino-new/setup
-    - Create NSF
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Setup
+    url: pages/domino-new/setup
+  - Create NSF
 ---
 
 {::options parse_block_html="true" /}
@@ -23,7 +23,7 @@ An **NSF** (Notes Storage Facility) is a repository for data. As a result, it is
 
 Each NSF has an **ACL** (Access Control List) which manages access to the Notes database, whether for **Users**, **Groups** or **Servers**.
 
-Not all NSFs on the Domino server are exposed via Domino Rest API. You need to explicitly add a **Domino Rest API** configuration (Schema) for an NSF. This defines the alias for Domino REST API requests to use when accessing the database and what kinds of requests are exposed. Creating an NSF via Domino REST API automatically creates the Domino REST API Database configuration for you.
+Not all NSFs on the Domino server are exposed via Domino Rest API. You need to explicitly add a Domino Rest API configuration (schema) for an NSF. This schema allows you to define the forms, fields, views and agents that can be available through Domino Rest API. The schema combined with a scope (discussed later) allows you to access your data via the Domino Rest API. Creating an NSF via Domino Rest API automatically creates the Domino Rest API schema for you.
 
 The same NSF can be exposed via multiple Domino REST API Database configurations. This can be useful for exposing a subset of content to a specific audience and enforcing tighter restrictions. This tutorial will not cover creating multiple Domino REST API Database configurations.
 
@@ -36,7 +36,7 @@ The same NSF can be exposed via multiple Domino REST API Database configurations
 4. Set the URL as {% raw %}`{{SETUP_HOST}}/design/nsf?dataSource=customers`{% endraw %}.
 5. On the Headers tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 6. Add an HTTP request header **Content-Type** set to `application/json`.
-7. On the **Body** tab change the type to `Raw`.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 8. Set the request body content to:
     {% raw %}
     ~~~json

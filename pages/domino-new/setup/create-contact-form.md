@@ -15,8 +15,8 @@ slug:
 # Create Contact Form
 
 1. Hover over the `customer form` request and click on the ellipsis (three dots). Select **Duplicate**.
-2. Change the name of the request to `contact form` and click save.
-3. Change the URL as {% raw %}`{{SETUP_HOST}}/design/forms/Contact?nsfPath=customers.nsf`{% endraw %}.
+2. Open the duplicated request named `customer form Copy`, rename it to `contact form` and click **Save**.
+3. Change the URL to {% raw %}`{{SETUP_HOST}}/design/forms/Contact?nsfPath=customers.nsf`{% endraw %}.
 4. On the **Body** tab set the request body content to:
     {% raw %}
     ~~~json
@@ -60,6 +60,7 @@ slug:
     {: .code}
     {% endraw %}
 5. Click **Send** to make the request.
+6. **Save** and close the request.
 
 <div class="panel panel-success">
 **Congratulations!**

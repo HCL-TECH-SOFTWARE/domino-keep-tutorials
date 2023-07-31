@@ -3,24 +3,26 @@ layout: default
 prevPage: pages/domino-new/setup/index
 nextPage: pages/domino-new/setup/create-nsf
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Setup
-      url: pages/domino-new/setup
-    - Postman Authentication
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Setup
+    url: pages/domino-new/setup
+  - Postman Authentication
 ---
 
 {::options parse_block_html="true" /}
 
-# Postman Authentication
+# Setting Up Postman
+
+Start up Postman and let's get started!
 
 ## Create Collection
 
 1. On the **Collections** tab, click the **New** button and then select **Collection**.
 2. In the **New Collection** screen, set the name as `Domino-REST-API-NewDB`.
 3. Switch to the **Variables** tab and add the variables:
-   - **HOST** - This should map to the Domino REST API URL and should end `/api/v1`. For example, if you're running Domino REST API locally and with the default ports, this will be `http://localhost:8880/api/v1`.
-   - **SETUP_HOST** - This should map to the Domino REST API URL and should end `/api/setup-v1`. For example, if you're running Domino REST API locally and with the default ports, this will be `http://localhost:8880/api/setup-v1`.
+    - **HOST** - This should map to the Domino REST API URL and should end `/api/v1`. For example, if you're running Domino REST API locally and with the default ports, this will be `http://localhost:8880/api/v1`.
+    - **SETUP_HOST** - This should map to the Domino REST API URL and should end `/api/setup-v1`. For example, if you're running Domino REST API locally and with the default ports, this will be `http://localhost:8880/api/setup-v1`.
 4. Click the **Save** button.
 
 ## Create Authentication
@@ -33,7 +35,7 @@ slug:
 3. Change the method from **GET** to **POST**.
 4. Set the URL as {% raw %}`{{HOST}}/auth`{% endraw %}.
 5. On the **Headers** tab add a header for **Content-Type**, set to `application/json`.
-6. On the **Body** tab change the type to `Raw`.
+6. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 7. Enter the following JSON in the body replacing the values for your username and password with your actual username and password.
     {% raw %}
     ~~~json

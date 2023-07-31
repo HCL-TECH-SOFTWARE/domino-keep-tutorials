@@ -33,7 +33,7 @@ Creating an NSF automatically creates a basic schema, although with nothing expo
 3. Set the URL as {% raw %}`{{SETUP_HOST}}/schema?configName=customers&nsfPath=customers.nsf`{% endraw %}.
 4. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 5. Click **Send** to make the request.
-6. Save and close the request. The JSON object for the schema will be returned. This can be used to make update requests to the schema.
+6. **Save** and close the request. The JSON object for the schema will be returned. This can be used to make update requests to the schema.
 
 ## Updating the Schema
 
@@ -43,8 +43,8 @@ Creating an NSF automatically creates a basic schema, although with nothing expo
 4. Set the URL as {% raw %}`{{SETUP_HOST}}/schema?configName=customers&nsfPath=customers.nsf`{% endraw %}.
 5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
 6. Add an HTTP request header **Content-Type** set to `application/json`.
-7. On the **Body** tab change the type to `Raw`.
-8. Copy the results from `view schema` and paste it inside the request body.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
+8. Copy the results from `view schema` request and paste it inside the request body of `update schema` request.
 9. Replace `iconName` with `mountain`.
 10. Replace `icon` with:
     {% raw %}
@@ -55,6 +55,7 @@ Creating an NSF automatically creates a basic schema, although with nothing expo
     {% endraw %}
 11. Replace `description` with `My favorite Customers database`.
 12. Click **Send** to make the request.
+13. **Save** and close the request.
 
 <div class="panel panel-success">
 **Congratulations!**

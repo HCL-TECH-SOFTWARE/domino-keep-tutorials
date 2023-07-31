@@ -23,7 +23,7 @@ Let's now do some basic CRUD with our **Customer** form.
 3. Change the method from **GET** to **POST**.
 4. Set the URL as {% raw %}`{{HOST}}/document?dataSource=customers`{% endraw %}.
 5. Set the headers for **Authorization** and **Content-Type**.
-6. On the **Body** tab change the type to `Raw`.
+6. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 7. Set the request body content to:
     {% raw %}
     ~~~json
@@ -61,6 +61,7 @@ Let's now do some basic CRUD with our **Customer** form.
     {: .code}
     {% endraw %}
 9. Click **Send**.
+10. **Save** and close the request.
 
 The customer will be created and the response will include metadata (`@meta`), including `unid`, which is the reference that will be needed to read, update or delete the customer. The code we entered earlier in the **Tests** automatically stores this in a variable, making it easier to perform some operations on the last created customer.
 
@@ -69,10 +70,11 @@ The customer will be created and the response will include metadata (`@meta`), i
 ## Get The Customer
 
 1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.  
-2. Name the request `get customer` and click **Save** change the request to **GET** method.
+2. Name the request `get customer` and click **Save**.
 3. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}. This uses the collection variable set from the value for `unid` you received when creating the customer.
 4. Set the headers for **Authorization**.
 5. Click **Send**.
+6. **Save** and close the request.
 
 ![Get Customer](../images/data/get_customer.png)
 
@@ -83,7 +85,7 @@ The customer will be created and the response will include metadata (`@meta`), i
 3. Change the method from **GET** to **PUT**.
 4. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=update`{% endraw %}.
 5. Set the headers for **Authorization** and **Content-Type**.
-6. On the **Body** tab change the type to `Raw`.
+6. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 7. Set the request body content to:
     {% raw %}
     ~~~json
@@ -106,18 +108,21 @@ The customer will be created and the response will include metadata (`@meta`), i
     {: .code}
     {% endraw %}
 8. Click **Send**.
+9. **Save** and close the request.
 
 ![Update Customer](../images/data/update_customer.png)
 
 ## Delete The Customer
 
-1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request** and change the request type to **DELETE**.  
+1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
 2. Name the request `delete customer` and click **Save**.
-3. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}, replacing UNID with the value for `unid` you received when creating the customer.
-4. Set the headers for **Authorization**.
-5. Click **Send**. You will receive a 403 response.
-6. Change the mode query parameter to `update`.
-7. Click **Send**. You will now receive a 200 response.
+3. Change the method from **GET** to **DELETE**.
+4. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}, replacing UNID with the value for `unid` you received when creating the customer.
+5. Set the headers for **Authorization**.
+6. Click **Send**. You will receive a 403 response.
+7. Change the mode query parameter to `update`.
+8. Click **Send**. You will now receive a 200 response.
+9. **Save** and close the request.
 
 ![Delete Customer](../images/data/delete_customer.png)
 If you get a 403 response when mode is set to `update`, check the Form Access Mode for default mode had a **Formula for Delete Access** set to `@True`.
