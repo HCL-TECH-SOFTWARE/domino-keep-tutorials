@@ -18,11 +18,11 @@ slug:
 Scopes
 {: .panel-heading}
 <div class="panel-body">
-**Domino REST API Scope** is the first part on exposing a database with Domino REST API.
+**Domino REST API Scope** is the final part on exposing a database with Domino REST API.
 
-The **scope** defines _whether_ it is exposed and is stored centrally on the server. Depending on the division of responsibilities for the Domino server, this may be done by an administrator or a developer.
+The scope defines to whom a specific schema is exposed. This is not done directly, there isn't a place you pick users to add to a scope, instead you can specify a list of scopes a user has when they log in with the authentication endpoint. Because of this, you can set up multiple scopes, each pointing to a different schema for the same database. You could have different fields exposed through one scope that aren't exposed in another or that only documents of a certain form type are available through one scope, giving you many different options. It is important to note that all Domino Database ACL security and rights are maintained.
 
-Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
+Now, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
 </div>
 </div>
 
