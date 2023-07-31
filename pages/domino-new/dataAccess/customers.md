@@ -117,11 +117,18 @@ The customer will be created and the response will include metadata (`@meta`), i
 1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
 2. Name the request `delete customer` and click **Save**.
 3. Change the method from **GET** to **DELETE**.
-4. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}, replacing UNID with the value for `unid` you received when creating the customer.
+4. Set the URL as {% raw %}`{{HOST}}/document/{{parentUNID}}?dataSource=customers&mode=default`{% endraw %}.
+    <div class="panel panel-info">
+    NOTE
+    {: .panel-heading}
+    <div class="panel-body">
+    {% raw %}`{{parentUNID}}`{% endraw %} is the UNID that was saved via the test when the document was created.
+    </div>
+    </div>
 5. Set the headers for **Authorization**.
-6. Click **Send**. You will receive a 403 response.
+6. Click **Send**. You will receive a 403 response because the formula for delete access in the `default` mode is `@False`.
 7. Change the mode query parameter to `update`.
-8. Click **Send**. You will now receive a 200 response.
+8. Click **Send**. You will now receive a 200 response. It worked because in the `update` mode, the delete access formula is `status = "Inactive"`, and since we made sure to set the `status` to `Inactive` of our customer in the previous step, the formula checks out. Thus, allowing us to successfully delete it.
 9. **Save** and close the request.
 
 ![Delete Customer](../images/data/delete_customer.png)
