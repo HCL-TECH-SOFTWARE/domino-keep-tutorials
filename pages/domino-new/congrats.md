@@ -2,9 +2,9 @@
 layout: default
 prevPage: pages/domino-new/dataAccess/query
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - Congratulations
+  - label: New Domino Database
+    url: pages/domino-new
+  - Congratulations
 ---
 
 {::options parse_block_html="true" /}
@@ -15,10 +15,12 @@ slug:
 <div class="panel-body">
 
 You have:
+
 - Created a new NSF, Forms and Views
-- Configured it for access under the application name "customers".
+- Configured it for access under the application name `customers`.
 - Created, updated and deleted documents.
 - Viewed the documents.
+
 </div>
 </div>
 

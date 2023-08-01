@@ -1,72 +1,57 @@
 ---
 layout: default
-prevPage: pages/domino-new/setup/create-nsf
-nextPage: pages/domino-new/setup/create-customer-form
+prevPage: pages/domino-new/setup/update-schema
+nextPage: pages/domino-new/formModes/index
 slug:
-    - label: New Domino Database
-      url: pages/domino-new
-    - label: Setup
-      url: pages/domino-new/setup
-    - Create Scope
+  - label: New Domino Database
+    url: pages/domino-new
+  - label: Setup
+    url: pages/domino-new/setup
+  - Create Scope
 ---
 
 {::options parse_block_html="true" /}
 
-# Schemas and Scopes
+# Create Scope
+
 <div class="panel panel-info">
-Schemas and Scopes
+Scopes
 {: .panel-heading}
 <div class="panel-body">
-Exposing a database with Domino REST API comprises two parts - the **Domino REST API Schema** and the **Domino REST API Scope**.
+**Domino REST API Scope** is the final part on exposing a database with Domino REST API.
 
-The **schema** defines _what_ can be exposed and requires an understanding of the database design. It will usually be set up by a developer and is stored as part of the database.
+The scope defines to whom a specific schema is exposed. This is not done directly, there isn't a place you pick users to add to a scope, instead you can specify a list of scopes a user has when they log in with the authentication endpoint. Because of this, you can set up multiple scopes, each pointing to a different schema for the same database. You could have different fields exposed through one scope that aren't exposed in another or that only documents of a certain form type are available through one scope, giving you many different options. It is important to note that all Domino Database ACL security and rights are maintained.
 
-The **scope** defines _whether_ it is exposed and is stored centrally on the server. Depending on the division of responsibilities for the Domino server, this may be done by an administrator or a developer.
-
-Creating the NSF automatically creates a basic **schema**, although with nothing exposed.
-
-Before we can continue creating the design programmatically, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
+Now, we need to expose a **scope**. This could be done via the Domino REST API Configuration UI. The [Domino ToDo Database tutorial](../../todo/index.md) is a tutorial that takes that approach. In this tutorial, the schema and scope will be managed via REST API calls.
 </div>
 </div>
 
-### Viewing The Schema
+## Creating The Scope
 
-1. Hover over the "HCL DOMINO REST API" collection name and click on the ellipsis (three dots). Select "Add Request" Change the request to "GET" method.
-2. Name the request "get schema" and click "Save".
-3. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/schema?configName=customers&nsfPath=customers.nsf".
-4. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-5. Click "Send" to make the request.
-6. Save and close the request. The JSON object for the schema will be returned. This can be used to make update requests to the schema.
-
-### Creating The Scope
-
-1. Hover over the "HCL DOMINO REST API collection name and click on the ellipsis (three dots). Select "Add Request".
-2. Name the request "create scope" and click "Save".
-3. Change the method from "GET" to "POST".
-4. Set the URL as "&#123;&#123;SETUP_HOST&#125;&#125;/admin/scope?createSchema=true".
-5. On the Headers tab, add a HTTP request header called "Authorization" with the value "&#123;&#123;bearer&#125;&#125;". This maps to the bearer collection variable we set from the "authenticate" request.
-6. Add an HTTP request header "Content-Type" set to "application/json".
-7. On the Body tab change the type to "Raw".
+1. Hover over the `Domino-REST-API-NewDB` collection name and click on the ellipsis (three dots). Select **Add Request**.
+2. Name the request `create scope` and click **Save**.
+3. Change the method from **GET** to **POST**.
+4. Set the URL as {% raw %}`{{SETUP_HOST}}/admin/scope?createSchema=true`{% endraw %}.
+5. On the **Headers** tab, add a HTTP request header called **Authorization** with the value {% raw %}`{{bearer}}`{% endraw %}. This maps to the bearer collection variable we set from the `authenticate` request.
+6. Add an HTTP request header **Content-Type** set to `application/json`.
+7. On the **Body** tab change the type to `Raw` and also change the type from `Text` to `JSON`.
 8. Set the request body content to:
    {% raw %}
     ~~~json
     {
-      "apiName": "demoapi",
-      "createSchema": false,
-      "description": "The famous demo database",
+      "apiName": "customers",
+      "description": "Customer scope",
       "icon": "Base64 stuff, preferably SVG",
       "iconName": "beach",
       "isActive": true,
-      "nsfPath": "Demo.nsf",
-      "schemaName": "demoapi",
-      "server": "*" 
+      "nsfPath": "customers.nsf",
+      "schemaName": "customers"
     }
     ~~~
     {: .code}
     {% endraw %}
-    <p/>
-9. Click "Send" to make the request.
-10. Save and close the request.
+9. Click **Send** to make the request.
+10. **Save** and close the request.
 
 <div class="panel panel-success">
 **Congratulations!**
