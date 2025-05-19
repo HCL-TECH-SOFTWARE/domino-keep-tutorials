@@ -34,7 +34,7 @@ To run through this tutorial you will need the following:
 
 - An HCL Domino server.
 - The XPages ToDo application, put on the Domino server at **ToDo.nsf**. with an appropriate ACL.
-  - It is included in the [XPages Extension Library release](https://extlib.openntf.org/main.nsf/project.xsp?r=project/XPages%20Extension%20Library/releases/90465DD127801C93852581D0005F915E)
+  - It is included in the [XPages Extension Library release 901v09_02.20171023-1055 dated 6th Nov 2017](https://openntf.org/main.nsf/project.xsp?r=project/XPages%20Extension%20Library). If you prefer to download the zip directly, you can use [this link](https://openntf.org/projects%5Cpmt.nsf/downloadcounter?openagent&project=XPages%20Extension%20Library&release=901v09_02.20171023-1055&unid=90465DD127801C93852581D0005F915E&attachment=ExtensionLibraryOpenNTF-901v09_02.20171023-1055.zip)
 - A username and password that is in the KEEPAdmins group on the server.
 - [Postman](https://www.postman.com/) installed.
 
